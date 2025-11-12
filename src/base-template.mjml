@@ -1,0 +1,65 @@
+<mjml>
+  <mj-include path="./components/head.mjml" />
+
+  <mj-head>
+    <mj-preview>Your preview text goes here</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="#F5F2ED">
+
+    <mj-include path="./components/header.mjml" />
+
+    <!-- Main Content Section -->
+    <mj-section background-color="#FFFFFF" padding="40px 20px">
+      <mj-column>
+
+        <!-- Heading 1 Example -->
+        <mj-text css-class="heading-1" align="left">
+          Welcome to Kanguro
+        </mj-text>
+
+        <!-- Body Text Example -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          We're here to provide peace of mind for you and your pets. This is a friendly message to show you how we communicate—clear, direct, and always by your side.
+        </mj-text>
+
+        <!-- Subheading Example -->
+        <mj-text css-class="subheading">
+          What you can expect from us
+        </mj-text>
+
+        <!-- Body Text -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          Simple coverage that makes sense. No confusing jargon, just straightforward protection for what matters most to you.
+        </mj-text>
+
+        <!-- Call to Action Button -->
+        <mj-button
+          href="https://kanguroseguro.com"
+          background-color="#F87872"
+          font-weight="600"
+          padding="20px 0"
+        >
+          Learn more
+        </mj-button>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Accent Section (Optional - using secondary color) -->
+    <mj-section background-color="#CEEDFF" padding="30px 20px">
+      <mj-column>
+        <mj-text css-class="body-text" color="#002454" align="center" padding-bottom="10px">
+          Have questions? We're always here to help. Reach out anytime.
+        </mj-text>
+        <mj-text css-class="body-text" color="#002454" align="center" font-size="14px">
+          <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a><br/>
+          <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./components/footer.mjml" />
+
+  </mj-body>
+</mjml>

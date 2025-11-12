@@ -1,0 +1,65 @@
+<mj-head>
+  <!-- Kanguro Brand Colors -->
+  <mj-attributes>
+    <mj-all font-family="'Poppins', Arial, sans-serif" />
+    <mj-text font-size="16px" line-height="1.6" color="#002454" />
+    <mj-button background-color="#F87872" color="#FFFFFF" font-weight="600" border-radius="4px" />
+    <mj-section background-color="#FFFFFF" padding="20px 0" />
+  </mj-attributes>
+
+  <!-- Google Fonts - Poppins -->
+  <mj-font name="Poppins" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" />
+
+  <!-- Responsive Styles -->
+  <mj-style>
+    h1, h2, h3 {
+      margin: 0;
+      padding: 0;
+      text-transform: none !important;
+    }
+
+    .heading-1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #002454;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .heading-2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #002454;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .subheading {
+      font-size: 18px;
+      font-weight: 600;
+      color: #002454;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .body-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #002454;
+      line-height: 1.6;
+    }
+
+    .legal-text {
+      font-size: 8px;
+      font-weight: 300;
+      color: #002454;
+      line-height: 1.4;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .heading-1 { font-size: 28px !important; }
+      .heading-2 { font-size: 22px !important; }
+      .subheading { font-size: 16px !important; }
+    }
+  </mj-style>
+</mj-head>

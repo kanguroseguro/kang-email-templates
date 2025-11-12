@@ -1,0 +1,17 @@
+<mj-section background-color="#FFFFFF" padding="40px 30px" css-class="header-section">
+  <mj-column width="60%">
+    <mj-image src="https://os.staging.kanguroseguro.com/assets/9ae6b460-f810-433a-bab2-734c7dcb8dee" alt="Kanguro" width="160px" align="left" />
+  </mj-column>
+  <mj-column width="40%" vertical-align="middle">
+    <mj-text align="right" color="#002454" font-size="16px" font-weight="600" padding="0">
+      <a href="https://kanguroseguro.com" style="color: #002454; text-decoration: none; border-bottom: 2px solid #F87872; padding-bottom: 2px;">kanguroseguro.com</a>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<!-- Header Divider -->
+<mj-section background-color="#F87872" padding="0">
+  <mj-column>
+    <mj-divider border-width="3px" border-color="#F87872" padding="0" />
+  </mj-column>
+</mj-section>

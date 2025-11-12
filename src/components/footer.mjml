@@ -1,0 +1,24 @@
+<mj-section background-color="#002454" padding="30px 20px">
+  <mj-column>
+
+    <!-- Contact Information -->
+    <mj-text color="#FFFFFF" align="center" font-size="14px" padding-bottom="15px">
+      <strong>Kanguro Insurance LLC</strong><br/>
+      7201 Carmel Executive Park Dr #102<br/>
+      Charlotte, NC 28226
+    </mj-text>
+
+    <!-- Social Media Links -->
+    <mj-social mode="horizontal" align="center" icon-size="32px" padding-bottom="20px">
+      <mj-social-element name="facebook" href="https://www.facebook.com/kanguroseguro" />
+      <mj-social-element name="instagram" href="https://www.instagram.com/kanguro_seguro/" />
+      <mj-social-element name="youtube" href="https://www.youtube.com/@kanguro_seguro" />
+    </mj-social>
+
+    <!-- Legal Disclaimer -->
+    <mj-text css-class="legal-text" color="#FFFFFF" align="center" padding="10px 20px" font-size="8px">
+      Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this website is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 1800 SW 1st Ave. Suite 407. Miami, FL 33129 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
+    </mj-text>
+
+  </mj-column>
+</mj-section>

@@ -1,0 +1,91 @@
+<mjml>
+  <mj-include path="./components/head.mjml" />
+
+  <mj-head>
+    <mj-preview>Welcome to Kanguro! Your agent portal login details inside</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="#F5F2ED">
+
+    <mj-include path="./components/header.mjml" />
+
+    <!-- Main Content Section -->
+    <mj-section background-color="#FFFFFF" padding="40px 20px">
+      <mj-column>
+
+        <!-- Greeting -->
+        <mj-text css-class="heading-1" align="left">
+          Hi [First Name]! Welcome to Kanguro!
+        </mj-text>
+
+        <!-- Welcome Message -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          We are absolutely thrilled to have you join our team as an agent!
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          To help you hit the ground running, we're sharing your login details for our agency portal:
+        </mj-text>
+
+        <!-- Login Details Section -->
+        <mj-text css-class="subheading">
+          Agency Portal Access
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="10px">
+          <strong>Website:</strong> <a href="https://agency.kanguroseguro.com/login" style="color: #F87872; text-decoration: none;">https://agency.kanguroseguro.com/login</a>
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="10px">
+          <strong>User Email:</strong> [Email Address]
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          Please remember that your login email is the same one you used when you registered during the application process. When you log in, you'll receive a one-time password (OTP) via email to complete the sign-in process.
+        </mj-text>
+
+        <!-- Call to Action Button -->
+        <mj-button
+          href="https://agency.kanguroseguro.com/login"
+          background-color="#F87872"
+          font-weight="600"
+          padding="20px 0"
+        >
+          Access Agency Portal
+        </mj-button>
+
+        <!-- Benefits -->
+        <mj-text css-class="body-text" padding-top="20px" padding-bottom="20px">
+          The best part? All of the sales you complete through this portal will be automatically and accurately recorded under your name!
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          If you run into any snags or have any questions at all while accessing your account, please don't hesitate to reach out. We're here to help you succeed!
+        </mj-text>
+
+        <!-- Contact Information -->
+        <mj-text css-class="subheading">
+          Need Help?
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="5px">
+          <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a>
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+        </mj-text>
+
+        <!-- Closing -->
+        <mj-text css-class="body-text" padding-top="10px">
+          Warmly,<br/>
+          <strong>The Kanguro Team</strong>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./components/footer.mjml" />
+
+  </mj-body>
+</mjml>
