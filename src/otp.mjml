@@ -1,0 +1,71 @@
+<mjml>
+  <mj-include path="./components/head.mjml" />
+
+  <mj-head>
+    <mj-preview>Your one-time password for Kanguro Agency Portal</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="#F5F2ED">
+
+    <mj-include path="./components/header.mjml" />
+
+    <!-- Main Content Section -->
+    <mj-section background-color="#FFFFFF" padding="40px 20px">
+      <mj-column>
+
+        <!-- Greeting -->
+        <mj-text css-class="heading-1" align="left">
+          Your One-Time Password
+        </mj-text>
+
+        <!-- Intro Message -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          Use the code below to complete your sign-in to the Kanguro Agency Portal:
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- OTP Code Box -->
+    <mj-section background-color="#CEEDFF" padding="40px 20px">
+      <mj-column>
+        <mj-text align="center" font-size="40px" font-weight="800" color="#002454" letter-spacing="10px" padding="10px 0">
+          [OTP_CODE]
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Continue Main Content -->
+    <mj-section background-color="#FFFFFF" padding="40px 20px">
+      <mj-column>
+
+        <!-- Expiration Notice -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          This code will expire in <strong>10 minutes</strong> for your security.
+        </mj-text>
+
+        <!-- Security Notice -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          If you didn't request this code, please ignore this email or contact our support team if you have concerns about your account security.
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Contact Section -->
+    <mj-section background-color="#CEEDFF" padding="30px 20px">
+      <mj-column>
+        <mj-text css-class="body-text" color="#002454" align="center" padding-bottom="10px">
+          Have questions? We're always here to help. Reach out anytime.
+        </mj-text>
+        <mj-text css-class="body-text" color="#002454" align="center" font-size="14px">
+          <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a><br/>
+          <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./components/footer.mjml" />
+
+  </mj-body>
+</mjml>
