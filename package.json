@@ -1,0 +1,10 @@
+{
+  "name": "kang-email-templates",
+  "scripts": {
+    "build": "mjml src/*.mjml -o dist/",
+    "watch": "mjml src/*.mjml -o dist/ --watch"
+  },
+  "dependencies": {
+    "mjml": "^4.15.3"
+  }
+}
