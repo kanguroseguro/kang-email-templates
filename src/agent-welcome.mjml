@@ -15,7 +15,7 @@
 
         <!-- Greeting -->
         <mj-text css-class="heading-1" align="left">
-          Hi [First Name]! Welcome to Kanguro!
+          Hi {{firstName}}! Welcome to Kanguro!
         </mj-text>
 
         <!-- Welcome Message -->
@@ -37,7 +37,7 @@
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="10px">
-          <strong>User Email:</strong> [Email Address]
+          <strong>User Email:</strong> {{email}}
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="20px">
