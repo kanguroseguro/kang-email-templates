@@ -40,11 +40,20 @@
           <strong>User Email:</strong> {{email}}
         </mj-text>
 
+        <!-- OTP Login Instructions -->
+        <mj-raw>{{#if provider.OTP}}</mj-raw>
         <mj-text css-class="body-text" padding-bottom="20px">
           Please remember that your login email is the same one you used when you registered during the application process. When you log in, you'll receive a one-time password (OTP) via email to complete the sign-in process.
         </mj-text>
+        <mj-raw>{{/if}}</mj-raw>
 
-        <!-- Call to Action Button -->
+        <!-- FirstConnect Login Instructions -->
+        <mj-raw>{{#if provider.firstConnect}}</mj-raw>
+        <mj-text css-class="body-text" padding-bottom="20px">
+          Please remember that your login email is the same one you used when you registered during the application process. To sign in, click the button below, then use the <strong>"Login with FirstConnect"</strong> button on the login page.
+        </mj-text>
+        <mj-raw>{{/if}}</mj-raw>
+
         <mj-button
           href="https://agency.kanguroseguro.com/login?email={{email}}"
           background-color="#F87872"
