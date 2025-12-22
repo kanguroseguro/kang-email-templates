@@ -1,0 +1,143 @@
+<mjml>
+  <mj-include path="./components/head.mjml" />
+
+  <mj-head>
+    <mj-preview>Your application has been reviewed</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="#F5F2ED">
+
+    <mj-include path="./components/header.mjml" />
+
+    <!-- Main Content Section -->
+    <mj-section background-color="#FFFFFF" padding="40px 20px">
+      <mj-column>
+
+        <!-- Heading -->
+        <mj-text css-class="heading-1" align="left">
+          Your application has been reviewed.
+        </mj-text>
+
+        <!-- Body Text -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          We want to be completely transparent with you: we are unable to approve your insurance application at this time.
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          We know this isn't the news you were hoping for. Our team is sending a detailed email to your inbox with more information and next steps.
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          If you have any questions or would like more details about the process, please reach out to us:
+        </mj-text>
+
+        <!-- Contact Information -->
+        <mj-text css-class="body-text" padding-bottom="30px">
+          <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a><br/>
+          <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">+1-888-546-5264</a>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Legal Notice Section -->
+    <mj-section background-color="#FFFFFF" padding="30px 20px">
+      <mj-column>
+
+        <!-- Notice of Adverse Underwriting Decision -->
+        <mj-text font-size="11px" font-weight="600" color="#002454" padding-bottom="8px">
+          Notice of Adverse Underwriting Decision
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="15px">
+          If you have been declined insurance coverage, it is because of the answer(s) you have provided to the question(s) on your application for insurance. We have based this decision solely on the information you have provided on your application.
+        </mj-text>
+
+        <!-- Access to Recorded Personal Information -->
+        <mj-text font-size="11px" font-weight="600" color="#002454" padding-bottom="8px">
+          Access to Recorded Personal Information
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          Upon your written request and submission of proper identification:
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          1. Within 30 business days of the receipt of your request to access to your recorded personal information, Kanguro will inform you of the nature and substance of the recorded personal information in writing.
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          2. You have the right to see and copy personal information in person or obtain a copy by mail. The information must be reasonably described by you and reasonably locatable and retrievable by us. Any information we provide you will be in plain language.
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          3. If recorded, we will disclose the identity of those persons or institutional sources who gave us information within two (2) years prior to your request. If not recorded, we will disclose the names of those to whom such information is normally disclosed.
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          4. You may request correction, amendment, or deletion of recorded personal information by submitting written request to:<br/><br/>
+          <strong>Kanguro Insurance</strong><br/>
+          Adverse Underwriting Decision<br/>
+          4400 Biscayne Blvd, Suite 818<br/>
+          Miami, Florida, 33137
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="15px">
+          5. Kanguro shall provide medical record information supplied by a medical care institution or medical professional, along with the identity of the medical professional or medical institution which provided the information, either directly to you or to a medical professional designated by you, which is licensed to provide medical care with respect to the condition to which the information relates. Kanguro will notify you if it elects to disclose the information to a medical professional designated by you. For CA and MA residents mental health record information shall be supplied directly to the individual only with the approval of the qualified professional person with treatment responsibility for the condition to which the information relates.
+        </mj-text>
+
+        <!-- Request to correct, amend or delete -->
+        <mj-text font-size="11px" font-weight="600" color="#002454" padding-bottom="8px">
+          Request to correct, amend or delete recorded personal information
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          Within 30 business days from the date of receipt of your written request to correct, amend, or delete any recorded personal information, we must:
+        </mj-text>
+
+        <mj-text font-size="11px" font-weight="600" color="#002454" padding-bottom="8px">
+          If we refuse to make a correction, amendment or deletion
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          1. Correct, amend or delete the portion of the recorded personal information in dispute; or
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          2. Notify you of our refusal to make the correction, amendment or deletion, and the reason(s), for the refusal, and your right to file a statement if you disagree.
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          3. You have the right to file a concise statement with us. Your statement: (a) must set forth what you believe to be the correct, relevant, or fair information and, (b) explain why you disagree with our refusal.
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="10px">
+          4. We will file your statement with any disputed personal information and make it accessible so that anyone reviewing the information will be cognizant of your statement.
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="15px">
+          5. Furthermore, your statement will be with any subsequent disclosure
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="15px">
+          If the information is corrected, amended or deleted, the changes will be in writing and provided to you, any person who may have received the incorrect information within the preceding two (2) years, any insurance-support organization that received the incorrect information within the preceding seven years, and any insurance support organization that furnished the personal information that has been corrected, amended or deleted. If you would like additional information concerning this action, you have 180 days to submit a written request to:
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5" padding-bottom="15px">
+          <strong>Kanguro Insurance</strong><br/>
+          Adverse Underwriting Decision<br/>
+          4400 Biscayne Blvd, Suite 818<br/>
+          Miami, Florida, 33137
+        </mj-text>
+
+        <mj-text font-size="10px" color="#002454" line-height="1.5">
+          We will respond to all written requests for additional information within 21 business days.
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./components/footer.mjml" />
+
+  </mj-body>
+</mjml>
