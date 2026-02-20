@@ -1,17 +1,22 @@
-<mj-section background-color="#FFFFFF" padding="40px 30px" css-class="header-section">
+<!-- Navy Header -->
+<mj-section full-width="full-width" background-color="#002454" padding="32px 34px 0">
   <mj-column width="60%">
-    <mj-image src="https://os.staging.kanguroseguro.com/assets/9ae6b460-f810-433a-bab2-734c7dcb8dee" alt="Kanguro" width="160px" align="left" />
+    <!-- TODO: Replace with permanent CDN URL for white logo PNG -->
+    <mj-image src="https://www.figma.com/api/mcp/asset/e177d5b4-79dd-49e1-861d-2fcf4470e588" alt="Kanguro" width="116px" height="39px" align="left" padding="0" />
+    <mj-text color="#FFFFFF" font-size="10px" font-weight="400" padding="2px 0 0" line-height="1.2">
+      Pet &amp; Renters Insurance
+    </mj-text>
   </mj-column>
-  <mj-column width="40%" vertical-align="middle">
-    <mj-text align="right" color="#002454" font-size="16px" font-weight="600" padding="0">
-      <a href="https://kanguroseguro.com" style="color: #002454; text-decoration: none; border-bottom: 2px solid #F87872; padding-bottom: 2px;">kanguroseguro.com</a>
+  <mj-column width="40%" vertical-align="bottom">
+    <mj-text align="right" color="#FFFFFF" font-size="12px" font-weight="700" padding="0">
+      <a href="https://kanguroseguro.com" style="color: #FFFFFF; text-decoration: none;">Kanguroseguro.com</a>
     </mj-text>
   </mj-column>
 </mj-section>
 
-<!-- Header Divider -->
-<mj-section background-color="#F87872" padding="0">
+<!-- Coral Divider -->
+<mj-section full-width="full-width" background-color="#002454" padding="16px 30px 0">
   <mj-column>
-    <mj-divider border-width="3px" border-color="#F87872" padding="0" />
+    <mj-divider border-width="2px" border-color="#F87872" padding="0" />
   </mj-column>
 </mj-section>

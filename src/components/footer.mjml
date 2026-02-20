@@ -1,4 +1,4 @@
-<mj-section background-color="#002454" padding="30px 20px">
+<mj-section full-width="full-width" background-color="#002454" padding="30px 20px">
   <mj-column>
 
     <!-- Contact Information -->

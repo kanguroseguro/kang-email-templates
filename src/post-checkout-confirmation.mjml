@@ -1,0 +1,218 @@
+<mjml>
+  <mj-include path="./components/head.mjml" />
+
+  <mj-head>
+    <mj-preview>Welcome to Kanguro! Here's your policy number</mj-preview>
+    <mj-style>
+      /* 3D card animation (Apple Mail, iOS Mail, Thunderbird ~40-50% of opens) */
+      @keyframes cardFloat {
+        0%, 100% {
+          transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0);
+        }
+        25% {
+          transform: perspective(800px) rotateY(1.5deg) rotateX(0.5deg) translateY(-2px);
+        }
+        75% {
+          transform: perspective(800px) rotateY(-1.5deg) rotateX(-0.5deg) translateY(-2px);
+        }
+      }
+      .card-3d {
+        animation: cardFloat 5s ease-in-out infinite;
+        transform-style: preserve-3d;
+      }
+
+      @media only screen and (max-width: 480px) {
+        .hero-greeting div {
+          font-size: 32px !important;
+        }
+        .hero-intro div {
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+        }
+        .card-section td.card-outer {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#FFFFFF">
+
+    <!-- ============ HERO SECTION ============ -->
+    <mj-include path="./components/header.mjml" />
+
+    <mj-wrapper background-color="#002454" css-class="hero-wrapper" padding="0" full-width="full-width">
+
+      <!-- Greeting -->
+      <mj-section background-color="transparent" padding="24px 30px 0">
+        <mj-column>
+          <mj-text align="center" css-class="hero-greeting" color="#FFFFFF" font-size="42px" font-weight="800" line-height="0.95" padding="0 0 24px">
+            Hi {{firstName}},<br/>welcome to <span style="color: #FF6961;">Kanguro!</span>
+          </mj-text>
+          <mj-text align="center" css-class="hero-intro" color="#FFFFFF" font-size="16px" font-weight="400" line-height="1.3" padding="0 60px 24px">
+            Thank you for trusting us to protect what matters most. We're here to support you every step of the way. Here's your policy number:
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Policy Card (centered, constrained width matching Figma ~60% of email width) -->
+      <mj-section background-color="transparent" padding="0 30px 50px" css-class="card-section">
+        <mj-column padding="0">
+          <mj-text padding="0" align="center">
+            <table cellpadding="0" cellspacing="0" role="presentation" class="card-3d" style="max-width: 360px; margin: 0 auto; width: 100%;">
+              <tr>
+                <td class="card-outer" style="background: linear-gradient(150deg, #F8DDD9 0%, #F0ADA8 45%, #E89590 100%); background-color: #EDADAA; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); padding: 24px 26px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+                  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td width="50%" style="vertical-align: top; padding-bottom: 40px;">
+                        <!-- TODO: Replace with CDN URL - pet type icon (dog/cat) -->
+                        <img src="https://www.figma.com/api/mcp/asset/c2547e4d-6f6a-4bc4-8ed6-e09b4e66dcba" width="48" height="48" alt="" style="display: block;" />
+                      </td>
+                      <td width="50%" style="vertical-align: top; text-align: right; padding-bottom: 40px;">
+                        <!-- TODO: Replace with CDN URL - kanguro logo small white -->
+                        <img src="https://www.figma.com/api/mcp/asset/e177d5b4-79dd-49e1-861d-2fcf4470e588" width="77" height="26" alt="Kanguro" style="display: block; margin-left: auto;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-family: 'Poppins', Arial, sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1.2; padding-bottom: 8px;">
+                        {{petName}}
+                      </td>
+                      <td style="font-family: 'Poppins', Arial, sans-serif; font-size: 14px; font-weight: 800; color: #FFFFFF; text-align: right; vertical-align: bottom; padding-bottom: 8px; white-space: nowrap;">
+                        #{{policyNumber}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-family: 'Poppins', Arial, sans-serif; font-size: 13px; font-weight: 300; color: #FFFFFF;">
+                        {{ownerFullName}}
+                      </td>
+                      <td style="font-family: 'Poppins', Arial, sans-serif; font-size: 11px; font-weight: 300; color: #FFFFFF; text-align: right; white-space: nowrap;">
+                        Date: {{policyDate}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+    </mj-wrapper>
+
+    <!-- Curved transition from hero to content -->
+    <mj-wrapper full-width="full-width" background-color="#002454" padding="0">
+      <mj-section background-color="transparent" padding="0">
+        <mj-column padding="0">
+          <mj-text padding="0">
+            <div style="background-color: #FFFFFF; border-radius: 80px 80px 0 0; height: 80px; display: block; width: 100%;">&nbsp;</div>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+
+    <!-- ============ FIND YOUR POLICY ATTACHED ============ -->
+    <mj-section background-color="#FFFFFF" padding="10px 30px 30px">
+      <mj-column>
+        <mj-text align="center" font-size="24px" font-weight="800" color="#002454" padding="0">
+          Find your policy attached
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Policy + Declarations Row -->
+    <mj-section background-color="#FFFFFF" padding="0 40px 20px">
+      <mj-column width="50%">
+        <mj-text padding="0 10px" color="#002454" font-size="14px" line-height="1.3">
+          <table cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td style="vertical-align: top; padding-right: 16px; width: 50px;">
+                <!-- TODO: Replace with CDN URL - folder/policy icon -->
+                <img src="https://www.figma.com/api/mcp/asset/2ad68f5a-32aa-4e7e-8e5e-ac3f47e32929" width="50" height="50" alt="" style="display: block;" />
+              </td>
+              <td style="vertical-align: middle; font-family: 'Poppins', Arial, sans-serif; font-size: 14px; color: #002454; line-height: 1.3;">
+                <strong>Policy:</strong><br/>Pet insurance made simple.
+              </td>
+            </tr>
+          </table>
+        </mj-text>
+      </mj-column>
+      <mj-column width="50%">
+        <mj-text padding="0 10px" color="#002454" font-size="14px" line-height="1.3">
+          <table cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td style="vertical-align: top; padding-right: 16px; width: 50px;">
+                <!-- TODO: Replace with CDN URL - folder/declarations icon -->
+                <img src="https://www.figma.com/api/mcp/asset/12ffe969-5377-4c54-b187-a88c87ee6f74" width="50" height="50" alt="" style="display: block;" />
+              </td>
+              <td style="vertical-align: middle; font-family: 'Poppins', Arial, sans-serif; font-size: 14px; color: #002454; line-height: 1.3;">
+                <strong>Declarations page:</strong><br/>A clear overview of {{petName}}'s coverage.
+              </td>
+            </tr>
+          </table>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Divider -->
+    <mj-section background-color="#FFFFFF" padding="10px 30px">
+      <mj-column>
+        <mj-divider border-width="1px" border-color="#E0DDD8" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- Medical Records Notice -->
+    <mj-section background-color="#FFFFFF" padding="10px 30px 0">
+      <mj-column>
+        <mj-text align="center" color="#002454" font-size="14px" line-height="1.4" padding="0 40px 16px">
+          Once we receive and review your pet's medical records, we'll update the policy to reflect any pre-existing conditions. If you'd like a copy of our review results, just contact us and we'll share them with you.
+        </mj-text>
+        <mj-text align="center" color="#002454" font-size="14px" font-weight="800" padding="0 40px 20px">
+          Relax and enjoy, {{firstName}}. We've got you covered
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Divider -->
+    <mj-section background-color="#FFFFFF" padding="10px 30px">
+      <mj-column>
+        <mj-divider border-width="1px" border-color="#E0DDD8" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- ============ APP DOWNLOAD SECTION ============ -->
+    <mj-section background-color="#FFFFFF" padding="20px 40px 40px">
+      <mj-column width="40%" vertical-align="middle">
+        <!-- TODO: Replace with CDN URL - QR code for app download -->
+        <mj-image src="https://www.figma.com/api/mcp/asset/ba213e79-28ac-4f64-9e98-a214e74f491a" alt="Download Kanguro App" width="141px" align="center" border="5px solid #09011C" border-radius="12px" padding="0" />
+      </mj-column>
+      <mj-column width="60%" vertical-align="middle">
+        <mj-text color="#002454" font-size="16px" font-weight="700" line-height="1.3" padding="0 0 16px">
+          Download the app to access your coverage and file claims
+        </mj-text>
+        <mj-text padding="0">
+          <table cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td style="padding-right: 8px;">
+                <!-- TODO: Replace with CDN-hosted App Store badge -->
+                <a href="https://apps.apple.com/us/app/kanguro/id1625776781" target="_blank" style="text-decoration: none;">
+                  <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" width="120" height="40" alt="Download on the App Store" style="display: block; border: 0;" />
+                </a>
+              </td>
+              <td>
+                <!-- TODO: Replace with CDN-hosted Google Play badge -->
+                <a href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" target="_blank" style="text-decoration: none;">
+                  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="135" height="40" alt="Get it on Google Play" style="display: block; border: 0;" />
+                </a>
+              </td>
+            </tr>
+          </table>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- ============ FOOTER ============ -->
+    <mj-include path="./components/footer.mjml" />
+
+  </mj-body>
+</mjml>
