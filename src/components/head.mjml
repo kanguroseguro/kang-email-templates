@@ -1,6 +1,5 @@
-<mj-head>
-  <!-- Kanguro Brand Colors -->
-  <mj-attributes>
+<!-- Kanguro Brand Colors -->
+<mj-attributes>
     <mj-all font-family="'Poppins', Arial, sans-serif" />
     <mj-text font-size="16px" line-height="1.6" color="#002454" />
     <mj-button background-color="#F87872" color="#FFFFFF" font-weight="600" border-radius="4px" />
@@ -62,4 +61,3 @@
       .subheading { font-size: 16px !important; }
     }
   </mj-style>
-</mj-head>

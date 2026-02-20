@@ -1,7 +1,6 @@
 <mjml>
-  <mj-include path="./components/head.mjml" />
-
   <mj-head>
+    <mj-include path="./components/head.mjml" />
     <mj-preview>Welcome to Kanguro! Your agent portal login details inside</mj-preview>
   </mj-head>
 

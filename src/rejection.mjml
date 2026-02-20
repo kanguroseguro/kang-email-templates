@@ -1,7 +1,6 @@
 <mjml>
-  <mj-include path="./components/head.mjml" />
-
   <mj-head>
+    <mj-include path="./components/head.mjml" />
     <mj-preview>Your application has been reviewed</mj-preview>
   </mj-head>
 
