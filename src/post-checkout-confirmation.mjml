@@ -12,12 +12,12 @@
 
       /* 3D card animation (Apple Mail, iOS Mail, Thunderbird) */
       @keyframes cardFloat {
-        0%, 100% { transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0); }
-        25% { transform: perspective(800px) rotateY(1.5deg) rotateX(0.5deg) translateY(-2px); }
-        75% { transform: perspective(800px) rotateY(-1.5deg) rotateX(-0.5deg) translateY(-2px); }
+        0%, 100% { transform: perspective(600px) rotateY(0deg) rotateX(0deg); }
+        25% { transform: perspective(600px) rotateY(4deg) rotateX(1.5deg); }
+        75% { transform: perspective(600px) rotateY(-4deg) rotateX(-1.5deg); }
       }
       .card-3d {
-        animation: cardFloat 5s ease-in-out infinite;
+        animation: cardFloat 4s ease-in-out infinite;
         transform-style: preserve-3d;
       }
 
@@ -72,7 +72,7 @@
         <mj-text padding="0" align="center">
           <table cellpadding="0" cellspacing="0" role="presentation" class="card-3d" style="max-width: 340px; margin: 0 auto; width: 100%;">
             <tr>
-              <td style="background: linear-gradient(150deg, #F8DDD9 0%, #F0ADA8 45%, #E89590 100%); background-color: #EDADAA; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); padding: 24px 26px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+              <td style="background: linear-gradient(150deg, rgba(248,221,217,0.7) 0%, rgba(240,173,168,0.65) 45%, rgba(232,149,144,0.6) 100%); background-color: #EDADAA; border-radius: 20px; padding: 24px 26px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td width="50%" style="vertical-align: top; padding-bottom: 40px;">
