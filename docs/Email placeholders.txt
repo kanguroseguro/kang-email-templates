@@ -1,0 +1,301 @@
+Mail Placeholders
+
+Customer placeholders
+[prefixed_customer_id] (e.g. KS10005813)
+[customer_firstname] (e.g. Zelda)
+[customer_lastname] (e.g. Abarquez)
+[customer_name] (e.g. Zelda Abarquez)
+[full_name] (e.g. Zelda Abarquez)
+[salutation_last_name] (e.g. Abarquez)
+[salutation_full_name] (e.g. Zelda Abarquez)
+[conditional-gender|male:Caro|female:Cara|default:Ciao] (e.g. Ciao)
+[conditional-gender|male:Lieber|female:Liebe|default:Hallo] (e.g. Hallo)
+[conditional-gender|male:Cher|female:Chère|default:Bonjour] (e.g. Bonjour)
+[conditional-gender|male:Dear|female:Dear|default:Hello] (e.g. Hello)
+[partner_name_filename] (e.g. cbusp)
+[partner_name] (e.g. Kanguro)
+[partner_sender_name] (e.g. Kanguro Insurance )
+[partner_phone]
+[partner_address]
+[partner_place]
+[partner_postal_code]
+[partner_url] (e.g. https://www.kanguroseguro.com)
+[partner_replyto_email]
+[portal_url] (e.g. https://kanguro.cloudinsurance.io/ci/portal)
+[custom_partner_field]
+[insured_name_with_contact_person_full_name] (e.g. Zelda Abarquez)
+[insured_name_with_contact_person_first_name] (e.g. Zelda)
+[ctype:din|deres] (e.g. din)
+[ctype:Din|Deres] (e.g. Din)
+[ctype:ditt|deres] (e.g. ditt)
+[ctype:du|dere] (e.g. du)
+[ctype:deg|dere] (e.g. deg)
+
+
+Customer placeholders - Conditionals
+[if_stripe] (e.g. Yes) [/if_stripe]
+[if_no_stripe] (e.g. No) [/if_no_stripe]
+[if_post_delivery] (e.g. No) [/if_post_delivery]
+[if_organisation] (e.g. No) [/if_organisation]
+[if_person] (e.g. Yes) [/if_person]
+[ifo] (e.g. No) [/ifo]
+[ifp] (e.g. Yes) [/ifp]
+[if_card] (e.g. Yes) [/if_card]
+[if_invoice] (e.g. No) [/if_invoice]
+[if_language_US] (e.g. Yes) [/if_language_US]
+[if_language_ES] (e.g. No) [/if_language_ES]
+[if_gender_male] (e.g. No) [/if_gender_male]
+[if_gender_female] (e.g. No) [/if_gender_female]
+[if_gender_unknown] (e.g. Yes) [/if_gender_unknown]
+
+
+Policy placeholders
+[policy_id] (e.g. 20033288)
+[prefixed_policy_id] (e.g. 20033288)
+[prefixed_quote_id] (e.g. 20033288)
+[policy_type_name] (e.g. Kanguro Renter Insurance Florida)
+[policy_product_name] (e.g. Kanguro Renter Insurance Florida)
+[policy_product_name_short] (e.g. Kanguro Renter FL)
+[policy_product_name_public] (e.g. Kanguro Renter Insurance Florida)
+[policy_startdate] (e.g. 12/19/2025)
+[policy_startdate-1] (e.g. 12/18/2025)
+[policy_enddate] (e.g. 12/18/2026)
+[policy_last_valid_date] (e.g. 12/18/2026)
+[policy_enddate+1] (e.g. 12/19/2026)
+[policy_latest_edit_date]
+[policy_token]
+[policy_token_url]
+[quote_token_url]
+[quote_valid_from]
+[quote_valid_to]
+[plan]
+[cancellation_reason]
+[cancellation_termination_date]
+[earliest_auto_cancel_date] (e.g. 03/26/2026)
+[discount_rate] (e.g. 0 %)
+[payment_method] (e.g. Card)
+[policy_balance] (e.g. $0.00)
+[latest_edit_changes]
+[transaction_amount_tot] (e.g. $381.93)
+[apartment_or_condo_and_dormitory_student_housing_single_name] (e.g. Apartment/Condo and Dormitory Student Housing)
+[datafield_renters_insurance_required_name] (e.g. Renters Insurance Required)
+[datafield_renters_insurance_required_value] (e.g. Yes)
+[datafield_automatic_sprinklers_name] (e.g. Automatic Sprinklers)
+[datafield_automatic_sprinklers_value] (e.g. No)
+[datafield_bcegs_grade_name] (e.g. BCEGS Grade)
+[datafield_bcegs_grade_value] (e.g. 4)
+[datafield_territory_rating_name] (e.g. Territory Rating)
+[datafield_territory_rating_value] (e.g. 2)
+[datafield_personal_property_name] (e.g. Personal Property)
+[datafield_personal_property_value] (e.g. 50000.00)
+[datafield_replacement_cost_name] (e.g. Replacement Cost)
+[datafield_replacement_cost_value] (e.g. Yes)
+[datafield_deductible_name] (e.g. Deductible)
+[datafield_deductible_value] (e.g. 500)
+[datafield_hurricane_deductible_name] (e.g. Hurricane Deductible)
+[datafield_hurricane_deductible_value] (e.g. 1000)
+[datafield_wind_or_hail_name] (e.g. Wind/Hail)
+[datafield_wind_or_hail_value] (e.g. Yes)
+[datafield_liability_limit_name] (e.g. Liability (Limit))
+[datafield_liability_limit_value] (e.g. 100000)
+[datafield_med_payments_limit_name] (e.g. Med Payments (Limit))
+[datafield_med_payments_limit_value] (e.g. 1000)
+[datafield_multi_line_credit_name] (e.g. Multi-Line Credit)
+[datafield_multi_line_credit_value] (e.g. Yes)
+
+
+Policy placeholders - Conditionals
+[if_has_stripe_payment] (e.g. Yes) [/if_has_stripe_payment]
+[if_has_policy_token] (e.g. No) [/if_has_policy_token]
+[if_discount_rate_changed] (e.g. No) [/if_discount_rate_changed]
+[if_disabled_docs] (e.g. No) [/if_disabled_docs]
+[if_enabled_docs] (e.g. Yes) [/if_enabled_docs]
+[if_disabled_renewal_docs] (e.g. Yes) [/if_disabled_renewal_docs]
+[if_enabled_renewal_docs] (e.g. No) [/if_enabled_renewal_docs]
+[if_receiver_is_broker] (e.g. No) [/if_receiver_is_broker]
+[if_recipient_is_customer] (e.g. Yes) [/if_recipient_is_customer]
+[if_receiver_is_third_party] (e.g. No) [/if_receiver_is_third_party]
+[if_cancellation_type_termination] (e.g. No) [/if_cancellation_type_termination]
+[if_cancellation_type_full] (e.g. No) [/if_cancellation_type_full]
+[if_cancelled] (e.g. No) [/if_cancelled]
+[if_policy_year_2021] (e.g. No) [/if_policy_year_2021]
+[if_not_policy_year_2021] (e.g. Yes) [/if_not_policy_year_2021]
+[if_policy_year_2022] (e.g. No) [/if_policy_year_2022]
+[if_not_policy_year_2022] (e.g. Yes) [/if_not_policy_year_2022]
+[if_policy_year_2023] (e.g. No) [/if_policy_year_2023]
+[if_not_policy_year_2023] (e.g. Yes) [/if_not_policy_year_2023]
+[if_policy_year_2024] (e.g. No) [/if_policy_year_2024]
+[if_not_policy_year_2024] (e.g. Yes) [/if_not_policy_year_2024]
+[if_policy_year_2025] (e.g. Yes) [/if_policy_year_2025]
+[if_not_policy_year_2025] (e.g. No) [/if_not_policy_year_2025]
+[if_policy_year_2026] (e.g. No) [/if_policy_year_2026]
+[if_not_policy_year_2026] (e.g. Yes) [/if_not_policy_year_2026]
+[if_policy_year_2027] (e.g. No) [/if_policy_year_2027]
+[if_not_policy_year_2027] (e.g. Yes) [/if_not_policy_year_2027]
+[if_cancellation_reason_handler_error] (e.g. No) [/if_cancellation_reason_handler_error]
+[if_not_cancellation_reason_handler_error] (e.g. Yes) [/if_not_cancellation_reason_handler_error]
+[if_cancellation_reason_renewal-_pricing] (e.g. No) [/if_cancellation_reason_renewal-_pricing]
+[if_not_cancellation_reason_renewal-_pricing] (e.g. Yes) [/if_not_cancellation_reason_renewal-_pricing]
+[if_cancellation_reason_missing_payment] (e.g. No) [/if_cancellation_reason_missing_payment]
+[if_not_cancellation_reason_missing_payment] (e.g. Yes) [/if_not_cancellation_reason_missing_payment]
+[if_cancellation_reason_customer_requested] (e.g. No) [/if_cancellation_reason_customer_requested]
+[if_not_cancellation_reason_customer_requested] (e.g. Yes) [/if_not_cancellation_reason_customer_requested]
+[if_cancellation_reason_max_age_reached] (e.g. No) [/if_cancellation_reason_max_age_reached]
+[if_not_cancellation_reason_max_age_reached] (e.g. Yes) [/if_not_cancellation_reason_max_age_reached]
+[if_cancellation_reason_deceased] (e.g. No) [/if_cancellation_reason_deceased]
+[if_not_cancellation_reason_deceased] (e.g. Yes) [/if_not_cancellation_reason_deceased]
+[if_cancellation_reason_app_issues] (e.g. No) [/if_cancellation_reason_app_issues]
+[if_not_cancellation_reason_app_issues] (e.g. Yes) [/if_not_cancellation_reason_app_issues]
+[if_cancellation_reason_pricing] (e.g. No) [/if_cancellation_reason_pricing]
+[if_not_cancellation_reason_pricing] (e.g. Yes) [/if_not_cancellation_reason_pricing]
+[if_cancellation_reason_claim_issues] (e.g. No) [/if_cancellation_reason_claim_issues]
+[if_not_cancellation_reason_claim_issues] (e.g. Yes) [/if_not_cancellation_reason_claim_issues]
+[if_cancellation_reason_claim_denied] (e.g. No) [/if_cancellation_reason_claim_denied]
+[if_not_cancellation_reason_claim_denied] (e.g. Yes) [/if_not_cancellation_reason_claim_denied]
+[if_cancellation_reason_petland_-didn't_wanted] (e.g. No) [/if_cancellation_reason_petland_-didn't_wanted]
+[if_not_cancellation_reason_petland_-didn't_wanted] (e.g. Yes) [/if_not_cancellation_reason_petland_-didn't_wanted]
+[if_cancellation_reason_dispute] (e.g. No) [/if_cancellation_reason_dispute]
+[if_not_cancellation_reason_dispute] (e.g. Yes) [/if_not_cancellation_reason_dispute]
+[if_cancellation_reason_policy_conditions-deductible] (e.g. No) [/if_cancellation_reason_policy_conditions-deductible]
+[if_not_cancellation_reason_policy_conditions-deductible] (e.g. Yes) [/if_not_cancellation_reason_policy_conditions-deductible]
+[if_cancellation_reason_employer_option] (e.g. No) [/if_cancellation_reason_employer_option]
+[if_not_cancellation_reason_employer_option] (e.g. Yes) [/if_not_cancellation_reason_employer_option]
+[if_cancellation_reason_got_another_policy] (e.g. No) [/if_cancellation_reason_got_another_policy]
+[if_not_cancellation_reason_got_another_policy] (e.g. Yes) [/if_not_cancellation_reason_got_another_policy]
+[if_cancellation_reason_no_pet] (e.g. No) [/if_cancellation_reason_no_pet]
+[if_not_cancellation_reason_no_pet] (e.g. Yes) [/if_not_cancellation_reason_no_pet]
+[if_cancellation_reason_petland_missunderstanding] (e.g. No) [/if_cancellation_reason_petland_missunderstanding]
+[if_not_cancellation_reason_petland_missunderstanding] (e.g. Yes) [/if_not_cancellation_reason_petland_missunderstanding]
+[if_cancellation_reason_policy_conditions-_p&w] (e.g. No) [/if_cancellation_reason_policy_conditions-_p&w]
+[if_not_cancellation_reason_policy_conditions-_p&w] (e.g. Yes) [/if_not_cancellation_reason_policy_conditions-_p&w]
+[if_cancellation_reason_preexisiting_conditions] (e.g. No) [/if_cancellation_reason_preexisiting_conditions]
+[if_not_cancellation_reason_preexisiting_conditions] (e.g. Yes) [/if_not_cancellation_reason_preexisiting_conditions]
+[if_cancellation_reason_renewal-_communication] (e.g. No) [/if_cancellation_reason_renewal-_communication]
+[if_not_cancellation_reason_renewal-_communication] (e.g. Yes) [/if_not_cancellation_reason_renewal-_communication]
+[if_cancellation_reason_online_sales_-_missunderstandings] (e.g. No) [/if_cancellation_reason_online_sales_-_missunderstandings]
+[if_not_cancellation_reason_online_sales_-_missunderstandings] (e.g. Yes) [/if_not_cancellation_reason_online_sales_-_missunderstandings]
+[if_cancellation_reason_no_context] (e.g. No) [/if_cancellation_reason_no_context]
+[if_not_cancellation_reason_no_context] (e.g. Yes) [/if_not_cancellation_reason_no_context]
+[if_cancellation_reason_renters_-coverage] (e.g. No) [/if_cancellation_reason_renters_-coverage]
+[if_not_cancellation_reason_renters_-coverage] (e.g. Yes) [/if_not_cancellation_reason_renters_-coverage]
+[if_cancellation_reason_renters_-_change_address] (e.g. No) [/if_cancellation_reason_renters_-_change_address]
+[if_not_cancellation_reason_renters_-_change_address] (e.g. Yes) [/if_not_cancellation_reason_renters_-_change_address]
+[if_cancellation_reason_testing] (e.g. No) [/if_cancellation_reason_testing]
+[if_not_cancellation_reason_testing] (e.g. Yes) [/if_not_cancellation_reason_testing]
+[if_cancellation_reason_uw_decision_] (e.g. No) [/if_cancellation_reason_uw_decision_]
+[if_not_cancellation_reason_uw_decision_] (e.g. Yes) [/if_not_cancellation_reason_uw_decision_]
+[if_cancellation_reason_renewal_uw_decision] (e.g. No) [/if_cancellation_reason_renewal_uw_decision]
+[if_not_cancellation_reason_renewal_uw_decision] (e.g. Yes) [/if_not_cancellation_reason_renewal_uw_decision]
+[if_cancellation_reason_policy_rewrite] (e.g. No) [/if_cancellation_reason_policy_rewrite]
+[if_not_cancellation_reason_policy_rewrite] (e.g. Yes) [/if_not_cancellation_reason_policy_rewrite]
+[if_cancellation_reason_not_interested] (e.g. No) [/if_cancellation_reason_not_interested]
+[if_not_cancellation_reason_not_interested] (e.g. Yes) [/if_not_cancellation_reason_not_interested]
+[if_cancellation_reason_does_not_perceive_value] (e.g. No) [/if_cancellation_reason_does_not_perceive_value]
+[if_not_cancellation_reason_does_not_perceive_value] (e.g. Yes) [/if_not_cancellation_reason_does_not_perceive_value]
+[if_cancellation_reason_leaving_the_country] (e.g. No) [/if_cancellation_reason_leaving_the_country]
+[if_not_cancellation_reason_leaving_the_country] (e.g. Yes) [/if_not_cancellation_reason_leaving_the_country]
+[if_cancellation_reason_refuse_to_provide_additional_information] (e.g. No) [/if_cancellation_reason_refuse_to_provide_additional_information]
+[if_not_cancellation_reason_refuse_to_provide_additional_information] (e.g. Yes) [/if_not_cancellation_reason_refuse_to_provide_additional_information]
+[if_cancellation_reason_lease_agreement_has_ended] (e.g. No) [/if_cancellation_reason_lease_agreement_has_ended]
+[if_not_cancellation_reason_lease_agreement_has_ended] (e.g. Yes) [/if_not_cancellation_reason_lease_agreement_has_ended]
+[if_cancellation_reason_i_bought_my_own_house] (e.g. No) [/if_cancellation_reason_i_bought_my_own_house]
+[if_not_cancellation_reason_i_bought_my_own_house] (e.g. Yes) [/if_not_cancellation_reason_i_bought_my_own_house]
+[if_policy_type_USPetInsurance] (e.g. No) [/if_policy_type_USPetInsurance]
+[if_not_policy_type_USPetInsurance] (e.g. Yes) [/if_not_policy_type_USPetInsurance]
+[if_policy_type_USRenterInsuranceFL] (e.g. Yes) [/if_policy_type_USRenterInsuranceFL]
+[if_not_policy_type_USRenterInsuranceFL] (e.g. No) [/if_not_policy_type_USRenterInsuranceFL]
+[if_policy_type_USRenterInsuranceTX] (e.g. No) [/if_policy_type_USRenterInsuranceTX]
+[if_not_policy_type_USRenterInsuranceTX] (e.g. Yes) [/if_not_policy_type_USRenterInsuranceTX]
+[if_policy_type_USRenterInsuranceGA] (e.g. No) [/if_policy_type_USRenterInsuranceGA]
+[if_not_policy_type_USRenterInsuranceGA] (e.g. Yes) [/if_not_policy_type_USRenterInsuranceGA]
+[if_policy_type_USPetInsurance2] (e.g. No) [/if_policy_type_USPetInsurance2]
+[if_not_policy_type_USPetInsurance2] (e.g. Yes) [/if_not_policy_type_USPetInsurance2]
+[if_policy_product_has_linked_person] (e.g. Yes) [/if_policy_product_has_linked_person]
+[if_not_policy_product_has_linked_person] (e.g. No) [/if_not_policy_product_has_linked_person]
+[if_policy_product_has_pet] (e.g. No) [/if_policy_product_has_pet]
+[if_not_policy_product_has_pet] (e.g. Yes) [/if_not_policy_product_has_pet]
+[if_policy_product_has_vehicle] (e.g. No) [/if_policy_product_has_vehicle]
+[if_not_policy_product_has_vehicle] (e.g. Yes) [/if_not_policy_product_has_vehicle]
+[if_policy_product_has_preventive] (e.g. No) [/if_policy_product_has_preventive]
+[if_not_policy_product_has_preventive] (e.g. Yes) [/if_not_policy_product_has_preventive]
+[if_policy_product_has_apartment_or_condo_and_dormitory_student_housing] (e.g. Yes) [/if_policy_product_has_apartment_or_condo_and_dormitory_student_housing]
+[if_not_policy_product_has_apartment_or_condo_and_dormitory_student_housing] (e.g. No) [/if_not_policy_product_has_apartment_or_condo_and_dormitory_student_housing]
+[if_policy_product_has_single_family_home] (e.g. Yes) [/if_policy_product_has_single_family_home]
+[if_not_policy_product_has_single_family_home] (e.g. No) [/if_not_policy_product_has_single_family_home]
+[if_policy_product_has_townhouse_or_duplex_or_triplex] (e.g. Yes) [/if_policy_product_has_townhouse_or_duplex_or_triplex]
+[if_not_policy_product_has_townhouse_or_duplex_or_triplex] (e.g. No) [/if_not_policy_product_has_townhouse_or_duplex_or_triplex]
+[if_policy_product_has_burglary_coverage_option] (e.g. Yes) [/if_policy_product_has_burglary_coverage_option]
+[if_not_policy_product_has_burglary_coverage_option] (e.g. No) [/if_not_policy_product_has_burglary_coverage_option]
+[if_policy_product_has_flood_coverage] (e.g. No) [/if_policy_product_has_flood_coverage]
+[if_not_policy_product_has_flood_coverage] (e.g. Yes) [/if_not_policy_product_has_flood_coverage]
+[if_policy_product_has_identity_fraud_coverage] (e.g. Yes) [/if_policy_product_has_identity_fraud_coverage]
+[if_not_policy_product_has_identity_fraud_coverage] (e.g. No) [/if_not_policy_product_has_identity_fraud_coverage]
+[if_policy_product_has_pet_damage_to_landlords_property] (e.g. Yes) [/if_policy_product_has_pet_damage_to_landlords_property]
+[if_not_policy_product_has_pet_damage_to_landlords_property] (e.g. No) [/if_not_policy_product_has_pet_damage_to_landlords_property]
+[if_policy_product_has_water_backup_of_sewers_drains] (e.g. Yes) [/if_policy_product_has_water_backup_of_sewers_drains]
+[if_not_policy_product_has_water_backup_of_sewers_drains] (e.g. No) [/if_not_policy_product_has_water_backup_of_sewers_drains]
+[if_policy_product_has_scheduled_item] (e.g. Yes) [/if_policy_product_has_scheduled_item]
+[if_not_policy_product_has_scheduled_item] (e.g. No) [/if_not_policy_product_has_scheduled_item]
+[if_policy_product_has_puppy_preventive] (e.g. No) [/if_policy_product_has_puppy_preventive]
+[if_not_policy_product_has_puppy_preventive] (e.g. Yes) [/if_not_policy_product_has_puppy_preventive]
+[if_policy_has_linked_person] (e.g. No) [/if_policy_has_linked_person]
+[if_policy_has_not_linked_person] (e.g. Yes) [/if_policy_has_not_linked_person]
+[if_policy_has_pet] (e.g. No) [/if_policy_has_pet]
+[if_policy_has_not_pet] (e.g. Yes) [/if_policy_has_not_pet]
+[if_policy_has_vehicle] (e.g. No) [/if_policy_has_vehicle]
+[if_policy_has_not_vehicle] (e.g. Yes) [/if_policy_has_not_vehicle]
+[if_policy_has_preventive] (e.g. No) [/if_policy_has_preventive]
+[if_policy_has_not_preventive] (e.g. Yes) [/if_policy_has_not_preventive]
+[if_policy_has_apartment_or_condo_and_dormitory_student_housing] (e.g. Yes) [/if_policy_has_apartment_or_condo_and_dormitory_student_housing]
+[if_policy_has_not_apartment_or_condo_and_dormitory_student_housing] (e.g. No) [/if_policy_has_not_apartment_or_condo_and_dormitory_student_housing]
+[if_policy_has_single_family_home] (e.g. No) [/if_policy_has_single_family_home]
+[if_policy_has_not_single_family_home] (e.g. Yes) [/if_policy_has_not_single_family_home]
+[if_policy_has_townhouse_or_duplex_or_triplex] (e.g. No) [/if_policy_has_townhouse_or_duplex_or_triplex]
+[if_policy_has_not_townhouse_or_duplex_or_triplex] (e.g. Yes) [/if_policy_has_not_townhouse_or_duplex_or_triplex]
+[if_policy_has_burglary_coverage_option] (e.g. No) [/if_policy_has_burglary_coverage_option]
+[if_policy_has_not_burglary_coverage_option] (e.g. Yes) [/if_policy_has_not_burglary_coverage_option]
+[if_policy_has_flood_coverage] (e.g. No) [/if_policy_has_flood_coverage]
+[if_policy_has_not_flood_coverage] (e.g. Yes) [/if_policy_has_not_flood_coverage]
+[if_policy_has_identity_fraud_coverage] (e.g. No) [/if_policy_has_identity_fraud_coverage]
+[if_policy_has_not_identity_fraud_coverage] (e.g. Yes) [/if_policy_has_not_identity_fraud_coverage]
+[if_policy_has_pet_damage_to_landlords_property] (e.g. No) [/if_policy_has_pet_damage_to_landlords_property]
+[if_policy_has_not_pet_damage_to_landlords_property] (e.g. Yes) [/if_policy_has_not_pet_damage_to_landlords_property]
+[if_policy_has_water_backup_of_sewers_drains] (e.g. No) [/if_policy_has_water_backup_of_sewers_drains]
+[if_policy_has_not_water_backup_of_sewers_drains] (e.g. Yes) [/if_policy_has_not_water_backup_of_sewers_drains]
+[if_policy_has_scheduled_item] (e.g. No) [/if_policy_has_scheduled_item]
+[if_policy_has_not_scheduled_item] (e.g. Yes) [/if_policy_has_not_scheduled_item]
+[if_policy_has_puppy_preventive] (e.g. No) [/if_policy_has_puppy_preventive]
+[if_policy_has_not_puppy_preventive] (e.g. Yes) [/if_policy_has_not_puppy_preventive]
+
+
+Claim placeholders
+[reference_id] (e.g. 107274)
+[prefixed_reference_id] (e.g. UP107274)
+[date_received] (e.g. 07/01/2024)
+[claimant_first_name] (e.g. Zelda)
+[claimant_last_name] (e.g. Abarquez)
+[claimant_email] (e.g. zeldamarie@comcast.net)
+[policy_id] (e.g. 20006536)
+[policy_startdate] (e.g. 04/06/2024)
+[cost_deductible]
+[amount_paid] (e.g. $415.47)
+[amount_transferred] (e.g. $415.47)
+[date_recieved] (e.g. 07/01/2024)
+[kunde_fornavn] (e.g. Zelda)
+[kunde_etternavn] (e.g. Abarquez)
+[kunde_epost] (e.g. zeldamarie@comcast.net)
+[cost_ownrisk]
+[form_url] (e.g. https://kanguro.cloudinsurance.io//)
+[spiller_fornavn] (e.g. Zelda)
+[spiller_etternavn] (e.g. Abarquez)
+[spiller_epost] (e.g. zeldamarie@comcast.net)
+[incident_date] (e.g. 06/27/2024)
+[claim_incident_description] (e.g. THC toxicity)
+[claim_missing_medical_records]
+[pet_single_name] (e.g. Louis)
+[recipient_full_name] (e.g. Zelda Abarquez)
+[customer_name] (e.g. Zelda Abarquez)
+
+
+Third Party Source placeholders
+[third_party_source_name] (e.g. Park Place by the Bay)
