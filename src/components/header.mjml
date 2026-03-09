@@ -1,8 +1,7 @@
 <!-- Navy Header -->
 <mj-section full-width="full-width" background-color="#002454" padding="32px 34px 0">
   <mj-column width="60%">
-    <!-- TODO: Replace with permanent CDN URL for white logo PNG -->
-    <mj-image src="https://www.figma.com/api/mcp/asset/e177d5b4-79dd-49e1-861d-2fcf4470e588" alt="Kanguro" width="116px" height="39px" align="left" padding="0" />
+    <mj-image src="https://kang-email-templates.vercel.app/assets/kanguro-logo-white.png" alt="Kanguro" width="116px" height="39px" align="left" padding="0" />
     <mj-text color="#FFFFFF" font-size="10px" font-weight="400" padding="2px 0 0" line-height="1.2">
       Pet &amp; Renters Insurance
     </mj-text>
