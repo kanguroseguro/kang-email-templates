@@ -10,14 +10,20 @@
 
     <!-- Social Media Links -->
     <mj-social mode="horizontal" align="center" icon-size="32px" padding-bottom="20px">
-      <mj-social-element name="facebook" href="https://www.facebook.com/kanguroseguro" />
-      <mj-social-element name="instagram" href="https://www.instagram.com/kanguro_seguro/" />
-      <mj-social-element name="youtube" href="https://www.youtube.com/@kanguro_seguro" />
+      <!-- TODO: Replace WhatsApp icon src with permanent CDN URL -->
+      <mj-social-element name="whatsapp" href="https://wa.me/18885465264" src="https://email.kanguroseguro.com/hs/hsstatic/TemplateAssets/static-1.262/img/hs_default_template_images/modules/Follow+Me+-+Email/whatsapp_original_white.png" background-color="#25D366" alt="WhatsApp" />
+      <mj-social-element name="instagram-noshare" href="https://www.instagram.com/kanguro_insurance" />
+      <!-- TODO: Facebook page broken — verify correct URL and uncomment -->
+      <!-- <mj-social-element name="facebook-noshare" href="https://www.facebook.com/kanguroseguro" /> -->
+      <mj-social-element name="linkedin-noshare" href="https://www.linkedin.com/company/kanguroinsurance/" />
+      <mj-social-element name="youtube-noshare" href="https://www.youtube.com/@kanguro_seguro" />
+      <!-- TODO: TikTok profile broken — verify correct handle and uncomment. Also replace icon src with permanent CDN URL -->
+      <!-- <mj-social-element name="tiktok" href="https://www.tiktok.com/@kanguro_seguro" src="https://email.kanguroseguro.com/hs/hsstatic/TemplateAssets/static-1.262/img/hs_default_template_images/modules/Follow+Me+-+Email/tiktok_original_white.png" background-color="#000000" alt="TikTok" /> -->
     </mj-social>
 
     <!-- Legal Disclaimer -->
     <mj-text css-class="legal-text" color="#FFFFFF" align="center" padding="10px 20px" font-size="8px">
-      Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this website is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 1800 SW 1st Ave. Suite 407. Miami, FL 33129 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
+      Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this website is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 4400 Biscayne Blvd, Suite 818, Miami, FL 33137 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
     </mj-text>
 
   </mj-column>

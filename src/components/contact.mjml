@@ -1,0 +1,14 @@
+<!-- Contact Section — Pre-footer, all emails -->
+<mj-section background-color="#CEEDFF" padding="30px 20px">
+  <mj-column>
+    <mj-text css-class="body-text" color="#002454" align="center" font-size="16px" font-weight="700" padding-bottom="10px">
+      Need help? We're here for you.
+    </mj-text>
+    <mj-text css-class="body-text" color="#002454" align="center" font-size="14px">
+      <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a><br/>
+      <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a><br/>
+      <strong>WhatsApp:</strong> <a href="https://wa.me/18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a><br/>
+      <strong>SMS:</strong> <a href="sms:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+    </mj-text>
+  </mj-column>
+</mj-section>

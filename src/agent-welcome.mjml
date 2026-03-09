@@ -4,12 +4,12 @@
     <mj-preview>Welcome to Kanguro! Your agent portal login details inside</mj-preview>
   </mj-head>
 
-  <mj-body background-color="#F5F2ED">
+  <mj-body background-color="#FFFFFF">
 
     <mj-include path="./components/header.mjml" />
 
     <!-- Main Content Section -->
-    <mj-section background-color="#FFFFFF" padding="40px 20px">
+    <mj-section background-color="#FFFFFF" padding="40px 30px">
       <mj-column>
 
         <!-- Greeting -->
@@ -87,25 +87,12 @@
         </mj-button>
         <mj-raw>{{/if}}</mj-raw>
 
-        <mj-text css-class="body-text" padding-top="20px" padding-bottom="20px">
+        <mj-text css-class="body-text" padding-top="20px">
           If you run into any snags or have any questions at all while accessing your account, please don't hesitate to reach out. We're here to help you succeed!
         </mj-text>
 
-        <!-- Contact Information -->
-        <mj-text css-class="subheading">
-          Need Help?
-        </mj-text>
-
-        <mj-text css-class="body-text" padding-bottom="5px">
-          <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a>
-        </mj-text>
-
-        <mj-text css-class="body-text" padding-bottom="20px">
-          <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
-        </mj-text>
-
         <!-- Closing -->
-        <mj-text css-class="body-text" padding-top="10px">
+        <mj-text css-class="body-text" padding-top="20px">
           Warmly,<br/>
           <strong>The Kanguro Team</strong>
         </mj-text>
@@ -113,6 +100,7 @@
       </mj-column>
     </mj-section>
 
+    <mj-include path="./components/contact.mjml" />
     <mj-include path="./components/footer.mjml" />
 
   </mj-body>

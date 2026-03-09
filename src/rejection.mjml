@@ -4,12 +4,12 @@
     <mj-preview>Your application has been reviewed</mj-preview>
   </mj-head>
 
-  <mj-body background-color="#F5F2ED">
+  <mj-body background-color="#FFFFFF">
 
     <mj-include path="./components/header.mjml" />
 
     <!-- Main Content Section -->
-    <mj-section background-color="#FFFFFF" padding="40px 20px">
+    <mj-section background-color="#FFFFFF" padding="40px 30px">
       <mj-column>
 
         <!-- Heading -->
@@ -26,21 +26,15 @@
           We know this isn't the news you were hoping for. Our team is sending a detailed email to your inbox with more information and next steps.
         </mj-text>
 
-        <mj-text css-class="body-text" padding-bottom="20px">
-          If you have any questions or would like more details about the process, please reach out to us:
-        </mj-text>
-
-        <!-- Contact Information -->
-        <mj-text css-class="body-text" padding-bottom="30px">
-          <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a><br/>
-          <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">+1-888-546-5264</a>
+        <mj-text css-class="body-text">
+          If you have any questions or would like more details about the process, please don't hesitate to reach out.
         </mj-text>
 
       </mj-column>
     </mj-section>
 
     <!-- Legal Notice Section -->
-    <mj-section background-color="#FFFFFF" padding="30px 20px">
+    <mj-section background-color="#FFFFFF" padding="0 30px 30px">
       <mj-column>
 
         <!-- Notice of Adverse Underwriting Decision -->
@@ -136,6 +130,7 @@
       </mj-column>
     </mj-section>
 
+    <mj-include path="./components/contact.mjml" />
     <mj-include path="./components/footer.mjml" />
 
   </mj-body>

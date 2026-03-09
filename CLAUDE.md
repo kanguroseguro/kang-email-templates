@@ -4,11 +4,15 @@ Minimal MJML email template development setup using bun.
 
 ## Structure
 - `src/` - MJML templates (`.mjml` files)
+- `src/components/` - Shared MJML partials (head, header, footer)
+- `src/assets/` - SVG icons (paw, dog, cat, renters)
 - `dist/` - Compiled responsive HTML output
+- `dist/test/` - Test variants with CI placeholders resolved
 
 ## Commands
 - `bun run build` - Compile all MJML templates once
 - `bun run watch` - Auto-compile on file changes
+- `node test-variations.js` - Generate test variants from `dist/client-welcome.html` into `dist/test/`
 
 ## About MJML
 MJML is a markup language that transpiles to responsive email HTML. Uses semantic tags like `<mj-section>` and `<mj-column>` instead of nested tables. Responsive by default across all email clients including Outlook.
@@ -22,18 +26,19 @@ See BRAND.md
 Templates are deployed via **Settings → Partner Admin → Mail Templates (Beta)** in CloudInsurance (CI). The Beta editor supports Markdown. A custom `HTML Layout` can replace the default — send to CI when ready.
 
 ### Applicable Email Templates
-| Template | Auto | Notes |
-|---|---|---|
-| General | No | On-demand generic email from handler |
-| Quote | Yes | Sent when quote created via API |
-| Policy | Yes | Same as quote |
-| Policy Renewal | Yes | Renewal email, can be resent manually |
-| Policy Cancellation | No | Manual, editable by handler |
-| Policy Reinstated | No | Manual, sent on reactivation |
-| Invoice Failed | Yes | Payment failed (unknown reason) |
-| Payment Received | Yes | Stripe confirmation |
-| Autocancellation Notice | Yes | Warning before auto-cancel |
-| Autocancellation Completed | Yes | Confirms auto-cancel happened |
+| Template | Kanguro | Auto | Notes |
+|---|---|---|---|
+| General | Yes | No | On-demand generic email from handler |
+| Quote | Yes | Yes | Sent when quote created via API |
+| Order | No | No | Between Offer and Policy, used in UW contexts. Not used by Kanguro |
+| Policy | Yes | Yes | Auto-sent when policy is created. **`client-welcome.mjml` maps to this** |
+| Policy Renewal | Yes | Yes | Renewal email, can be resent manually |
+| Policy Cancellation | Yes | No | Manual, editable by handler |
+| Policy Reinstated | Yes | No | Manual, sent on reactivation |
+| Invoice Failed | Yes | Yes | Payment failed (unknown reason) |
+| Payment Received | Yes | Yes | Stripe confirmation |
+| Autocancellation Notice | Yes | Yes | Warning before auto-cancel |
+| Autocancellation Completed | Yes | Yes | Confirms auto-cancel happened |
 
 ### Placeholders
 See `docs/Email placeholders.txt` for the full list. Key patterns:
@@ -44,8 +49,11 @@ See `docs/Email placeholders.txt` for the full list. Key patterns:
 
 ## To Decide
 - **Spanish (ES) version** — current CI plaintext is bilingual (EN + ES in one email). Decide whether the HTML template should be bilingual in a single email, split via `[if_language_US]`/`[if_language_ES]`, or English-only.
-- **Email subject line** — needs to be defined for the client-welcome (Order) template.
-- **Card icons** — the policy card needs distinct icons per product type: dog, cat, and home/renters. Currently all branches use the same pet icon placeholder. Need CDN assets for each.
+- **Email subject line** — needs to be defined for the client-welcome (Policy) template.
+- **Pet species conditionals** — CI has no `[if_pet_species_dog]`/`[if_pet_species_cat]` conditional, so the policy card uses a generic paw icon for all pets. Need CI team to add species conditionals if distinct dog/cat icons are wanted.
+- **Image hosting** — all images (icons, logo, QR code) are either base64 data URIs or temporary Figma asset URLs. Both need replacing with permanent CDN-hosted URLs before production. Base64 data URIs don't render in Outlook.
 
 ## Tools for testing
-You can open the html files in chrome via mcp
+- Open `dist/test/index.html` in Chrome to browse all test variants
+- Individual variants can be opened directly (e.g. `dist/test/pet-dog.html`)
+- Chrome DevTools MCP is available for opening files in the browser
