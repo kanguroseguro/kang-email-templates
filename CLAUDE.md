@@ -47,11 +47,13 @@ See `docs/Email placeholders.txt` for the full list. Key patterns:
 - **Claim**: `[prefixed_reference_id]`, `[incident_date]`, `[amount_paid]`, `[pet_single_name]`
 - **Conditionals**: `[if_policy_type_USPetInsurance]...[/if_policy_type_USPetInsurance]`, `[if_language_ES]...[/if_language_ES]`, etc.
 
+## Decisions
+- **Language** — English-only by default. Spanish can be added later via `[if_language_ES]` conditionals if needed.
+- **Pet species** — Generic paw icon for all pets. CI has no species conditionals. Can revisit if CI adds them later.
+- **Image hosting** — All assets served from `https://kang-email-templates.vercel.app/assets/`. 12 PNGs, all verified live.
+
 ## To Decide
-- **Spanish (ES) version** — current CI plaintext is bilingual (EN + ES in one email). Decide whether the HTML template should be bilingual in a single email, split via `[if_language_US]`/`[if_language_ES]`, or English-only.
 - **Email subject line** — needs to be defined for the client-welcome (Policy) template.
-- **Pet species conditionals** — CI has no `[if_pet_species_dog]`/`[if_pet_species_cat]` conditional, so the policy card uses a generic paw icon for all pets. Need CI team to add species conditionals if distinct dog/cat icons are wanted.
-- **Image hosting** — all images (icons, logo, QR code) are either base64 data URIs or temporary Figma asset URLs. Both need replacing with permanent CDN-hosted URLs before production. Base64 data URIs don't render in Outlook.
 
 ## Tools for testing
 - Open `dist/test/index.html` in Chrome to browse all test variants
