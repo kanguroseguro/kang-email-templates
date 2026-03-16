@@ -1,24 +1,24 @@
 <!-- ============ FOOTER SECTION 1: DOWNLOAD APP ============ -->
-<mj-section background-color="#FFFFFF" padding="30px 40px">
-  <mj-column width="40%" vertical-align="middle">
-    <mj-image src="https://kang-email-templates.vercel.app/assets/qr-code.png" alt="Download Kanguro App" width="141px" align="center" border="5px solid #09011C" border-radius="12px" padding="0" />
-  </mj-column>
-  <mj-column width="60%" vertical-align="middle">
-    <mj-text color="#002454" font-size="16px" font-weight="700" line-height="1.3" padding="0 0 16px">
+<mj-section background-color="#FFFFFF" padding="30px 30px 20px">
+  <mj-column>
+    <mj-text color="#002454" font-size="16px" font-weight="700" font-family="'Poppins', Arial, sans-serif" line-height="1.3" align="center" padding="0 0 20px">
       Download the app to access your coverage and file claims
     </mj-text>
-    <mj-text padding="0">
-      <table cellpadding="0" cellspacing="0" role="presentation">
+    <mj-text align="center" padding="0 0 16px">
+      <table cellpadding="0" cellspacing="0" role="presentation" style="margin: 0 auto;">
         <tr>
           <td style="padding-right: 8px;">
             <a href="https://apps.apple.com/us/app/kanguro/id1625776781" target="_blank" style="text-decoration: none;">
               <img src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="120" height="40" alt="Download on the App Store" style="display: block; border: 0;" />
             </a>
           </td>
-          <td>
+          <td style="padding-right: 8px;">
             <a href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" target="_blank" style="text-decoration: none;">
               <img src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="135" height="40" alt="Get it on Google Play" style="display: block; border: 0;" />
             </a>
+          </td>
+          <td>
+            <img src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="40" height="40" alt="Scan to download" style="display: block; border: 3px solid #09011C; border-radius: 6px;" />
           </td>
         </tr>
       </table>
@@ -29,7 +29,7 @@
 <!-- ============ FOOTER SECTION 2: HELP / CONTACT ============ -->
 <mj-section background-color="#F5F2ED" padding="32px 30px 28px">
   <mj-column>
-    <mj-text color="#002454" font-size="20px" font-weight="700" padding="0 0 16px">
+    <mj-text color="#002454" font-size="20px" font-weight="700" font-family="'Poppins', Arial, sans-serif" padding="0 0 16px">
       Need help? We're here for you.
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">

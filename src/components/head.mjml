@@ -1,13 +1,14 @@
 <!-- Kanguro Brand Colors -->
 <mj-attributes>
-    <mj-all font-family="'Poppins', Arial, sans-serif" />
+    <mj-all font-family="'Lato', 'Helvetica Neue', Arial, sans-serif" />
     <mj-text font-size="16px" line-height="1.6" color="#002454" />
     <mj-button background-color="#F87872" color="#FFFFFF" font-weight="600" border-radius="4px" />
     <mj-section background-color="#FFFFFF" padding="20px 0" />
   </mj-attributes>
 
-  <!-- Google Fonts - Poppins -->
+  <!-- Google Fonts -->
   <mj-font name="Poppins" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" />
+  <mj-font name="Lato" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" />
 
   <!-- Responsive Styles -->
   <mj-style>
@@ -18,6 +19,7 @@
     }
 
     .heading-1 {
+      font-family: 'Poppins', Arial, sans-serif;
       font-size: 32px;
       font-weight: 800;
       color: #002454;
@@ -26,6 +28,7 @@
     }
 
     .heading-2 {
+      font-family: 'Poppins', Arial, sans-serif;
       font-size: 24px;
       font-weight: 700;
       color: #002454;
@@ -34,6 +37,7 @@
     }
 
     .subheading {
+      font-family: 'Poppins', Arial, sans-serif;
       font-size: 18px;
       font-weight: 600;
       color: #002454;
