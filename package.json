@@ -2,7 +2,7 @@
   "name": "kang-email-templates",
   "type": "module",
   "scripts": {
-    "build": "mjml src/*.mjml -o dist/",
+    "build": "mkdir -p dist && mjml src/*.mjml -o dist/",
     "watch": "mjml src/*.mjml -o dist/ --watch",
     "test-loader": "node template-loader.js"
   },
