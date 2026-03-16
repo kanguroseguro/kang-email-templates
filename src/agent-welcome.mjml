@@ -32,7 +32,7 @@
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="10px">
-          <strong>Website:</strong> <a href="https://agency.kanguroseguro.com/login?email={{email}}" style="color: #F87872; text-decoration: none;">https://agency.kanguroseguro.com/login</a>
+          <strong>Website:</strong> <a href="https://agency.kanguroseguro.com/login?email={{email}}" style="color: #FF8D7B; text-decoration: none;">https://agency.kanguroseguro.com/login</a>
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="10px">
@@ -55,7 +55,7 @@
 
         <mj-button
           href="https://agency.kanguroseguro.com/login?email={{email}}"
-          background-color="#F87872"
+          background-color="#FF8D7B"
           font-weight="600"
           padding="20px 0"
         >

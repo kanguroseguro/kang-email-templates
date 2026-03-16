@@ -33,13 +33,13 @@
       Need help? We're here for you.
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-      <strong>Email</strong>&nbsp;&nbsp;<a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a>
+      <strong>Email</strong>&nbsp;&nbsp;<a href="mailto:customersupport@kanguroinsurance.com" style="color: #FF8D7B; text-decoration: none;">customersupport@kanguroinsurance.com</a>
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-      <strong>Phone</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+      <strong>Phone</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #FF8D7B; text-decoration: none;">888.546.5264</a>
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-      <strong>WhatsApp</strong>&nbsp;&nbsp;<a href="https://wa.me/18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+      <strong>WhatsApp</strong>&nbsp;&nbsp;<a href="https://wa.me/18885465264" style="color: #FF8D7B; text-decoration: none;">888.546.5264</a>
     </mj-text>
   </mj-column>
 </mj-section>

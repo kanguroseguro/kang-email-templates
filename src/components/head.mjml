@@ -2,7 +2,7 @@
 <mj-attributes>
     <mj-all font-family="'Lato', 'Helvetica Neue', Arial, sans-serif" />
     <mj-text font-size="16px" line-height="1.6" color="#002454" />
-    <mj-button background-color="#F87872" color="#FFFFFF" font-weight="600" border-radius="4px" />
+    <mj-button background-color="#FF8D7B" color="#FFFFFF" font-weight="600" border-radius="4px" />
     <mj-section background-color="#FFFFFF" padding="20px 0" />
   </mj-attributes>
 
