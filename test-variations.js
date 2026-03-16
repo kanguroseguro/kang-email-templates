@@ -150,14 +150,6 @@ const templates = [
     source: 'dist/rejection.html',
     variations: [],
   },
-  {
-    id: 'base-template',
-    label: 'Base Template',
-    description: 'Shared layout skeleton for reference',
-    color: '#999',
-    source: 'dist/base-template.html',
-    variations: [],
-  },
 ];
 
 // --- CI conditional engine ---
