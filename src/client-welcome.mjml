@@ -77,7 +77,7 @@
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td width="50%" style="vertical-align: top; padding-bottom: 40px;">
-                      [if_policy_product_has_pet]<img src="https://kang-email-templates.vercel.app/assets/icon-paw-navy.png" width="48" height="48" alt="" style="display: block;" />[/if_policy_product_has_pet][if_not_policy_product_has_pet]<img src="https://kang-email-templates.vercel.app/assets/icon-renters-navy.png" width="48" height="48" alt="" style="display: block;" />[/if_not_policy_product_has_pet]
+                      [if_policy_product_has_pet]<img src="https://kang-email-templates.vercel.app/assets/icon-paw.png" width="48" height="48" alt="" style="display: block;" />[/if_policy_product_has_pet][if_not_policy_product_has_pet]<img src="https://kang-email-templates.vercel.app/assets/icon-renters.png" width="48" height="48" alt="" style="display: block;" />[/if_not_policy_product_has_pet]
                     </td>
                     <td width="50%" style="vertical-align: top; text-align: right; padding-bottom: 40px;">
                       <img src="https://kang-email-templates.vercel.app/assets/kanguro-logo-white.png" width="77" height="26" alt="Kanguro" style="display: block; margin-left: auto;" />
