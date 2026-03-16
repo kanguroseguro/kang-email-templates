@@ -215,8 +215,8 @@ mkdirSync('dist/test', { recursive: true });
 
 let totalVariations = 0;
 
-// Build cards HTML for each template
-const columns = templates.map((tpl) => {
+// Build row HTML for each template
+const rows = templates.map((tpl) => {
   let cards = '';
 
   if (tpl.variations.length > 0) {
@@ -237,7 +237,6 @@ const columns = templates.map((tpl) => {
         </a>`;
     }
   } else {
-    // No variations — just link to the compiled template
     const relPath = `../${tpl.id}.html`;
     cards += `
       <a class="card" href="${relPath}" target="_blank">
@@ -251,13 +250,13 @@ const columns = templates.map((tpl) => {
   }
 
   return `
-    <div class="column">
-      <div class="column-header" style="border-top-color: ${tpl.color};">
+    <div class="row">
+      <div class="row-header" style="border-left-color: ${tpl.color};">
         <h2>${tpl.label}</h2>
         <p>${tpl.description}</p>
         <span class="badge">${tpl.variations.length || 1}</span>
       </div>
-      <div class="column-cards">
+      <div class="row-cards">
         ${cards}
       </div>
     </div>`;
@@ -277,34 +276,33 @@ const index = `<!DOCTYPE html>
   nav h1 { font-size: 20px; font-weight: 700; }
   nav p { font-size: 12px; opacity: 0.6; margin-top: 2px; }
 
-  .board { display: flex; gap: 24px; padding: 24px; overflow-x: auto; align-items: flex-start; }
+  .board { display: flex; flex-direction: column; gap: 24px; padding: 24px; }
 
-  .column { flex: 0 0 300px; min-width: 260px; }
-  .column-header {
-    background: #fff; border-radius: 12px 12px 0 0; padding: 16px 18px 12px;
-    border-top: 4px solid #ccc; position: relative;
+  .row { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .row-header {
+    padding: 16px 20px 12px; border-left: 4px solid #ccc; position: relative;
+    border-bottom: 1px solid #eee;
   }
-  .column-header h2 { font-size: 15px; font-weight: 700; color: #002454; }
-  .column-header p { font-size: 11px; color: #888; margin-top: 2px; line-height: 1.3; }
+  .row-header h2 { font-size: 16px; font-weight: 700; color: #002454; }
+  .row-header p { font-size: 12px; color: #888; margin-top: 2px; }
   .badge {
-    position: absolute; top: 14px; right: 16px;
+    position: absolute; top: 16px; right: 20px;
     background: #f0ede8; font-size: 11px; font-weight: 700; color: #666;
     width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
   }
 
-  .column-cards {
-    background: #e8e5e0; border-radius: 0 0 12px 12px; padding: 8px;
-    display: flex; flex-direction: column; gap: 8px;
+  .row-cards {
+    padding: 12px; display: flex; gap: 12px; overflow-x: auto;
   }
 
   .card {
-    background: #fff; border-radius: 8px; overflow: hidden;
+    flex: 0 0 260px; background: #f8f7f5; border-radius: 8px; overflow: hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06); transition: transform 0.15s, box-shadow 0.15s;
     text-decoration: none; color: inherit; display: block;
   }
   .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
-  .thumb { height: 160px; overflow: hidden; border-bottom: 1px solid #eee; }
+  .thumb { height: 180px; overflow: hidden; border-bottom: 1px solid #eee; background: #fff; }
   .thumb iframe {
     width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left;
     pointer-events: none; border: 0;
@@ -313,11 +311,6 @@ const index = `<!DOCTYPE html>
   .info { padding: 10px 14px; }
   .card-label { font-size: 13px; font-weight: 600; color: #002454; }
   .card-meta { font-size: 11px; color: #999; margin-top: 2px; }
-
-  @media (max-width: 768px) {
-    .board { flex-wrap: wrap; }
-    .column { flex: 1 1 100%; min-width: 0; }
-  }
 </style>
 </head><body>
 <nav>
@@ -325,7 +318,7 @@ const index = `<!DOCTYPE html>
   <p>${templates.length} templates &middot; ${totalVariations} total previews</p>
 </nav>
 <div class="board">
-  ${columns.join('\n')}
+  ${rows.join('\n')}
 </div>
 </body></html>`;
 

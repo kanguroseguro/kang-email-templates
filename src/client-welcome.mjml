@@ -200,38 +200,9 @@
       </mj-column>
     </mj-section>
 
-    <!-- ============ APP DOWNLOAD SECTION ============ -->
-    <mj-section background-color="#FFFFFF" padding="20px 40px 40px">
-      <mj-column width="40%" vertical-align="middle">
-        <mj-image src="https://kang-email-templates.vercel.app/assets/qr-code.png" alt="Download Kanguro App" width="141px" align="center" border="5px solid #09011C" border-radius="12px" padding="0" />
-      </mj-column>
-      <mj-column width="60%" vertical-align="middle">
-        <mj-text color="#002454" font-size="16px" font-weight="700" line-height="1.3" padding="0 0 16px">
-          Download the app to access your coverage and file claims
-        </mj-text>
-        <mj-text padding="0">
-          <table cellpadding="0" cellspacing="0" role="presentation">
-            <tr>
-              <td style="padding-right: 8px;">
-                <a href="https://apps.apple.com/us/app/kanguro/id1625776781" target="_blank" style="text-decoration: none;">
-                  <img src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="120" height="40" alt="Download on the App Store" style="display: block; border: 0;" />
-                </a>
-              </td>
-              <td>
-                <a href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" target="_blank" style="text-decoration: none;">
-                  <img src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="135" height="40" alt="Get it on Google Play" style="display: block; border: 0;" />
-                </a>
-              </td>
-            </tr>
-          </table>
-        </mj-text>
-      </mj-column>
-    </mj-section>
-
     <mj-raw>[/if_recipient_is_customer]</mj-raw>
 
-    <!-- ============ CONTACT + FOOTER ============ -->
-    <mj-include path="./components/contact.mjml" />
+    <!-- ============ FOOTER ============ -->
     <mj-include path="./components/footer.mjml" />
 
   </mj-body>

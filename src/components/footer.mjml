@@ -1,3 +1,47 @@
+<!-- ============ FOOTER SECTION 1: DOWNLOAD APP ============ -->
+<mj-section background-color="#FFFFFF" padding="30px 40px">
+  <mj-column width="40%" vertical-align="middle">
+    <mj-image src="https://kang-email-templates.vercel.app/assets/qr-code.png" alt="Download Kanguro App" width="141px" align="center" border="5px solid #09011C" border-radius="12px" padding="0" />
+  </mj-column>
+  <mj-column width="60%" vertical-align="middle">
+    <mj-text color="#002454" font-size="16px" font-weight="700" line-height="1.3" padding="0 0 16px">
+      Download the app to access your coverage and file claims
+    </mj-text>
+    <mj-text padding="0">
+      <table cellpadding="0" cellspacing="0" role="presentation">
+        <tr>
+          <td style="padding-right: 8px;">
+            <a href="https://apps.apple.com/us/app/kanguro/id1625776781" target="_blank" style="text-decoration: none;">
+              <img src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="120" height="40" alt="Download on the App Store" style="display: block; border: 0;" />
+            </a>
+          </td>
+          <td>
+            <a href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" target="_blank" style="text-decoration: none;">
+              <img src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="135" height="40" alt="Get it on Google Play" style="display: block; border: 0;" />
+            </a>
+          </td>
+        </tr>
+      </table>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<!-- ============ FOOTER SECTION 2: HELP ============ -->
+<mj-section background-color="#CEEDFF" padding="30px 20px">
+  <mj-column>
+    <mj-text css-class="body-text" color="#002454" align="center" font-size="16px" font-weight="700" padding-bottom="10px">
+      Need help? We're here for you.
+    </mj-text>
+    <mj-text css-class="body-text" color="#002454" align="center" font-size="14px">
+      <strong>Email:</strong> <a href="mailto:customersupport@kanguroinsurance.com" style="color: #F87872; text-decoration: none;">customersupport@kanguroinsurance.com</a><br/>
+      <strong>Phone:</strong> <a href="tel:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a><br/>
+      <strong>WhatsApp:</strong> <a href="https://wa.me/18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a><br/>
+      <strong>SMS:</strong> <a href="sms:+18885465264" style="color: #F87872; text-decoration: none;">888.546.5264</a>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<!-- ============ FOOTER SECTION 3: COMPANY INFO + SOCIAL + LEGAL ============ -->
 <mj-section full-width="full-width" background-color="#002454" padding="30px 20px">
   <mj-column>
 

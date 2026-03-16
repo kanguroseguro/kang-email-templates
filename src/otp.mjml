@@ -51,7 +51,6 @@
       </mj-column>
     </mj-section>
 
-    <mj-include path="./components/contact.mjml" />
     <mj-include path="./components/footer.mjml" />
 
   </mj-body>
