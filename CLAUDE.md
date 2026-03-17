@@ -124,6 +124,10 @@ Config in `deploy.js` `SENDGRID_TEMPLATES` object. Test data auto-loaded from `p
 Vercel: https://kang-email-templates.vercel.app/test/ (production)
 PR previews: Vercel auto-deploys per PR (check Vercel bot comment, append `/test/`)
 
+### Pending: CI and HubSpot Deployment
+- **CloudInsurance** — currently manual (paste HTML into CI admin UI). No API available yet for automated deployment.
+- **HubSpot** — no templates built yet. When added, deployment via HubSpot API or manual upload TBD.
+
 ### Local Deploy (without CI)
 Requires `SENDGRID_API_KEY` via mise (`.mise.local.toml`, gitignored):
 ```

@@ -69,6 +69,10 @@ bun run deploy:rollback otp --confirm  # revert a template
 CI templates (`client-welcome`, `general`) are deployed manually via the CI admin UI:
 **Settings → Partner Admin → Mail Templates (Beta)**
 
+### HubSpot Templates
+
+Not yet implemented. Deployment method TBD.
+
 ## Preview Site
 
 Production: https://kang-email-templates.vercel.app/test/
