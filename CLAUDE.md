@@ -15,7 +15,11 @@ Minimal MJML email template development setup using bun.
 ## Commands
 - `bun run build` - Compile all MJML templates once
 - `bun run watch` - Auto-compile on file changes
-- `node test-variations.js` - Generate test variants for all templates into `dist/test/`
+- `bun run test-variations` - Generate test variants (HTML + plain text) into `dist/test/`
+- `bun run deploy:staging [template]` - Build + push as inactive SendGrid version
+- `bun run deploy:status [template]` - Show active vs staged versions
+- `bun run deploy:promote [template] --confirm` - Activate the latest staged version (goes live)
+- `bun run deploy:rollback <template> --confirm` - Re-activate the previous version
 
 ## About MJML
 MJML is a markup language that transpiles to responsive email HTML. Uses semantic tags like `<mj-section>` and `<mj-column>` instead of nested tables. Responsive by default across all email clients including Outlook.
@@ -76,7 +80,60 @@ Uses HubL (Jinja-like). Variables from CRM contact/deal properties: `{{ contact.
 ## To Decide
 - **Email subject line** — needs to be defined for the client-welcome (Policy) template.
 
-## Tools for testing
+## CI/CD Pipeline
+
+### GitHub Actions Workflows
+
+| Workflow | Trigger | What it does |
+|----------|---------|-------------|
+| `preview.yml` | PR to `master` | Build MJML, upload preview artifact, stage inactive versions on SendGrid, post PR comment with editor links |
+| `promote.yml` | Push to `master` (merge) | Build, deploy to GitHub Pages, promote SendGrid templates to live |
+
+### Branch Protection
+`master` requires PRs — no direct push. Admins can bypass.
+
+### Deployment Flow
+
+```
+1. Create branch, edit MJML in src/
+2. Open PR → preview.yml runs automatically:
+   - Builds all templates
+   - Uploads preview HTML as artifact (downloadable from PR)
+   - Pushes inactive versions to SendGrid with test data
+   - Posts PR comment with SendGrid editor links
+3. Review in SendGrid UI (send test emails from editor)
+4. Merge PR → promote.yml runs automatically:
+   - Activates staged SendGrid versions (goes live)
+   - Deploys test previews to GitHub Pages
+5. If something breaks: `bun run deploy:rollback <template> --confirm`
+```
+
+### SendGrid Templates
+
+| Template | Template ID | Subject |
+|----------|------------|---------|
+| `otp` | `d-487466fc9ae2424aa1638917dd476bf4` | Your password for Kanguro |
+| `agent-welcome` | `d-0a1d6e5465c64669aa3c500cb7fa50af` | Welcome to Kanguro |
+| `rejection` | `d-2c07f8ba50e44e608df7d6c266cc6f39` | Coverage Unavailable |
+
+Config in `deploy.js` `SENDGRID_TEMPLATES` object. Test data auto-loaded from `providers.js`.
+
+### Secrets
+- `SENDGRID_API_KEY` — GitHub repo secret (scopes: `templates.*`, `email_testing.*`, stats). No `mail.send`.
+
+### GitHub Pages
+Preview site: https://kanguroseguro.github.io/kang-email-templates/
+
+### Local Deploy (without CI)
+Requires `SENDGRID_API_KEY` via mise (`.mise.local.toml`, gitignored):
+```
+bun run deploy:staging          # push inactive versions
+bun run deploy:status           # check active vs staged
+bun run deploy:promote --confirm  # go live
+```
+
+## Local Testing
 - Open `dist/test/index.html` in Chrome to browse all test variants
 - Individual variants can be opened directly (e.g. `dist/test/pet-dog.html`)
+- Plain text versions generated alongside (e.g. `dist/test/pet-dog.txt`)
 - Chrome DevTools MCP is available for opening files in the browser
