@@ -322,7 +322,8 @@ async function commandRollback(templateArg) {
 // CLI entry point
 // ---------------------------------------------------------------------------
 
-const [command, templateArg] = process.argv.slice(2);
+const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const [command, templateArg] = args;
 
 switch (command) {
   case 'staging':
