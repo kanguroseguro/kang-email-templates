@@ -4,7 +4,7 @@
     <mj-text color="#002454" font-size="16px" font-weight="700" font-family="'Poppins', Arial, sans-serif" line-height="1.3" align="center" padding="0 0 20px">
       Download the app to access your coverage and file claims
     </mj-text>
-    <mj-text align="center" padding="0 0 16px">
+    <mj-text align="center" padding="0 0 12px">
       <table cellpadding="0" cellspacing="0" role="presentation" style="margin: 0 auto;">
         <tr>
           <td style="padding-right: 8px;">
@@ -12,16 +12,18 @@
               <img src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="120" height="40" alt="Download on the App Store" style="display: block; border: 0;" />
             </a>
           </td>
-          <td style="padding-right: 8px;">
+          <td>
             <a href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" target="_blank" style="text-decoration: none;">
               <img src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="135" height="40" alt="Get it on Google Play" style="display: block; border: 0;" />
             </a>
           </td>
-          <td>
-            <img src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="40" height="40" alt="Scan to download" style="display: block; border: 3px solid #09011C; border-radius: 6px;" />
-          </td>
         </tr>
       </table>
+    </mj-text>
+    <mj-text align="center" padding="0 0 16px">
+      <a href="https://kanguroinsurance.com" target="_blank" style="text-decoration: none;">
+        <img src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="80" height="80" alt="Scan to download the Kanguro app" style="display: block; margin: 0 auto; border: 3px solid #09011C; border-radius: 8px;" />
+      </a>
     </mj-text>
   </mj-column>
 </mj-section>
@@ -33,13 +35,16 @@
       Need help? We're here for you.
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-      <strong>Email</strong>&nbsp;&nbsp;<a href="mailto:customersupport@kanguroinsurance.com" style="color: #FF8D7B; text-decoration: none;">customersupport@kanguroinsurance.com</a>
+      <strong>Call</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #FF8D7B; text-decoration: none;">888 546 5264</a>
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-      <strong>Phone</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #FF8D7B; text-decoration: none;">888.546.5264</a>
+      <strong>Email</strong>&nbsp;&nbsp;<a href="mailto:customerservice@kanguroinsurance.com" style="color: #FF8D7B; text-decoration: none; white-space: nowrap;">customerservice@kanguroinsurance.com</a>
     </mj-text>
     <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-      <strong>WhatsApp</strong>&nbsp;&nbsp;<a href="https://wa.me/18885465264" style="color: #FF8D7B; text-decoration: none;">888.546.5264</a>
+      <strong>Chat / Text</strong>&nbsp;&nbsp;<a href="sms:+18885465264" style="color: #FF8D7B; text-decoration: none;">888 546 5264</a>
+    </mj-text>
+    <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
+      <strong>WhatsApp</strong>&nbsp;&nbsp;<a href="https://wa.me/18885465264" style="color: #FF8D7B; text-decoration: none;">888 546 5264</a>
     </mj-text>
   </mj-column>
 </mj-section>
@@ -59,7 +64,9 @@
       <mj-social-element name="whatsapp" href="https://wa.me/18885465264" src="https://kang-email-templates.vercel.app/assets/icon-whatsapp.png" background-color="#25D366" alt="WhatsApp" />
       <mj-social-element name="instagram-noshare" href="https://www.instagram.com/kanguro_insurance" src="https://kang-email-templates.vercel.app/assets/icon-instagram.png" />
       <mj-social-element name="linkedin-noshare" href="https://www.linkedin.com/company/kanguroinsurance/" src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" />
+      <mj-social-element name="facebook-noshare" href="https://www.facebook.com/kanguroinsurance" src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" />
       <mj-social-element name="youtube-noshare" href="https://www.youtube.com/@kanguro_seguro" src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" />
+      <mj-social-element name="custom" href="https://www.tiktok.com/@kanguro_insurance" src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" alt="TikTok" />
     </mj-social>
 
     <!-- Legal Disclaimer -->
