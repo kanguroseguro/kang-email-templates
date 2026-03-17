@@ -17,6 +17,7 @@
 import { readFileSync, existsSync } from 'fs';
 import { execSync } from 'child_process';
 import { htmlToPlainText } from './html-to-text.js';
+import { testData } from './providers.js';
 
 // ---------------------------------------------------------------------------
 // Config
@@ -30,6 +31,7 @@ if (!SENDGRID_API_KEY) {
 }
 
 const API_BASE = 'https://api.sendgrid.com/v3';
+const JSON_OUTPUT = process.argv.includes('--json');
 
 /**
  * Maps repo template names → SendGrid template IDs + subject lines.
@@ -39,14 +41,22 @@ const SENDGRID_TEMPLATES = {
   otp: {
     templateId: 'd-487466fc9ae2424aa1638917dd476bf4',
     subject: 'Your password for Kanguro \u{1F998}',
+    testData: { otpCode: testData.sendgrid.otpCode },
   },
   'agent-welcome': {
     templateId: 'd-0a1d6e5465c64669aa3c500cb7fa50af',
     subject: 'Welcome to Kanguro',
+    testData: {
+      firstName: testData.sendgrid.firstName,
+      email: testData.sendgrid.email,
+      sellingLink: testData.sendgrid.sellingLink,
+      provider: testData.sendgrid.provider,
+    },
   },
   rejection: {
     templateId: 'd-2c07f8ba50e44e608df7d6c266cc6f39',
     subject: 'Coverage Unavailable',
+    testData: {},
   },
 };
 
@@ -88,6 +98,13 @@ async function createVersion(templateId, { name, subject, htmlContent }) {
   });
 }
 
+async function setTestData(templateId, versionId, data) {
+  return sgFetch(`/templates/${templateId}/versions/${versionId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ test_data: JSON.stringify(data) }),
+  });
+}
+
 async function activateVersion(templateId, versionId) {
   return sgFetch(`/templates/${templateId}/versions/${versionId}`, {
     method: 'PATCH',
@@ -113,17 +130,18 @@ function getTargetTemplates(templateArg) {
 
 async function commandStaging(templateArg) {
   // Build first
-  console.log('Building MJML templates...');
-  execSync('bun run build', { stdio: 'inherit' });
-  console.log('');
+  if (!JSON_OUTPUT) console.log('Building MJML templates...');
+  execSync('bun run build', { stdio: JSON_OUTPUT ? 'ignore' : 'inherit' });
+  if (!JSON_OUTPUT) console.log('');
 
   const targets = getTargetTemplates(templateArg);
   const timestamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
+  const results = [];
 
   for (const [name, config] of Object.entries(targets)) {
     const htmlPath = `dist/${name}.html`;
     if (!existsSync(htmlPath)) {
-      console.error(`  [SKIP] ${name}: ${htmlPath} not found after build`);
+      if (!JSON_OUTPUT) console.error(`  [SKIP] ${name}: ${htmlPath} not found after build`);
       continue;
     }
 
@@ -131,9 +149,11 @@ async function commandStaging(templateArg) {
     const plainText = htmlToPlainText(htmlContent);
     const versionName = `staging ${timestamp}`;
 
-    console.log(`  ${name}:`);
-    console.log(`    HTML: ${htmlContent.length.toLocaleString()} chars`);
-    console.log(`    Text: ${plainText.length.toLocaleString()} chars`);
+    if (!JSON_OUTPUT) {
+      console.log(`  ${name}:`);
+      console.log(`    HTML: ${htmlContent.length.toLocaleString()} chars`);
+      console.log(`    Text: ${plainText.length.toLocaleString()} chars`);
+    }
 
     try {
       const version = await createVersion(config.templateId, {
@@ -141,14 +161,29 @@ async function commandStaging(templateArg) {
         subject: config.subject,
         htmlContent,
       });
-      console.log(`    Deployed as INACTIVE version "${versionName}" (${version.id})`);
+      if (!JSON_OUTPUT) console.log(`    Deployed as INACTIVE version "${versionName}" (${version.id})`);
+      if (config.testData && Object.keys(config.testData).length > 0) {
+        await setTestData(config.templateId, version.id, config.testData);
+        if (!JSON_OUTPUT) console.log(`    Test data loaded: ${JSON.stringify(config.testData)}`);
+      }
+      results.push({
+        template: name,
+        templateId: config.templateId,
+        versionId: version.id,
+        versionName,
+        editorUrl: `https://mc.sendgrid.com/dynamic-templates/${config.templateId}/version/${version.id}/editor`,
+      });
     } catch (err) {
-      console.error(`    [ERROR] ${err.message}`);
+      if (!JSON_OUTPUT) console.error(`    [ERROR] ${err.message}`);
     }
-    console.log('');
+    if (!JSON_OUTPUT) console.log('');
   }
 
-  console.log('Done. Use "bun run deploy:status" to review, then "bun run deploy:promote" to go live.');
+  if (JSON_OUTPUT) {
+    console.log(JSON.stringify(results, null, 2));
+  } else {
+    console.log('Done. Use "bun run deploy:status" to review, then "bun run deploy:promote" to go live.');
+  }
 }
 
 async function commandStatus(templateArg) {

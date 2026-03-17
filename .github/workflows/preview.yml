@@ -1,0 +1,100 @@
+name: PR Preview
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: pages-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - name: Build templates
+        run: |
+          bun run build
+          cp -r src/assets dist/assets
+          node test-variations.js
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/test
+
+      - uses: actions/deploy-pages@v4
+        id: deploy
+        with:
+          artifact_name: github-pages
+
+      - name: Stage on SendGrid
+        id: sendgrid
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: |
+          RESULT=$(node deploy.js staging --json)
+          echo "$RESULT"
+          echo "staged<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$RESULT" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const staged = JSON.parse(`${{ steps.sendgrid.outputs.staged }}`);
+            const pagesUrl = '${{ steps.deploy.outputs.page_url }}';
+
+            let body = `## 📧 Email Template Preview\n\n`;
+            body += `**Preview:** ${pagesUrl}\n\n`;
+            body += `### SendGrid Staged Versions\n\n`;
+            body += `| Template | Version | Preview in SendGrid |\n`;
+            body += `|----------|---------|--------------------|\n`;
+            for (const t of staged) {
+              body += `| ${t.template} | \`${t.versionName}\` | [Open editor](${t.editorUrl}) |\n`;
+            }
+            body += `\n> These are **inactive** versions. They will be promoted to live on merge.`;
+
+            // Update or create comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const marker = '## 📧 Email Template Preview';
+            const existing = comments.find(c => c.body.startsWith(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
