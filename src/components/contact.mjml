@@ -5,10 +5,10 @@
       Need help? We're here for you.
     </mj-text>
     <mj-text css-class="body-text" color="#002454" align="center" font-size="14px">
-      <strong>Call:</strong> <a href="tel:+18885465264" style="color: #FF8D7B; text-decoration: none;">888 546 5264</a><br/>
-      <strong>Email:</strong> <a href="mailto:customerservice@kanguroinsurance.com" style="color: #FF8D7B; text-decoration: none; white-space: nowrap;">customerservice@kanguroinsurance.com</a><br/>
-      <strong>Chat / Text:</strong> <a href="sms:+18885465264" style="color: #FF8D7B; text-decoration: none;">888 546 5264</a><br/>
-      <strong>WhatsApp:</strong> <a href="https://wa.me/18885465264" style="color: #FF8D7B; text-decoration: none;">888 546 5264</a>
+      <strong>Call:</strong> <a href="tel:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a><br/>
+      <strong>Email:</strong> <a href="mailto:customerservice@kanguroinsurance.com" style="color: #002454; text-decoration: none; white-space: nowrap;">customerservice@kanguroinsurance.com</a><br/>
+      <strong>Chat / Text:</strong> <a href="sms:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a><br/>
+      <strong>WhatsApp:</strong> <a href="https://wa.me/18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
     </mj-text>
   </mj-column>
 </mj-section>
