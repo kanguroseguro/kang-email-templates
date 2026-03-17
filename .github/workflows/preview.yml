@@ -6,20 +6,16 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  actions: read
   pull-requests: write
 
 concurrency:
-  group: pages-preview-${{ github.event.pull_request.number }}
+  group: preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   build-and-preview:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -35,16 +31,12 @@ jobs:
           cp -r src/assets dist/assets
           node test-variations.js
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: email-previews
           path: dist/test
-
-      - uses: actions/deploy-pages@v4
-        id: deploy
-        with:
-          artifact_name: github-pages
+          retention-days: 14
 
       - name: Stage on SendGrid
         id: sendgrid
@@ -62,10 +54,11 @@ jobs:
         with:
           script: |
             const staged = JSON.parse(`${{ steps.sendgrid.outputs.staged }}`);
-            const pagesUrl = '${{ steps.deploy.outputs.page_url }}';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const artifactUrl = `${runUrl}/artifacts`;
 
             let body = `## 📧 Email Template Preview\n\n`;
-            body += `**Preview:** ${pagesUrl}\n\n`;
+            body += `**[Download preview HTML](${artifactUrl})** (artifact from this workflow run)\n\n`;
             body += `### SendGrid Staged Versions\n\n`;
             body += `| Template | Version | Preview in SendGrid |\n`;
             body += `|----------|---------|--------------------|\n`;
