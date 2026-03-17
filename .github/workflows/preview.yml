@@ -1,0 +1,80 @@
+name: PR Preview
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-stage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - name: Build templates
+        run: bun run build
+
+      - name: Stage on SendGrid
+        id: sendgrid
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: |
+          RESULT=$(node deploy.js staging --json)
+          echo "$RESULT"
+          echo "staged<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$RESULT" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const staged = JSON.parse(`${{ steps.sendgrid.outputs.staged }}`);
+
+            let body = `## Email Template Preview\n\n`;
+            body += `Vercel deploys a preview automatically — check the Vercel bot comment for the URL.\n`;
+            body += `Append \`/test/\` to browse all template previews.\n\n`;
+            body += `### SendGrid Staged Versions\n\n`;
+            body += `| Template | Version | Preview in SendGrid |\n`;
+            body += `|----------|---------|--------------------|\n`;
+            for (const t of staged) {
+              body += `| ${t.template} | \`${t.versionName}\` | [Open editor](${t.editorUrl}) |\n`;
+            }
+            body += `\n> These are **inactive** versions. They will be promoted to live on merge.`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const marker = '## Email Template Preview';
+            const existing = comments.find(c => c.body.startsWith(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
