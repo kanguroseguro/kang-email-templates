@@ -66,7 +66,7 @@
       <mj-social-element name="linkedin-noshare" href="https://www.linkedin.com/company/kanguroinsurance/" src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" />
       <mj-social-element name="facebook-noshare" href="https://www.facebook.com/kanguroinsurance" src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" />
       <mj-social-element name="youtube-noshare" href="https://www.youtube.com/@kanguro_seguro" src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" />
-      <mj-social-element name="custom" href="https://www.tiktok.com/@kanguro_insurance" src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" alt="TikTok" />
+      <mj-social-element name="custom" href="https://www.tiktok.com/@kanguro_insurance" src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" background-color="#000000" alt="TikTok" />
     </mj-social>
 
     <!-- Legal Disclaimer -->
