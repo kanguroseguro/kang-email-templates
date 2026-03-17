@@ -1,19 +1,24 @@
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { providers, resolveTemplate } from './providers.js';
+import { htmlToPlainText } from './html-to-text.js';
 
-// --- All email templates and their variations ---
+// ---------------------------------------------------------------------------
+// All email templates, grouped by provider
+// ---------------------------------------------------------------------------
 
 const templates = [
+  // ======================== CI (CloudInsurance) ========================
   {
     id: 'client-welcome',
     label: 'Client Welcome',
     description: 'Policy template — auto-sent on policy creation',
-    color: '#F87872',
+    provider: 'ci',
     source: 'dist/client-welcome.html',
     variations: [
       {
         name: 'pet-dog',
         label: 'Pet — Dog (Louis)',
-        placeholders: {
+        data: {
           customer_firstname: 'Zelda',
           customer_name: 'Zelda Abarquez',
           prefixed_customer_id: 'KS10005813',
@@ -32,7 +37,7 @@ const templates = [
       {
         name: 'pet-cat',
         label: 'Pet — Cat (Whiskers)',
-        placeholders: {
+        data: {
           customer_firstname: 'James',
           customer_name: 'James Wilson',
           prefixed_customer_id: 'KS10009102',
@@ -51,7 +56,7 @@ const templates = [
       {
         name: 'pet-long-name',
         label: 'Pet — Long names',
-        placeholders: {
+        data: {
           customer_firstname: 'Alejandro',
           customer_name: 'Alejandro Fernández de la Cruz',
           prefixed_customer_id: 'KS10012847',
@@ -70,7 +75,7 @@ const templates = [
       {
         name: 'renters-fl',
         label: 'Renters — Florida',
-        placeholders: {
+        data: {
           customer_firstname: 'Maria',
           customer_name: 'Maria González',
           prefixed_customer_id: 'KS10007421',
@@ -89,7 +94,7 @@ const templates = [
       {
         name: 'renters-tx',
         label: 'Renters — Texas',
-        placeholders: {
+        data: {
           customer_firstname: 'Carlos',
           customer_name: 'Carlos Rivera',
           prefixed_customer_id: 'KS10011235',
@@ -108,7 +113,7 @@ const templates = [
       {
         name: 'renters-long-name',
         label: 'Renters — Long names (GA)',
-        placeholders: {
+        data: {
           customer_firstname: 'Christopher',
           customer_name: 'Christopher Williamson-Montgomery',
           prefixed_customer_id: 'KS10015678',
@@ -127,104 +132,125 @@ const templates = [
     ],
   },
   {
+    id: 'general',
+    label: 'General',
+    description: 'On-demand generic email from CI handler',
+    provider: 'ci',
+    source: 'dist/general.html',
+    variations: [
+      {
+        name: 'general-default',
+        label: 'Default message',
+        data: {
+          email_subject: 'Important Update About Your Policy',
+          email_body: 'Dear Zelda,<br/><br/>We wanted to let you know about an important update to your Kanguro policy. Please review the details in your customer portal or contact us if you have any questions.<br/><br/>Best regards,<br/>The Kanguro Team',
+        },
+        conditions: {},
+      },
+    ],
+  },
+
+  // ======================== SendGrid ========================
+  {
     id: 'otp',
     label: 'OTP',
     description: 'One-time password for agency portal login',
-    color: '#002454',
+    provider: 'sendgrid',
     source: 'dist/otp.html',
-    variations: [],
+    variations: [
+      {
+        name: 'otp-default',
+        label: 'Default OTP code',
+        data: {
+          otpCode: '847293',
+        },
+      },
+    ],
   },
   {
     id: 'agent-welcome',
     label: 'Agent Welcome',
     description: 'Welcome email for new agents with portal access',
-    color: '#002454',
+    provider: 'sendgrid',
     source: 'dist/agent-welcome.html',
-    variations: [],
+    variations: [
+      {
+        name: 'agent-welcome-otp',
+        label: 'OTP login provider',
+        data: {
+          firstName: 'Maria',
+          email: 'maria.garcia@example.com',
+          sellingLink: 'https://kanguroinsurance.com/get-a-quote?agent=maria-garcia',
+          provider: { OTP: true, firstConnect: false },
+        },
+      },
+      {
+        name: 'agent-welcome-firstconnect',
+        label: 'FirstConnect login provider',
+        data: {
+          firstName: 'Robert',
+          email: 'robert.johnson@firstconnect.com',
+          sellingLink: 'https://kanguroinsurance.com/get-a-quote?agent=robert-johnson',
+          provider: { OTP: false, firstConnect: true },
+        },
+      },
+      {
+        name: 'agent-welcome-no-selling',
+        label: 'No selling link',
+        data: {
+          firstName: 'Ana',
+          email: 'ana.martinez@example.com',
+          sellingLink: '',
+          provider: { OTP: true, firstConnect: false },
+        },
+      },
+    ],
   },
   {
     id: 'rejection',
     label: 'Rejection',
     description: 'Application rejection notification',
-    color: '#E74C3C',
+    provider: 'sendgrid',
     source: 'dist/rejection.html',
-    variations: [],
+    variations: [
+      {
+        name: 'rejection-default',
+        label: 'Default rejection',
+        data: {},
+      },
+    ],
   },
 ];
 
-// --- CI conditional engine ---
-
-function escapeRegex(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function resolveCondition(name, conditions) {
-  if (name.startsWith('not_')) {
-    const positive = name.substring(4);
-    if (positive in conditions) return !conditions[positive];
-  }
-  if (name in conditions) return conditions[name];
-  return false;
-}
-
-function processConditionals(html, conditions) {
-  let result = html;
-  let changed = true;
-  while (changed) {
-    changed = false;
-    const names = new Set();
-    for (const m of result.matchAll(/\[if_((?:not_)?[^\]]+)\]/g)) {
-      names.add(m[1]);
-    }
-    for (const name of names) {
-      const esc = escapeRegex(name);
-      const re = new RegExp(
-        `\\[if_${esc}\\]((?:(?!\\[if_${esc}\\]|\\[/if_${esc}\\])[\\s\\S])*?)\\[/if_${esc}\\]`,
-        'g'
-      );
-      const keep = resolveCondition(name, conditions);
-      const next = result.replace(re, (_, content) => keep ? content : '');
-      if (next !== result) {
-        changed = true;
-        result = next;
-      }
-    }
-  }
-  return result;
-}
-
-function replacePlaceholders(html, placeholders) {
-  let result = html;
-  for (const [key, value] of Object.entries(placeholders)) {
-    result = result.replaceAll(`[${key}]`, value);
-  }
-  return result;
-}
-
-// --- Generate ---
+// ---------------------------------------------------------------------------
+// Generate test variations
+// ---------------------------------------------------------------------------
 
 mkdirSync('dist/test', { recursive: true });
 
 let totalVariations = 0;
 
-// Build row HTML for each template
 const rows = templates.map((tpl) => {
+  const providerInfo = providers[tpl.provider];
+  const providerBadge = `<span class="provider-badge" style="background: ${providerInfo.color};">${providerInfo.shortName}</span>`;
   let cards = '';
 
   if (tpl.variations.length > 0) {
     const html = readFileSync(tpl.source, 'utf-8');
     for (const v of tpl.variations) {
-      let result = processConditionals(html, v.conditions);
-      result = replacePlaceholders(result, v.placeholders);
+      const result = resolveTemplate(tpl.provider, html, v.data, v.conditions || {});
       writeFileSync(`dist/test/${v.name}.html`, result);
+      writeFileSync(`dist/test/${v.name}.txt`, htmlToPlainText(result));
       totalVariations++;
 
+      const metaName =
+        v.data.customer_name || v.data.firstName || v.data['contact.firstname'] || '';
       cards += `
         <a class="card" href="${v.name}.html" target="_blank">
           <div class="thumb"><iframe src="${v.name}.html" tabindex="-1" loading="lazy"></iframe></div>
           <div class="info">
             <div class="card-label">${v.label}</div>
-            <div class="card-meta">${v.placeholders.customer_name || ''}</div>
+            <div class="card-meta">${metaName} &middot; <a href="${v.name}.txt" target="_blank" class="txt-link">plain text</a></div>
           </div>
         </a>`;
     }
@@ -243,8 +269,8 @@ const rows = templates.map((tpl) => {
 
   return `
     <div class="row">
-      <div class="row-header" style="border-left-color: ${tpl.color};">
-        <h2>${tpl.label}</h2>
+      <div class="row-header" style="border-left-color: ${providerInfo.color};">
+        <h2>${providerBadge} ${tpl.label}</h2>
         <p>${tpl.description}</p>
         <span class="badge">${tpl.variations.length || 1}</span>
       </div>
@@ -253,6 +279,21 @@ const rows = templates.map((tpl) => {
       </div>
     </div>`;
 });
+
+// ---------------------------------------------------------------------------
+// Provider legend
+// ---------------------------------------------------------------------------
+
+const legendItems = Object.values(providers)
+  .map(
+    (p) =>
+      `<span class="legend-item"><span class="legend-dot" style="background: ${p.color};"></span>${p.name}</span>`
+  )
+  .join('');
+
+// ---------------------------------------------------------------------------
+// Index page
+// ---------------------------------------------------------------------------
 
 const index = `<!DOCTYPE html>
 <html lang="en"><head>
@@ -268,6 +309,10 @@ const index = `<!DOCTYPE html>
   nav h1 { font-size: 20px; font-weight: 700; }
   nav p { font-size: 12px; opacity: 0.6; margin-top: 2px; }
 
+  .legend { display: flex; gap: 16px; padding: 12px 24px; background: #fff; border-bottom: 1px solid #e0ddd8; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #444; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
   .board { display: flex; flex-direction: column; gap: 24px; padding: 24px; }
 
   .row { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
@@ -275,12 +320,16 @@ const index = `<!DOCTYPE html>
     padding: 16px 20px 12px; border-left: 4px solid #ccc; position: relative;
     border-bottom: 1px solid #eee;
   }
-  .row-header h2 { font-size: 16px; font-weight: 700; color: #002454; }
+  .row-header h2 { font-size: 16px; font-weight: 700; color: #002454; display: flex; align-items: center; gap: 8px; }
   .row-header p { font-size: 12px; color: #888; margin-top: 2px; }
   .badge {
     position: absolute; top: 16px; right: 20px;
     background: #f0ede8; font-size: 11px; font-weight: 700; color: #666;
     width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  .provider-badge {
+    font-size: 9px; font-weight: 700; color: #fff; padding: 2px 6px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.5px;
   }
 
   .row-cards {
@@ -309,6 +358,7 @@ const index = `<!DOCTYPE html>
   <h1>Kanguro Email Templates</h1>
   <p>${templates.length} templates &middot; ${totalVariations} total previews</p>
 </nav>
+<div class="legend">${legendItems}</div>
 <div class="board">
   ${rows.join('\n')}
 </div>

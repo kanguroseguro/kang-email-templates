@@ -1,61 +1,70 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { resolveTemplate } from './providers.js';
 
 /**
  * Load an email template from the dist folder and replace variables
+ * using the appropriate provider's templating engine.
  *
  * @param {string} templateName - Name of the template file (without .html extension)
- * @param {Object} variables - Object containing variable values to replace
+ * @param {'ci'|'sendgrid'|'hubspot'} provider - Which provider's syntax to use
+ * @param {Object} data - Variable values to replace
+ * @param {Object} [conditions] - CI conditional flags (only for provider 'ci')
  * @returns {string} - HTML string with variables replaced
  *
  * @example
- * const html = loadTemplate('otp', { otpCode: '123456' });
+ * // CI template
+ * const html = loadTemplate('client-welcome', 'ci', {
+ *   customer_firstname: 'Zelda',
+ *   customer_name: 'Zelda Abarquez',
+ * }, { recipient_is_customer: true, policy_product_has_pet: true });
  *
  * @example
- * const html = loadTemplate('agent-welcome', {
- *   firstName: 'John',
- *   email: 'john@example.com'
+ * // SendGrid template
+ * const html = loadTemplate('otp', 'sendgrid', { otpCode: '123456' });
+ *
+ * @example
+ * // HubSpot template
+ * const html = loadTemplate('welcome', 'hubspot', {
+ *   'contact.firstname': 'Sofia',
  * });
  */
-export function loadTemplate(templateName, variables = {}) {
-  // Load the compiled HTML template
+export function loadTemplate(templateName, provider, data = {}, conditions = {}) {
   const templatePath = join(process.cwd(), 'dist', `${templateName}.html`);
-  let html = readFileSync(templatePath, 'utf-8');
-
-  // Replace all variables in the format {{variableName}}
-  Object.keys(variables).forEach(key => {
-    const regex = new RegExp(`{{${key}}}`, 'g');
-    html = html.replace(regex, variables[key]);
-  });
-
-  return html;
+  const html = readFileSync(templatePath, 'utf-8');
+  return resolveTemplate(provider, html, data, conditions);
 }
 
 /**
- * Available templates and their variables:
- *
- * otp.html
- * --------
- * - otpCode: The one-time password code to display
- *
- * agent-welcome.html
- * ------------------
- * - firstName: Agent's first name
- * - email: Agent's email address
+ * Template → provider mapping for convenience.
  */
+export const templateProviders = {
+  'client-welcome': 'ci',
+  'general': 'ci',
+  'otp': 'sendgrid',
+  'agent-welcome': 'sendgrid',
+  'rejection': 'sendgrid',
+};
 
 // Usage examples:
 if (import.meta.main) {
-  console.log('=== OTP Email Example ===');
-  const otpEmail = loadTemplate('otp', {
-    otpCode: '987654'
-  });
+  console.log('=== OTP Email (SendGrid) ===');
+  const otpEmail = loadTemplate('otp', 'sendgrid', { otpCode: '987654' });
   console.log(otpEmail.substring(0, 500) + '...\n');
 
-  console.log('=== Agent Welcome Email Example ===');
-  const welcomeEmail = loadTemplate('agent-welcome', {
+  console.log('=== Agent Welcome Email (SendGrid) ===');
+  const welcomeEmail = loadTemplate('agent-welcome', 'sendgrid', {
     firstName: 'Maria',
-    email: 'maria.garcia@example.com'
+    email: 'maria.garcia@example.com',
+    sellingLink: 'https://kanguroinsurance.com/get-a-quote?agent=maria',
+    provider: { OTP: true, firstConnect: false },
   });
   console.log(welcomeEmail.substring(0, 500) + '...\n');
+
+  console.log('=== General Email (CI) ===');
+  const generalEmail = loadTemplate('general', 'ci', {
+    email_subject: 'Test Subject',
+    email_body: 'Test body content',
+  });
+  console.log(generalEmail.substring(0, 500) + '...\n');
 }
