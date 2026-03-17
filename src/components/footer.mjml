@@ -57,13 +57,13 @@
     </mj-text>
 
     <!-- Social Media Links -->
-    <mj-social mode="horizontal" align="center" icon-size="32px" padding="0 0 20px">
-      <mj-social-element name="instagram-noshare" href="https://www.instagram.com/kanguro_insurance" src="https://kang-email-templates.vercel.app/assets/icon-instagram.png" background-color="#000000" />
-      <mj-social-element name="linkedin-noshare" href="https://www.linkedin.com/company/kanguroinsurance/" src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" background-color="#000000" />
-      <mj-social-element name="facebook-noshare" href="https://www.facebook.com/kanguroinsurance" src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" background-color="#000000" />
-      <mj-social-element name="youtube-noshare" href="https://www.youtube.com/@kanguro_seguro" src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" background-color="#000000" />
-      <mj-social-element name="custom" href="https://www.tiktok.com/@kanguro_insurance" src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" background-color="#000000" alt="TikTok" />
-    </mj-social>
+    <mj-text align="center" padding="0 0 20px">
+      <a href="https://www.instagram.com/kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-instagram.png" width="24" height="24" alt="Instagram" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.linkedin.com/company/kanguroinsurance/" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.facebook.com/kanguroinsurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" width="20" height="20" alt="Facebook" style="display:block;border:0;margin:2px 0;" /></a><!--
+      --><a href="https://www.youtube.com/@kanguro_seguro" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" width="24" height="24" alt="YouTube" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.tiktok.com/@kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" width="20" height="20" alt="TikTok" style="display:block;border:0;margin:2px 0;" /></a>
+    </mj-text>
 
     <!-- Legal Disclaimer -->
     <mj-text css-class="legal-text" color="rgba(255,255,255,0.85)" align="center" padding="0 20px" font-size="10px" line-height="1.5">
