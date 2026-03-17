@@ -1,4 +1,4 @@
-name: Promote & Deploy
+name: Promote SendGrid
 
 on:
   push:
@@ -6,19 +6,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages-production
-  cancel-in-progress: true
 
 jobs:
   promote:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -29,20 +20,7 @@ jobs:
       - run: bun install
 
       - name: Build templates
-        run: |
-          bun run build
-          cp -r src/assets dist/assets
-          node test-variations.js
-
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/test
-
-      - uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
+        run: bun run build
 
       - name: Promote SendGrid templates
         env:

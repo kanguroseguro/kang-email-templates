@@ -6,7 +6,6 @@ on:
 
 permissions:
   contents: read
-  actions: read
   pull-requests: write
 
 concurrency:
@@ -14,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-preview:
+  build-and-stage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,17 +25,7 @@ jobs:
       - run: bun install
 
       - name: Build templates
-        run: |
-          bun run build
-          cp -r src/assets dist/assets
-          node test-variations.js
-
-      - name: Upload preview artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: email-previews
-          path: dist/test
-          retention-days: 14
+        run: bun run build
 
       - name: Stage on SendGrid
         id: sendgrid
@@ -54,11 +43,10 @@ jobs:
         with:
           script: |
             const staged = JSON.parse(`${{ steps.sendgrid.outputs.staged }}`);
-            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const artifactUrl = `${runUrl}/artifacts`;
 
-            let body = `## 📧 Email Template Preview\n\n`;
-            body += `**[Download preview HTML](${artifactUrl})** (artifact from this workflow run)\n\n`;
+            let body = `## Email Template Preview\n\n`;
+            body += `Vercel deploys a preview automatically — check the Vercel bot comment for the URL.\n`;
+            body += `Append \`/test/\` to browse all template previews.\n\n`;
             body += `### SendGrid Staged Versions\n\n`;
             body += `| Template | Version | Preview in SendGrid |\n`;
             body += `|----------|---------|--------------------|\n`;
@@ -67,13 +55,12 @@ jobs:
             }
             body += `\n> These are **inactive** versions. They will be promoted to live on merge.`;
 
-            // Update or create comment
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            const marker = '## 📧 Email Template Preview';
+            const marker = '## Email Template Preview';
             const existing = comments.find(c => c.body.startsWith(marker));
 
             if (existing) {

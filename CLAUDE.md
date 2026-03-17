@@ -86,8 +86,10 @@ Uses HubL (Jinja-like). Variables from CRM contact/deal properties: `{{ contact.
 
 | Workflow | Trigger | What it does |
 |----------|---------|-------------|
-| `preview.yml` | PR to `master` | Build MJML, upload preview artifact, stage inactive versions on SendGrid, post PR comment with editor links |
-| `promote.yml` | Push to `master` (merge) | Build, deploy to GitHub Pages, promote SendGrid templates to live |
+| `preview.yml` | PR to `master` | Build MJML, stage inactive versions on SendGrid, post PR comment with editor links |
+| `promote.yml` | Push to `master` (merge) | Build, promote SendGrid templates to live |
+
+Vercel handles preview deployments automatically per PR. Append `/test/` to the Vercel preview URL to browse all template previews.
 
 ### Branch Protection
 `master` requires PRs — no direct push. Admins can bypass.
@@ -96,15 +98,12 @@ Uses HubL (Jinja-like). Variables from CRM contact/deal properties: `{{ contact.
 
 ```
 1. Create branch, edit MJML in src/
-2. Open PR → preview.yml runs automatically:
-   - Builds all templates
-   - Uploads preview HTML as artifact (downloadable from PR)
-   - Pushes inactive versions to SendGrid with test data
-   - Posts PR comment with SendGrid editor links
+2. Open PR → runs automatically:
+   - Vercel deploys a preview (append /test/ to browse all previews)
+   - GitHub Actions stages inactive versions on SendGrid with test data
+   - PR comment posted with SendGrid editor links
 3. Review in SendGrid UI (send test emails from editor)
-4. Merge PR → promote.yml runs automatically:
-   - Activates staged SendGrid versions (goes live)
-   - Deploys test previews to GitHub Pages
+4. Merge PR → promote.yml activates staged SendGrid versions (goes live)
 5. If something breaks: `bun run deploy:rollback <template> --confirm`
 ```
 
@@ -121,8 +120,9 @@ Config in `deploy.js` `SENDGRID_TEMPLATES` object. Test data auto-loaded from `p
 ### Secrets
 - `SENDGRID_API_KEY` — GitHub repo secret (scopes: `templates.*`, `email_testing.*`, stats). No `mail.send`.
 
-### GitHub Pages
-Preview site: https://kanguroseguro.github.io/kang-email-templates/
+### Previews
+Vercel: https://kang-email-templates.vercel.app/test/ (production)
+PR previews: Vercel auto-deploys per PR (check Vercel bot comment, append `/test/`)
 
 ### Local Deploy (without CI)
 Requires `SENDGRID_API_KEY` via mise (`.mise.local.toml`, gitignored):
