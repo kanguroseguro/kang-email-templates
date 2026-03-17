@@ -106,9 +106,8 @@ async function setTestData(templateId, versionId, data) {
 }
 
 async function activateVersion(templateId, versionId) {
-  return sgFetch(`/templates/${templateId}/versions/${versionId}`, {
-    method: 'PATCH',
-    body: JSON.stringify({ active: 1 }),
+  return sgFetch(`/templates/${templateId}/versions/${versionId}/activate`, {
+    method: 'POST',
   });
 }
 
