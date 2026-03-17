@@ -1,7 +1,7 @@
 <mjml>
   <mj-head>
     <mj-include path="./components/head.mjml" />
-    <mj-preview>Your one-time password for Kanguro Agency Portal</mj-preview>
+    <mj-preview>Your one-time password for Kanguro</mj-preview>
   </mj-head>
 
   <mj-body background-color="#FFFFFF">
@@ -19,7 +19,7 @@
 
         <!-- Intro Message -->
         <mj-text css-class="body-text" padding-bottom="20px">
-          Use the code below to complete your sign-in to the Kanguro Agency Portal:
+          Use the code below to log in to your Kanguro account:
         </mj-text>
 
       </mj-column>
