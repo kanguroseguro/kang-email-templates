@@ -16,6 +16,14 @@
         .hero-tongue > table > tbody > tr > td {
           border-radius: 0 0 40px 40px !important;
         }
+        .hero-tongue-wrapper > table > tbody > tr > td {
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+        }
+        .hero-tongue > table > tbody > tr > td {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
         .hero-greeting div { font-size: 32px !important; }
         .hero-intro div { padding-left: 0 !important; padding-right: 0 !important; }
       }
@@ -25,7 +33,7 @@
   <mj-body background-color="#FFFFFF">
 
     <!-- ============ HERO TONGUE ============ -->
-    <mj-section background-color="#FFFFFF" padding="0 24px">
+    <mj-section background-color="#FFFFFF" padding="0 24px" css-class="hero-tongue-wrapper">
       <mj-column background-color="#002454" css-class="hero-tongue" padding="32px 30px 40px">
 
         <!-- Logo + Website Link -->
@@ -119,7 +127,7 @@
     <!-- ============ FOOTER (help + company, skip app download since it's already above) ============ -->
 
     <!-- FOOTER SECTION 2: HELP / CONTACT -->
-    <mj-section background-color="#F5F2ED" padding="32px 30px 28px">
+    <mj-section full-width="full-width" background-color="#F5F2ED" padding="32px 30px 28px">
       <mj-column>
         <mj-text color="#002454" font-size="20px" font-weight="700" font-family="'Poppins', Arial, sans-serif" padding="0 0 16px">
           Need help? We're here for you.
