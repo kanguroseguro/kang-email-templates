@@ -207,6 +207,22 @@ const templates = [
     ],
   },
   {
+    id: 'client-welcome-sg',
+    label: 'Client Welcome (SendGrid)',
+    description: 'Simplified welcome — app download focus, no policy card',
+    provider: 'sendgrid',
+    source: 'dist/client-welcome-sg.html',
+    variations: [
+      {
+        name: 'client-welcome-sg-default',
+        label: 'Default',
+        data: {
+          firstName: 'Zelda',
+        },
+      },
+    ],
+  },
+  {
     id: 'rejection',
     label: 'Rejection',
     description: 'Application rejection notification',
