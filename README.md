@@ -45,7 +45,7 @@ test-variations.js      Generates preview variants per provider
 ### Via Pull Request (recommended)
 
 1. Create a branch and edit templates in `src/`
-2. Open a PR to `master`
+2. Open a PR to `main`
 3. Automatically:
    - Vercel deploys a preview (append `/test/` to browse all previews)
    - GitHub Actions stages inactive versions on SendGrid with test data

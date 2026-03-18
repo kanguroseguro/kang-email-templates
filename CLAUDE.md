@@ -87,13 +87,13 @@ Uses HubL (Jinja-like). Variables from CRM contact/deal properties: `{{ contact.
 
 | Workflow | Trigger | What it does |
 |----------|---------|-------------|
-| `preview.yml` | PR to `master` | Build MJML, stage inactive versions on SendGrid, post PR comment with editor links |
-| `promote.yml` | Push to `master` (merge) | Build, promote SendGrid templates to live |
+| `preview.yml` | PR to `main` | Build MJML, stage inactive versions on SendGrid, post PR comment with editor links |
+| `promote.yml` | Push to `main` (merge) | Build, promote SendGrid templates to live |
 
 Vercel handles preview deployments automatically per PR. Append `/test/` to the Vercel preview URL to browse all template previews.
 
 ### Branch Protection
-`master` requires PRs — no direct push. Admins can bypass.
+`main` requires PRs — no direct push. Admins can bypass.
 
 ### Deployment Flow
 
