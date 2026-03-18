@@ -25,4 +25,4 @@ jobs:
       - name: Promote SendGrid templates
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-        run: node deploy.js promote --confirm
+        run: bun deploy.js promote --confirm

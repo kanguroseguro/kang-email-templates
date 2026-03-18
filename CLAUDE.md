@@ -3,14 +3,40 @@
 Minimal MJML email template development setup using bun.
 
 ## Structure
-- `src/` - MJML templates (`.mjml` files)
-- `src/components/` - Shared MJML partials (head, header, footer)
-- `src/assets/` - SVG icons (paw, dog, cat, renters)
-- `dist/` - Compiled responsive HTML output
-- `dist/test/` - Test variants with all provider placeholders resolved
-- `providers.js` - Provider database: templating syntax, test data, and variable resolution for CI / SendGrid / HubSpot
-- `template-loader.js` - Provider-aware template loader for use by kanguro-backend
-- `test-variations.js` - Generates test HTML with real data per provider
+```
+src/
+  customer/           — Customer-facing emails
+    ci/               — CloudInsurance templates
+    sendgrid/         — SendGrid templates
+  agent/              — Agent-facing emails
+    sendgrid/         — SendGrid templates
+  shared/
+    components/       — Reusable MJML partials (head, header, footer)
+    base-template.mjml — Starter template
+  assets/             — Images (PNGs, SVGs)
+dist/                 — Compiled HTML output ({name}.{provider}.{lang}.html)
+dist/test/            — Test variants with resolved placeholders
+```
+
+### Multilingual (EN/ES)
+Each language is a separate file: `{name}.en.mjml` / `{name}.es.mjml`. No inline language conditionals.
+
+Shared components (`shared/components/`) contain **zero** provider-specific syntax — they are pure MJML content with language variants (`header.en.mjml`, `header.es.mjml`, `footer.en.mjml`, `footer.es.mjml`).
+
+Provider-specific variable syntax (`[var]`, `{{var}}`) only appears in template files.
+
+Build output naming: `dist/{name}.{provider}.{lang}.html` (e.g., `otp.sg.en.html`, `client-welcome.ci.es.html`).
+
+### Template → Provider × Language Map
+
+| Template | Location | Provider | Languages |
+|---|---|---|---|
+| `client-welcome` | `customer/ci/` | CI | EN, ES |
+| `general` | `customer/ci/` | CI | EN, ES |
+| `client-welcome` | `customer/sendgrid/` | SendGrid | EN, ES |
+| `otp` | `agent/sendgrid/` | SendGrid | EN, ES |
+| `agent-welcome` | `agent/sendgrid/` | SendGrid | EN, ES |
+| `rejection` | `agent/sendgrid/` | SendGrid | EN only (legal text) |
 
 ## Commands
 - `bun run build` - Compile all MJML templates once
@@ -36,17 +62,6 @@ Each template is sent via one of three providers, each with its own templating l
 | **CloudInsurance (CI)** | `[variable_name]` | `[if_x]...[/if_x]`, `[if_not_x]...[/if_not_x]` | Policy lifecycle emails (auto-sent by CI PAS) |
 | **SendGrid** | `{{variableName}}` | `{{#if var}}..{{/if}}`, `{{#unless var}}..{{/unless}}` | App-triggered transactional emails (kanguro-backend) |
 | **HubSpot** | `{{ variable_name }}` | `{% if var %}..{% endif %}`, `{% unless var %}..{% endunless %}` | CRM-triggered marketing/transactional emails |
-
-### Template → Provider Map
-
-| Template | Provider | Auto | Notes |
-|---|---|---|---|
-| `client-welcome` | CI | Yes | Auto-sent when policy created. Maps to CI "Policy" template |
-| `general` | CI | No | On-demand generic email from CI handler |
-| `otp` | SendGrid | Yes | OTP code for agency portal login |
-| `agent-welcome` | SendGrid | Yes | Welcome email with portal access for new agents |
-| `rejection` | SendGrid | Yes | Application rejection notification |
-| `client-welcome-sg` | SendGrid | Yes | Simplified welcome — app download focus, only `{{firstName}}` |
 
 ### CI-only Email Templates (not yet built)
 | Template | Auto | Notes |
@@ -74,9 +89,11 @@ Defined in kanguro-backend, passed via SendGrid dynamic template API. Supports H
 Uses HubL (Jinja-like). Variables from CRM contact/deal properties: `{{ contact.firstname }}`, `{{ deal.amount }}`. Conditionals: `{% if %}`, `{% unless %}`.
 
 ## Decisions
-- **Language** — English-only by default. Spanish can be added later via `[if_language_ES]` conditionals if needed.
+- **Language** — Bilingual EN/ES. Each language is a separate MJML file. Shared components are language-specific but provider-agnostic. Legal disclaimer stays English in both variants (US regulatory requirement).
 - **Pet species** — Generic paw icon for all pets. CI has no species conditionals. Can revisit if CI adds them later.
 - **Image hosting** — All assets served from `https://kang-email-templates.vercel.app/assets/`. 12 PNGs, all verified live.
+- **SendGrid multilingual** — Each language variant is a separate SendGrid template ID. Backend selects the right template based on user language preference.
+- **CI multilingual** — EN and ES templates uploaded separately to CI admin. CI sends the right one based on customer language.
 
 ## To Decide
 - **Email subject line** — needs to be defined for the client-welcome (Policy) template.
@@ -110,12 +127,12 @@ Vercel handles preview deployments automatically per PR. Append `/test/` to the 
 
 ### SendGrid Templates
 
-| Template | Template ID | Subject |
-|----------|------------|---------|
-| `otp` | `d-487466fc9ae2424aa1638917dd476bf4` | Your password for Kanguro |
-| `agent-welcome` | `d-0a1d6e5465c64669aa3c500cb7fa50af` | Welcome to Kanguro |
-| `rejection` | `d-2c07f8ba50e44e608df7d6c266cc6f39` | Coverage Unavailable |
-| `client-welcome-sg` | `d-ce25117b7c964567a7fb84d5a46140a6` | Welcome to Kanguro! |
+| Template | Template ID (EN) | Template ID (ES) | Subject (EN) |
+|----------|-----------------|-----------------|--------------|
+| `otp` | `d-487466fc9ae2424aa1638917dd476bf4` | TBD (auto-created) | Your password for Kanguro |
+| `agent-welcome` | `d-0a1d6e5465c64669aa3c500cb7fa50af` | TBD | Welcome to Kanguro |
+| `rejection` | `d-2c07f8ba50e44e608df7d6c266cc6f39` | N/A (EN only) | Coverage Unavailable |
+| `client-welcome` | `d-ce25117b7c964567a7fb84d5a46140a6` | TBD | Welcome to Kanguro! |
 
 Config in `deploy.js` `SENDGRID_TEMPLATES` object. Test data auto-loaded from `providers.js`.
 
@@ -140,6 +157,6 @@ bun run deploy:promote --confirm  # go live
 
 ## Local Testing
 - Open `dist/test/index.html` in Chrome to browse all test variants
-- Individual variants can be opened directly (e.g. `dist/test/pet-dog.html`)
-- Plain text versions generated alongside (e.g. `dist/test/pet-dog.txt`)
+- Individual variants can be opened directly (e.g. `dist/test/otp-en.html`, `dist/test/otp-es.html`)
+- Plain text versions generated alongside (e.g. `dist/test/otp-en.txt`)
 - Chrome DevTools MCP is available for opening files in the browser

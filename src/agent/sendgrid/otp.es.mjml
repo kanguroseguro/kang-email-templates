@@ -1,12 +1,12 @@
 <mjml>
   <mj-head>
-    <mj-include path="./components/head.mjml" />
-    <mj-preview>Your one-time password for Kanguro</mj-preview>
+    <mj-include path="../../shared/components/head.mjml" />
+    <mj-preview>Tu contraseña de un solo uso para Kanguro</mj-preview>
   </mj-head>
 
   <mj-body background-color="#FFFFFF">
 
-    <mj-include path="./components/header.mjml" />
+    <mj-include path="../../shared/components/header.es.mjml" />
 
     <!-- Main Content Section -->
     <mj-section background-color="#FFFFFF" padding="40px 30px 20px">
@@ -14,12 +14,12 @@
 
         <!-- Heading -->
         <mj-text css-class="heading-1" align="left">
-          Your One-Time Password
+          Tu Contraseña de Un Solo Uso
         </mj-text>
 
         <!-- Intro Message -->
         <mj-text css-class="body-text" padding-bottom="20px">
-          Use the code below to log in to your Kanguro account:
+          Usa el código de abajo para iniciar sesión en tu cuenta de Kanguro:
         </mj-text>
 
       </mj-column>
@@ -40,18 +40,18 @@
 
         <!-- Expiration Notice -->
         <mj-text css-class="body-text" padding-bottom="20px">
-          This code will expire in <strong>10 minutes</strong> for your security.
+          Este código expirará en <strong>10 minutos</strong> por tu seguridad.
         </mj-text>
 
         <!-- Security Notice -->
         <mj-text css-class="body-text">
-          If you didn't request this code, please ignore this email or contact our support team if you have concerns about your account security.
+          Si no solicitaste este código, ignora este correo electrónico o contacta a nuestro equipo de soporte si tienes inquietudes sobre la seguridad de tu cuenta.
         </mj-text>
 
       </mj-column>
     </mj-section>
 
-    <mj-include path="./components/footer.mjml" />
+    <mj-include path="../../shared/components/footer.es.mjml" />
 
   </mj-body>
 </mjml>

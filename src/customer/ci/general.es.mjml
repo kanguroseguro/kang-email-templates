@@ -1,12 +1,12 @@
 <mjml>
   <mj-head>
-    <mj-include path="./components/head.mjml" />
+    <mj-include path="../../shared/components/head.mjml" />
     <mj-preview>[email_subject]</mj-preview>
   </mj-head>
 
   <mj-body background-color="#FFFFFF">
 
-    <mj-include path="./components/header.mjml" />
+    <mj-include path="../../shared/components/header.es.mjml" />
 
     <!-- Main Content Section -->
     <mj-section background-color="#FFFFFF" padding="40px 30px">
@@ -19,7 +19,7 @@
       </mj-column>
     </mj-section>
 
-    <mj-include path="./components/footer.mjml" />
+    <mj-include path="../../shared/components/footer.es.mjml" />
 
   </mj-body>
 </mjml>

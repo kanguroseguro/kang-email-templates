@@ -1,0 +1,106 @@
+<mjml>
+  <mj-head>
+    <mj-include path="../../shared/components/head.mjml" />
+    <mj-preview>Welcome to Kanguro! Your agent portal login details inside</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="#FFFFFF">
+
+    <mj-include path="../../shared/components/header.en.mjml" />
+
+    <!-- Main Content Section -->
+    <mj-section background-color="#FFFFFF" padding="40px 30px">
+      <mj-column>
+
+        <!-- Greeting -->
+        <mj-text css-class="heading-1" align="left">
+          Hi {{firstName}}! Welcome to Kanguro!
+        </mj-text>
+
+        <!-- Welcome Message -->
+        <mj-text css-class="body-text" padding-bottom="20px">
+          We are absolutely thrilled to have you join our team as an agent!
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="20px">
+          To help you hit the ground running, we're sharing your login details for our agency portal:
+        </mj-text>
+
+        <!-- Login Details Section -->
+        <mj-text css-class="subheading">
+          Agency Portal Access
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="10px">
+          <strong>Website:</strong> <a href="https://agency.kanguroseguro.com/login?email={{email}}" style="color: #FF8D7B; text-decoration: none;">https://agency.kanguroseguro.com/login</a>
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="10px">
+          <strong>User Email:</strong> {{email}}
+        </mj-text>
+
+        <!-- OTP Login Instructions -->
+        <mj-raw>{{#if provider.OTP}}</mj-raw>
+        <mj-text css-class="body-text" padding-bottom="20px">
+          Please remember that your login email is the same one you used when you registered during the application process. When you log in, you'll receive a one-time password (OTP) via email to complete the sign-in process.
+        </mj-text>
+        <mj-raw>{{/if}}</mj-raw>
+
+        <!-- FirstConnect Login Instructions -->
+        <mj-raw>{{#if provider.firstConnect}}</mj-raw>
+        <mj-text css-class="body-text" padding-bottom="20px">
+          Please remember that your login email is the same one you used when you registered during the application process. To sign in, click the button below, then use the <strong>"Login with FirstConnect"</strong> button on the login page.
+        </mj-text>
+        <mj-raw>{{/if}}</mj-raw>
+
+        <mj-button
+          href="https://agency.kanguroseguro.com/login?email={{email}}"
+          background-color="#FF8D7B"
+          font-weight="600"
+          padding="20px 0"
+        >
+          Access Agency Portal
+        </mj-button>
+
+        <!-- Benefits -->
+        <mj-text css-class="body-text" padding-top="20px" padding-bottom="20px">
+          The best part? All of the sales you complete through this portal will be automatically and accurately recorded under your name!
+        </mj-text>
+
+        <!-- Start Selling Section (conditional) -->
+        <mj-raw>{{#if sellingLink}}</mj-raw>
+        <mj-text css-class="subheading">
+          Ready to Start Selling?
+        </mj-text>
+
+        <mj-text css-class="body-text" padding-bottom="10px">
+          Use your personalized link below to start selling Kanguro insurance:
+        </mj-text>
+
+        <mj-button
+          href="{{sellingLink}}"
+          background-color="#002454"
+          font-weight="600"
+          padding="20px 0"
+        >
+          Start Selling Now
+        </mj-button>
+        <mj-raw>{{/if}}</mj-raw>
+
+        <mj-text css-class="body-text" padding-top="20px">
+          If you run into any snags or have any questions at all while accessing your account, please don't hesitate to reach out. We're here to help you succeed!
+        </mj-text>
+
+        <!-- Closing -->
+        <mj-text css-class="body-text" padding-top="20px">
+          Warmly,<br/>
+          <strong>The Kanguro Team</strong>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="../../shared/components/footer.en.mjml" />
+
+  </mj-body>
+</mjml>

@@ -2,15 +2,15 @@
   "name": "kang-email-templates",
   "type": "module",
   "scripts": {
-    "build": "mkdir -p dist && mjml src/*.mjml -o dist/",
-    "watch": "mjml src/*.mjml -o dist/ --watch",
-    "test-loader": "node template-loader.js",
-    "test-variations": "node test-variations.js",
-    "deploy": "node deploy.js",
-    "deploy:staging": "node deploy.js staging",
-    "deploy:status": "node deploy.js status",
-    "deploy:promote": "node deploy.js promote",
-    "deploy:rollback": "node deploy.js rollback"
+    "build": "bun build.js",
+    "watch": "bun build.js --watch",
+    "test-loader": "bun template-loader.js",
+    "test-variations": "bun test-variations.js",
+    "deploy": "bun deploy.js",
+    "deploy:staging": "bun deploy.js staging",
+    "deploy:status": "bun deploy.js status",
+    "deploy:promote": "bun deploy.js promote",
+    "deploy:rollback": "bun deploy.js rollback"
   },
   "dependencies": {
     "mjml": "^4.15.3"

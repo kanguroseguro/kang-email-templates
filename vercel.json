@@ -1,5 +1,5 @@
 {
-  "buildCommand": "bun run build && cp -r src/assets dist/assets && node test-variations.js",
+  "buildCommand": "bun run build && cp -r src/assets dist/assets && bun run test-variations",
   "outputDirectory": "dist",
   "installCommand": "bun install"
 }

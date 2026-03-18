@@ -1,7 +1,7 @@
 <mjml>
   <mj-head>
-    <mj-include path="./components/head.mjml" />
-    <mj-preview>Welcome to Kanguro! Download the app to get started</mj-preview>
+    <mj-include path="../../shared/components/head.mjml" />
+    <mj-preview>¡Bienvenido a Kanguro! Descarga la app para comenzar</mj-preview>
     <mj-style>
       /* Hero tongue shape - rounded bottom corners */
       .hero-tongue,
@@ -42,7 +42,7 @@
             <tr>
               <td width="60%" style="vertical-align: top;">
                 <img src="https://kang-email-templates.vercel.app/assets/kanguro-logo-white.png" width="116" height="39" alt="Kanguro" style="display: block;" />
-                <div style="font-family: 'Poppins', Arial, sans-serif; font-size: 10px; color: #FFFFFF; padding-top: 2px;">Pet &amp; Renters Insurance</div>
+                <div style="font-family: 'Poppins', Arial, sans-serif; font-size: 10px; color: #FFFFFF; padding-top: 2px;">Seguro de Mascotas y Hogar</div>
               </td>
               <td width="40%" style="vertical-align: bottom; text-align: right;">
                 <a href="https://kanguroinsurance.com" style="font-family: 'Poppins', Arial, sans-serif; font-size: 12px; font-weight: 700; color: #FFFFFF; text-decoration: none; white-space: nowrap;">kanguroinsurance.com</a>
@@ -56,12 +56,12 @@
 
         <!-- Greeting -->
         <mj-text align="center" css-class="hero-greeting" color="#FFFFFF" font-size="42px" font-weight="800" line-height="0.95" padding="0 0 24px">
-          Hi {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}there{{/unless}},<br/>welcome to <span style="color: #FF8D7B;">Kanguro!</span>
+          Hola {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}amigo{{/unless}},<br/>¡bienvenido a <span style="color: #FF8D7B;">Kanguro!</span>
         </mj-text>
 
         <!-- Intro text -->
         <mj-text align="center" css-class="hero-intro" color="#FFFFFF" font-size="16px" font-weight="400" line-height="1.3" padding="0 30px 0">
-          Thank you for trusting us to protect what matters most. We're here to support you every step of the way.
+          Gracias por confiar en nosotros para proteger lo que más importa. Estamos aquí para apoyarte en cada paso del camino.
         </mj-text>
 
       </mj-column>
@@ -71,10 +71,10 @@
     <mj-section background-color="#FFFFFF" padding="40px 30px 10px">
       <mj-column>
         <mj-text align="center" font-size="24px" font-weight="800" font-family="'Poppins', Arial, sans-serif" color="#002454" padding="0 0 16px">
-          Your policy docs are on the way
+          Tus documentos de póliza están en camino
         </mj-text>
         <mj-text align="center" css-class="body-text" padding="0 10px 20px">
-          Your policy documents will arrive in a separate email shortly. In the meantime, get started with the Kanguro app!
+          Tus documentos de póliza llegarán en un correo separado en breve. ¡Mientras tanto, comienza con la app de Kanguro!
         </mj-text>
       </mj-column>
     </mj-section>
@@ -90,17 +90,17 @@
     <mj-section background-color="#FFFFFF" padding="20px 30px 10px">
       <mj-column>
         <mj-text align="center" font-size="24px" font-weight="800" font-family="'Poppins', Arial, sans-serif" color="#002454" padding="0 0 12px">
-          Get the Kanguro App
+          Descarga la App de Kanguro
         </mj-text>
         <mj-text align="center" css-class="body-text" padding="0 10px 24px">
-          Access your coverage, manage your policy, and file claims — all from your phone.
+          Accede a tu cobertura, administra tu póliza y presenta reclamos — todo desde tu teléfono.
         </mj-text>
       </mj-column>
     </mj-section>
 
     <mj-section background-color="#FFFFFF" padding="0 30px 10px" direction="ltr">
       <mj-column width="35%" vertical-align="middle">
-        <mj-image href="https://kseg.us/NoqtuS3?qr=1" src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="120px" alt="Scan to download the Kanguro app" padding="0 0 12px" border="3px solid #09011C" border-radius="8px" />
+        <mj-image href="https://kseg.us/NoqtuS3?qr=1" src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="120px" alt="Escanea para descargar la app de Kanguro" padding="0 0 12px" border="3px solid #09011C" border-radius="8px" />
       </mj-column>
       <mj-column width="65%" vertical-align="middle">
         <mj-image href="https://apps.apple.com/us/app/kanguro/id1625776781" src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="160px" alt="Download on the App Store" padding="0 0 12px" />
@@ -112,7 +112,7 @@
     <mj-section background-color="#FFFFFF" padding="20px 30px 10px">
       <mj-column>
         <mj-text align="center" color="#002454" font-size="14px" font-weight="800" padding="0 0 10px">
-          {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}Friend{{/unless}}, breathe, relax, enjoy… we've got you covered
+          {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}Amigo{{/unless}}, respira, relájate, disfruta… te tenemos cubierto
         </mj-text>
       </mj-column>
     </mj-section>
@@ -130,16 +130,16 @@
     <mj-section full-width="full-width" background-color="#F5F2ED" padding="32px 30px 28px">
       <mj-column>
         <mj-text color="#002454" font-size="20px" font-weight="700" font-family="'Poppins', Arial, sans-serif" padding="0 0 16px">
-          Need help? We're here for you.
+          ¿Necesitas ayuda? Estamos aquí para ti.
         </mj-text>
         <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-          <strong>Call</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
+          <strong>Llamar</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
         </mj-text>
         <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-          <strong>Email</strong>&nbsp;&nbsp;<a href="mailto:customerservice@kanguroinsurance.com" style="color: #002454; text-decoration: none; white-space: nowrap;">customerservice@kanguroinsurance.com</a>
+          <strong>Correo</strong>&nbsp;&nbsp;<a href="mailto:customerservice@kanguroinsurance.com" style="color: #002454; text-decoration: none; white-space: nowrap;">customerservice@kanguroinsurance.com</a>
         </mj-text>
         <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
-          <strong>Chat / Text</strong>&nbsp;&nbsp;<a href="sms:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
+          <strong>Chat / Texto</strong>&nbsp;&nbsp;<a href="sms:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
         </mj-text>
       </mj-column>
     </mj-section>
@@ -163,7 +163,7 @@
           --><a href="https://www.tiktok.com/@kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" width="20" height="20" alt="TikTok" style="display:block;border:0;margin:2px 0;" /></a>
         </mj-text>
 
-        <!-- Legal Disclaimer -->
+        <!-- Legal Disclaimer (stays in English - US regulatory requirement) -->
         <mj-text css-class="legal-text" color="rgba(255,255,255,0.85)" align="center" padding="0 20px" font-size="10px" line-height="1.5">
           Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this website is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 4400 Biscayne Blvd, Suite 818, Miami, FL 33137 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
         </mj-text>
