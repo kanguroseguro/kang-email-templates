@@ -46,6 +46,7 @@ Each template is sent via one of three providers, each with its own templating l
 | `otp` | SendGrid | Yes | OTP code for agency portal login |
 | `agent-welcome` | SendGrid | Yes | Welcome email with portal access for new agents |
 | `rejection` | SendGrid | Yes | Application rejection notification |
+| `client-welcome-sg` | SendGrid | Yes | Simplified welcome — app download focus, only `{{firstName}}` |
 
 ### CI-only Email Templates (not yet built)
 | Template | Auto | Notes |
@@ -114,6 +115,7 @@ Vercel handles preview deployments automatically per PR. Append `/test/` to the 
 | `otp` | `d-487466fc9ae2424aa1638917dd476bf4` | Your password for Kanguro |
 | `agent-welcome` | `d-0a1d6e5465c64669aa3c500cb7fa50af` | Welcome to Kanguro |
 | `rejection` | `d-2c07f8ba50e44e608df7d6c266cc6f39` | Coverage Unavailable |
+| `client-welcome-sg` | `d-ce25117b7c964567a7fb84d5a46140a6` | Welcome to Kanguro! |
 
 Config in `deploy.js` `SENDGRID_TEMPLATES` object. Test data auto-loaded from `providers.js`.
 

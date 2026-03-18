@@ -59,7 +59,7 @@ const SENDGRID_TEMPLATES = {
     testData: {},
   },
   'client-welcome-sg': {
-    templateId: null, // auto-created on first staging deploy
+    templateId: 'd-ce25117b7c964567a7fb84d5a46140a6',
     subject: 'Welcome to Kanguro!',
     testData: { firstName: testData.sendgrid.firstName },
   },
@@ -175,7 +175,7 @@ async function commandStaging(templateArg) {
         templateId = tpl.id;
         config.templateId = templateId;
         if (!JSON_OUTPUT) console.log(`    Created template: ${templateId}`);
-        console.log(`    ⚠️  Update deploy.js with templateId: '${templateId}'`);
+        if (!JSON_OUTPUT) console.log(`    ⚠️  Update deploy.js with templateId: '${templateId}'`);
       }
 
       const version = await createVersion(templateId, {
