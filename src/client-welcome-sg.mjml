@@ -48,7 +48,7 @@
 
         <!-- Greeting -->
         <mj-text align="center" css-class="hero-greeting" color="#FFFFFF" font-size="42px" font-weight="800" line-height="0.95" padding="0 0 24px">
-          Hi {{firstName}},<br/>welcome to <span style="color: #FF8D7B;">Kanguro!</span>
+          Hi {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}there{{/unless}},<br/>welcome to <span style="color: #FF8D7B;">Kanguro!</span>
         </mj-text>
 
         <!-- Intro text -->
@@ -104,7 +104,7 @@
     <mj-section background-color="#FFFFFF" padding="20px 30px 10px">
       <mj-column>
         <mj-text align="center" color="#002454" font-size="14px" font-weight="800" padding="0 0 10px">
-          {{firstName}} breathe, relax, enjoy… we've got you covered
+          {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}Friend{{/unless}}, breathe, relax, enjoy… we've got you covered
         </mj-text>
       </mj-column>
     </mj-section>
