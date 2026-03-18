@@ -58,6 +58,11 @@ const SENDGRID_TEMPLATES = {
     subject: 'Coverage Unavailable',
     testData: {},
   },
+  'client-welcome-sg': {
+    templateId: null, // auto-created on first staging deploy
+    subject: 'Welcome to Kanguro!',
+    testData: { firstName: testData.sendgrid.firstName },
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -102,6 +107,13 @@ async function setTestData(templateId, versionId, data) {
   return sgFetch(`/templates/${templateId}/versions/${versionId}`, {
     method: 'PATCH',
     body: JSON.stringify({ test_data: JSON.stringify(data) }),
+  });
+}
+
+async function createTemplate(name) {
+  return sgFetch('/templates', {
+    method: 'POST',
+    body: JSON.stringify({ name, generation: 'dynamic' }),
   });
 }
 
@@ -155,7 +167,18 @@ async function commandStaging(templateArg) {
     }
 
     try {
-      const version = await createVersion(config.templateId, {
+      // Auto-create SendGrid template if templateId is not set
+      let templateId = config.templateId;
+      if (!templateId) {
+        if (!JSON_OUTPUT) console.log(`    Creating new SendGrid template "${name}"...`);
+        const tpl = await createTemplate(name);
+        templateId = tpl.id;
+        config.templateId = templateId;
+        if (!JSON_OUTPUT) console.log(`    Created template: ${templateId}`);
+        console.log(`    ⚠️  Update deploy.js with templateId: '${templateId}'`);
+      }
+
+      const version = await createVersion(templateId, {
         name: versionName,
         subject: config.subject,
         htmlContent,
