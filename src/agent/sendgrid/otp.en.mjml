@@ -6,7 +6,7 @@
 
   <mj-body background-color="#FFFFFF">
 
-    <mj-include path="../../shared/components/header.en.mjml" />
+    <mj-include path="../../shared/components/header.mjml" />
 
     <!-- Main Content Section -->
     <mj-section background-color="#FFFFFF" padding="40px 30px 20px">

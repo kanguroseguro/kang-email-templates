@@ -103,8 +103,8 @@
         <mj-image href="https://kseg.us/NoqtuS3?qr=1" src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="120px" alt="Escanea para descargar la app de Kanguro" padding="0 0 12px" border="3px solid #09011C" border-radius="8px" />
       </mj-column>
       <mj-column width="65%" vertical-align="middle">
-        <mj-image href="https://apps.apple.com/us/app/kanguro/id1625776781" src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="160px" alt="Download on the App Store" padding="0 0 12px" />
-        <mj-image href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="180px" alt="Get it on Google Play" padding="0 0 12px" />
+        <mj-image href="https://apps.apple.com/us/app/kanguro/id1625776781" src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="160px" alt="Descargar en el App Store" padding="0 0 12px" />
+        <mj-image href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="180px" alt="Disponible en Google Play" padding="0 0 12px" />
       </mj-column>
     </mj-section>
 

@@ -43,7 +43,7 @@ export const templateProviders = {
   'otp': 'sendgrid',
   'agent-welcome': 'sendgrid',
   'rejection': 'sendgrid',
-  'client-welcome-sg': 'sendgrid',
+  'welcome-tmp': 'sendgrid',
 };
 
 /**
@@ -55,7 +55,7 @@ export const templateLanguages = {
   'otp': ['en', 'es'],
   'agent-welcome': ['en', 'es'],
   'rejection': ['en'],
-  'client-welcome-sg': ['en', 'es'],
+  'welcome-tmp': ['en', 'es'],
 };
 
 if (import.meta.main) {
@@ -67,7 +67,7 @@ if (import.meta.main) {
   const otpEs = loadTemplate('otp', 'sendgrid', 'es', { otpCode: '987654' });
   console.log(otpEs.substring(0, 500) + '...\n');
 
-  console.log('=== Client Welcome (SendGrid, EN) ===');
-  const cwEn = loadTemplate('client-welcome', 'sendgrid', 'en', { firstName: 'Maria' });
+  console.log('=== Welcome Tmp (SendGrid, EN) ===');
+  const cwEn = loadTemplate('welcome-tmp', 'sendgrid', 'en', { firstName: 'Maria' });
   console.log(cwEn.substring(0, 500) + '...\n');
 }

@@ -112,8 +112,6 @@ export const testData = {
     applicantFirstName: 'John',
     applicantLastName: 'Smith',
     applicationDate: '03/15/2026',
-    // Language (used by backend to select template variant)
-    lang: { es: false },
   },
 
   hubspot: {

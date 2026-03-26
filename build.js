@@ -33,7 +33,7 @@ function findTemplates() {
 
 /**
  * Parse a template path into its parts.
- * e.g., src/customer/ci/client-welcome.en.mjml → { audience: 'customer', provider: 'ci', name: 'client-welcome', lang: 'en' }
+ * e.g., src/customer/ci/general.en.mjml → { audience: 'customer', provider: 'ci', name: 'general', lang: 'en' }
  */
 function parsePath(filePath) {
   const rel = relative(SRC_DIR, filePath);

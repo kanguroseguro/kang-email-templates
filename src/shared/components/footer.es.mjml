@@ -34,8 +34,32 @@
   </mj-column>
 </mj-section>
 
-<!-- ============ FOOTER SECTION 3: COMPANY + SOCIAL + LEGAL ============ -->
-<mj-section full-width="full-width" background-color="#002454" padding="30px 20px 20px">
+<!-- ============ FOOTER SECTION 3: SOCIAL + BADGES + COMPANY + LEGAL ============ -->
+<mj-section full-width="full-width" background-color="#002454" padding="30px 20px 0">
+  <mj-column>
+
+    <!-- Social Media Links -->
+    <mj-text align="center" padding="0 0 20px">
+      <a href="https://wa.me/18885465264" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-whatsapp.png" width="24" height="24" alt="WhatsApp" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.instagram.com/kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-instagram.png" width="24" height="24" alt="Instagram" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.facebook.com/kanguroinsurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" width="20" height="20" alt="Facebook" style="display:block;border:0;margin:2px 0;" /></a><!--
+      --><a href="https://www.linkedin.com/company/kanguroinsurance/" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.youtube.com/@kanguro_seguro" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" width="24" height="24" alt="YouTube" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.tiktok.com/@kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" width="20" height="20" alt="TikTok" style="display:block;border:0;margin:2px 0;" /></a>
+    </mj-text>
+
+  </mj-column>
+</mj-section>
+
+<!-- Trust Badge: BBB -->
+<mj-section full-width="full-width" background-color="#002454" padding="0 20px 20px">
+  <mj-column>
+    <mj-image align="center" href="https://www.bbb.org/us/fl/miami/profile/pet-insurance/kanguro-insurance-llc-0633-92034432/#sealclick" src="https://seal-seflorida.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-92034432.png" alt="Kanguro Insurance LLC BBB Business Review" width="180px" padding="0" target="_blank" />
+  </mj-column>
+</mj-section>
+
+<!-- Company Address + Legal -->
+<mj-section full-width="full-width" background-color="#002454" padding="0 20px 20px">
   <mj-column>
 
     <!-- Company Address -->
@@ -44,18 +68,9 @@
       4400 Biscayne Blvd, Suite 818, Miami, FL 33137
     </mj-text>
 
-    <!-- Social Media Links -->
-    <mj-text align="center" padding="0 0 20px">
-      <a href="https://www.instagram.com/kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-instagram.png" width="24" height="24" alt="Instagram" style="display:block;border:0;" /></a><!--
-      --><a href="https://www.linkedin.com/company/kanguroinsurance/" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;" /></a><!--
-      --><a href="https://www.facebook.com/kanguroinsurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" width="20" height="20" alt="Facebook" style="display:block;border:0;margin:2px 0;" /></a><!--
-      --><a href="https://www.youtube.com/@kanguro_seguro" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" width="24" height="24" alt="YouTube" style="display:block;border:0;" /></a><!--
-      --><a href="https://www.tiktok.com/@kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" width="20" height="20" alt="TikTok" style="display:block;border:0;margin:2px 0;" /></a>
-    </mj-text>
-
     <!-- Legal Disclaimer (English — US regulatory requirement) -->
     <mj-text css-class="legal-text" color="rgba(255,255,255,0.85)" align="center" padding="0 20px" font-size="10px" line-height="1.5">
-      Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this website is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 4400 Biscayne Blvd, Suite 818, Miami, FL 33137 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
+      Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this email is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 4400 Biscayne Blvd, Suite 818, Miami, FL 33137 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
     </mj-text>
 
   </mj-column>

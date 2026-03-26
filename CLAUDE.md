@@ -21,7 +21,7 @@ dist/test/            — Test variants with resolved placeholders
 ### Multilingual (EN/ES)
 Each language is a separate file: `{name}.en.mjml` / `{name}.es.mjml`. No inline language conditionals.
 
-Shared components (`shared/components/`) contain **zero** provider-specific syntax — they are pure MJML content with language variants (`header.en.mjml`, `header.es.mjml`, `footer.en.mjml`, `footer.es.mjml`).
+Shared components (`shared/components/`) contain **zero** provider-specific syntax — they are pure MJML content. Language-neutral components (e.g. `header.mjml`) are shared across all languages. Only components with translatable text have language variants (e.g. `footer.en.mjml`, `footer.es.mjml`).
 
 Provider-specific variable syntax (`[var]`, `{{var}}`) only appears in template files.
 
@@ -33,7 +33,7 @@ Build output naming: `dist/{name}.{provider}.{lang}.html` (e.g., `otp.sg.en.html
 |---|---|---|---|
 | `client-welcome` | `customer/ci/` | CI | EN, ES |
 | `general` | `customer/ci/` | CI | EN, ES |
-| `client-welcome` | `customer/sendgrid/` | SendGrid | EN, ES |
+| `welcome-tmp` | `customer/sendgrid/` | SendGrid | EN, ES |
 | `otp` | `agent/sendgrid/` | SendGrid | EN, ES |
 | `agent-welcome` | `agent/sendgrid/` | SendGrid | EN, ES |
 | `rejection` | `agent/sendgrid/` | SendGrid | EN only (legal text) |
@@ -132,7 +132,7 @@ Vercel handles preview deployments automatically per PR. Append `/test/` to the 
 | `otp` | `d-487466fc9ae2424aa1638917dd476bf4` | TBD (auto-created) | Your password for Kanguro |
 | `agent-welcome` | `d-0a1d6e5465c64669aa3c500cb7fa50af` | TBD | Welcome to Kanguro |
 | `rejection` | `d-2c07f8ba50e44e608df7d6c266cc6f39` | N/A (EN only) | Coverage Unavailable |
-| `client-welcome` | `d-ce25117b7c964567a7fb84d5a46140a6` | TBD | Welcome to Kanguro! |
+| `welcome-tmp` | `d-ce25117b7c964567a7fb84d5a46140a6` | TBD | Welcome to Kanguro! |
 
 Config in `deploy.js` `SENDGRID_TEMPLATES` object. Test data auto-loaded from `providers.js`.
 
