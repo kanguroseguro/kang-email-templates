@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 
 /**
  * Deploy email templates to SendGrid.
@@ -35,15 +35,25 @@ const JSON_OUTPUT = process.argv.includes('--json');
 
 /**
  * Maps repo template names → SendGrid template IDs + subject lines.
- * Only SendGrid templates are listed here.
+ * Each language variant is a separate SendGrid template.
+ *
+ * Key convention: {template}-{lang}
+ * Dist file auto-derived: dist/{template}.sg.{lang}.html
  */
 const SENDGRID_TEMPLATES = {
-  otp: {
+  // OTP
+  'otp-en': {
     templateId: 'd-487466fc9ae2424aa1638917dd476bf4',
     subject: 'Your password for Kanguro \u{1F998}',
     testData: { otpCode: testData.sendgrid.otpCode },
   },
-  'agent-welcome': {
+  'otp-es': {
+    templateId: null, // auto-created on first deploy
+    subject: 'Tu contraseña para Kanguro \u{1F998}',
+    testData: { otpCode: testData.sendgrid.otpCode },
+  },
+  // Agent Welcome
+  'agent-welcome-en': {
     templateId: 'd-0a1d6e5465c64669aa3c500cb7fa50af',
     subject: 'Welcome to Kanguro',
     testData: {
@@ -53,17 +63,45 @@ const SENDGRID_TEMPLATES = {
       provider: testData.sendgrid.provider,
     },
   },
-  rejection: {
+  'agent-welcome-es': {
+    templateId: null,
+    subject: 'Bienvenido a Kanguro',
+    testData: {
+      firstName: testData.sendgrid.firstName,
+      email: testData.sendgrid.email,
+      sellingLink: testData.sendgrid.sellingLink,
+      provider: testData.sendgrid.provider,
+    },
+  },
+  // Rejection (EN only)
+  'rejection-en': {
     templateId: 'd-2c07f8ba50e44e608df7d6c266cc6f39',
     subject: 'Coverage Unavailable',
     testData: {},
   },
-  'client-welcome-sg': {
+  // Welcome (SendGrid) — temporary simplified welcome
+  'welcome-tmp-en': {
     templateId: 'd-ce25117b7c964567a7fb84d5a46140a6',
     subject: 'Welcome to Kanguro!',
     testData: { firstName: testData.sendgrid.firstName },
   },
+  'welcome-tmp-es': {
+    templateId: null,
+    subject: '¡Bienvenido a Kanguro!',
+    testData: { firstName: testData.sendgrid.firstName },
+  },
 };
+
+/**
+ * Derive dist file path from template key.
+ * e.g., 'agent-welcome-en' → 'dist/agent-welcome.sg.en.html'
+ */
+function distFile(key) {
+  const lastDash = key.lastIndexOf('-');
+  const name = key.substring(0, lastDash);
+  const lang = key.substring(lastDash + 1);
+  return `dist/${name}.sg.${lang}.html`;
+}
 
 // ---------------------------------------------------------------------------
 // SendGrid API helpers
@@ -150,7 +188,7 @@ async function commandStaging(templateArg) {
   const results = [];
 
   for (const [name, config] of Object.entries(targets)) {
-    const htmlPath = `dist/${name}.html`;
+    const htmlPath = distFile(name);
     if (!existsSync(htmlPath)) {
       if (!JSON_OUTPUT) console.error(`  [SKIP] ${name}: ${htmlPath} not found after build`);
       continue;

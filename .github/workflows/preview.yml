@@ -32,7 +32,7 @@ jobs:
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
         run: |
-          RESULT=$(node deploy.js staging --json)
+          RESULT=$(bun deploy.js staging --json)
           echo "$RESULT"
           echo "staged<<EOF" >> "$GITHUB_OUTPUT"
           echo "$RESULT" >> "$GITHUB_OUTPUT"

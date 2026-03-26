@@ -1,6 +1,6 @@
 <mjml>
   <mj-head>
-    <mj-include path="./components/head.mjml" />
+    <mj-include path="../../shared/components/head.mjml" />
     <mj-preview>Welcome to Kanguro! Download the app to get started</mj-preview>
     <mj-style>
       /* Hero tongue shape - rounded bottom corners */

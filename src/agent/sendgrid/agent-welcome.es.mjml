@@ -1,12 +1,12 @@
 <mjml>
   <mj-head>
-    <mj-include path="./components/head.mjml" />
-    <mj-preview>Welcome to Kanguro! Your agent portal login details inside</mj-preview>
+    <mj-include path="../../shared/components/head.mjml" />
+    <mj-preview>¡Bienvenido a Kanguro! Los detalles de acceso a tu portal de agente</mj-preview>
   </mj-head>
 
   <mj-body background-color="#FFFFFF">
 
-    <mj-include path="./components/header.mjml" />
+    <mj-include path="../../shared/components/header.mjml" />
 
     <!-- Main Content Section -->
     <mj-section background-color="#FFFFFF" padding="40px 30px">
@@ -14,42 +14,42 @@
 
         <!-- Greeting -->
         <mj-text css-class="heading-1" align="left">
-          Hi {{firstName}}! Welcome to Kanguro!
+          ¡Hola {{firstName}}! ¡Bienvenido a Kanguro!
         </mj-text>
 
         <!-- Welcome Message -->
         <mj-text css-class="body-text" padding-bottom="20px">
-          We are absolutely thrilled to have you join our team as an agent!
+          ¡Estamos encantados de que te unas a nuestro equipo como agente!
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="20px">
-          To help you hit the ground running, we're sharing your login details for our agency portal:
+          Para ayudarte a comenzar con buen pie, compartimos los detalles de acceso a nuestro portal de agentes:
         </mj-text>
 
         <!-- Login Details Section -->
         <mj-text css-class="subheading">
-          Agency Portal Access
+          Acceso al Portal de Agentes
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="10px">
-          <strong>Website:</strong> <a href="https://agency.kanguroseguro.com/login?email={{email}}" style="color: #FF8D7B; text-decoration: none;">https://agency.kanguroseguro.com/login</a>
+          <strong>Sitio web:</strong> <a href="https://agency.kanguroseguro.com/login?email={{email}}" style="color: #FF8D7B; text-decoration: none;">https://agency.kanguroseguro.com/login</a>
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="10px">
-          <strong>User Email:</strong> {{email}}
+          <strong>Correo de usuario:</strong> {{email}}
         </mj-text>
 
         <!-- OTP Login Instructions -->
         <mj-raw>{{#if provider.OTP}}</mj-raw>
         <mj-text css-class="body-text" padding-bottom="20px">
-          Please remember that your login email is the same one you used when you registered during the application process. When you log in, you'll receive a one-time password (OTP) via email to complete the sign-in process.
+          Recuerda que tu correo de inicio de sesión es el mismo que usaste durante el proceso de registro. Al iniciar sesión, recibirás una contraseña de un solo uso (OTP) por correo electrónico para completar el proceso.
         </mj-text>
         <mj-raw>{{/if}}</mj-raw>
 
         <!-- FirstConnect Login Instructions -->
         <mj-raw>{{#if provider.firstConnect}}</mj-raw>
         <mj-text css-class="body-text" padding-bottom="20px">
-          Please remember that your login email is the same one you used when you registered during the application process. To sign in, click the button below, then use the <strong>"Login with FirstConnect"</strong> button on the login page.
+          Recuerda que tu correo de inicio de sesión es el mismo que usaste durante el proceso de registro. Para iniciar sesión, haz clic en el botón de abajo y luego usa el botón <strong>"Login with FirstConnect"</strong> en la página de inicio de sesión.
         </mj-text>
         <mj-raw>{{/if}}</mj-raw>
 
@@ -59,22 +59,22 @@
           font-weight="600"
           padding="20px 0"
         >
-          Access Agency Portal
+          Acceder al Portal de Agentes
         </mj-button>
 
         <!-- Benefits -->
         <mj-text css-class="body-text" padding-top="20px" padding-bottom="20px">
-          The best part? All of the sales you complete through this portal will be automatically and accurately recorded under your name!
+          ¿La mejor parte? ¡Todas las ventas que completes a través de este portal se registrarán automática y correctamente bajo tu nombre!
         </mj-text>
 
         <!-- Start Selling Section (conditional) -->
         <mj-raw>{{#if sellingLink}}</mj-raw>
         <mj-text css-class="subheading">
-          Ready to Start Selling?
+          ¿Listo para Empezar a Vender?
         </mj-text>
 
         <mj-text css-class="body-text" padding-bottom="10px">
-          Use your personalized link below to start selling Kanguro insurance:
+          Usa tu enlace personalizado para empezar a vender seguros Kanguro:
         </mj-text>
 
         <mj-button
@@ -83,24 +83,24 @@
           font-weight="600"
           padding="20px 0"
         >
-          Start Selling Now
+          Empezar a Vender
         </mj-button>
         <mj-raw>{{/if}}</mj-raw>
 
         <mj-text css-class="body-text" padding-top="20px">
-          If you run into any snags or have any questions at all while accessing your account, please don't hesitate to reach out. We're here to help you succeed!
+          Si tienes algún problema o preguntas al acceder a tu cuenta, no dudes en comunicarte. ¡Estamos aquí para ayudarte a tener éxito!
         </mj-text>
 
         <!-- Closing -->
         <mj-text css-class="body-text" padding-top="20px">
-          Warmly,<br/>
-          <strong>The Kanguro Team</strong>
+          Cordialmente,<br/>
+          <strong>El Equipo de Kanguro</strong>
         </mj-text>
 
       </mj-column>
     </mj-section>
 
-    <mj-include path="./components/footer.mjml" />
+    <mj-include path="../../shared/components/footer.es.mjml" />
 
   </mj-body>
 </mjml>

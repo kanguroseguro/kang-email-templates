@@ -1,0 +1,77 @@
+<!-- ============ FOOTER SECTION 1: DOWNLOAD APP ============ -->
+<mj-section background-color="#FFFFFF" padding="30px 30px 10px">
+  <mj-column>
+    <mj-text color="#002454" font-size="16px" font-weight="700" font-family="'Poppins', Arial, sans-serif" line-height="1.3" align="center" padding="0 0 20px">
+      Descarga la app para acceder a tu cobertura y presentar reclamos
+    </mj-text>
+  </mj-column>
+</mj-section>
+<mj-section background-color="#FFFFFF" padding="0 30px 20px" direction="ltr">
+  <mj-column width="35%" vertical-align="middle">
+    <mj-image href="https://kseg.us/NoqtuS3?qr=1" src="https://kang-email-templates.vercel.app/assets/qr-code.png" width="90px" alt="Escanea para descargar la app de Kanguro" padding="0 0 12px" css-class="qr-code" border="3px solid #09011C" border-radius="8px" />
+  </mj-column>
+  <mj-column width="65%" vertical-align="middle">
+    <mj-image href="https://apps.apple.com/us/app/kanguro/id1625776781" src="https://kang-email-templates.vercel.app/assets/badge-appstore.png" width="135px" alt="Descargar en el App Store" padding="0 0 8px" />
+    <mj-image href="https://play.google.com/store/apps/details?id=com.insurtech.kanguro" src="https://kang-email-templates.vercel.app/assets/badge-googleplay.png" width="152px" alt="Disponible en Google Play" padding="0 0 8px" />
+  </mj-column>
+</mj-section>
+
+<!-- ============ FOOTER SECTION 2: HELP / CONTACT ============ -->
+<mj-section background-color="#F5F2ED" padding="32px 30px 28px">
+  <mj-column>
+    <mj-text color="#002454" font-size="20px" font-weight="700" font-family="'Poppins', Arial, sans-serif" padding="0 0 16px">
+      ¿Necesitas ayuda? Estamos aquí para ti.
+    </mj-text>
+    <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
+      <strong>Llamar</strong>&nbsp;&nbsp;<a href="tel:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
+    </mj-text>
+    <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
+      <strong>Correo</strong>&nbsp;&nbsp;<a href="mailto:customerservice@kanguroinsurance.com" style="color: #002454; text-decoration: none; white-space: nowrap;">customerservice@kanguroinsurance.com</a>
+    </mj-text>
+    <mj-text color="#002454" font-size="14px" padding="0 0 8px" line-height="1.6">
+      <strong>Chat / Texto</strong>&nbsp;&nbsp;<a href="sms:+18885465264" style="color: #002454; text-decoration: none;">888 546 5264</a>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<!-- ============ FOOTER SECTION 3: SOCIAL + BADGES + COMPANY + LEGAL ============ -->
+<mj-section full-width="full-width" background-color="#002454" padding="30px 20px 0">
+  <mj-column>
+
+    <!-- Social Media Links -->
+    <mj-text align="center" padding="0 0 20px">
+      <a href="https://wa.me/18885465264" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-whatsapp.png" width="24" height="24" alt="WhatsApp" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.instagram.com/kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-instagram.png" width="24" height="24" alt="Instagram" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.facebook.com/kanguroinsurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-facebook.png" width="20" height="20" alt="Facebook" style="display:block;border:0;margin:2px 0;" /></a><!--
+      --><a href="https://www.linkedin.com/company/kanguroinsurance/" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-linkedin.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.youtube.com/@kanguro_seguro" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-youtube.png" width="24" height="24" alt="YouTube" style="display:block;border:0;" /></a><!--
+      --><a href="https://www.tiktok.com/@kanguro_insurance" target="_blank" style="display:inline-block;margin:0 6px;text-decoration:none;"><img src="https://kang-email-templates.vercel.app/assets/icon-tiktok.png" width="20" height="20" alt="TikTok" style="display:block;border:0;margin:2px 0;" /></a>
+    </mj-text>
+
+  </mj-column>
+</mj-section>
+
+<!-- Trust Badge: BBB -->
+<mj-section full-width="full-width" background-color="#002454" padding="0 20px 20px">
+  <mj-column>
+    <mj-image align="center" href="https://www.bbb.org/us/fl/miami/profile/pet-insurance/kanguro-insurance-llc-0633-92034432/#sealclick" src="https://seal-seflorida.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-92034432.png" alt="Kanguro Insurance LLC BBB Business Review" width="180px" padding="0" target="_blank" />
+  </mj-column>
+</mj-section>
+
+<!-- Company Address + Legal -->
+<mj-section full-width="full-width" background-color="#002454" padding="0 20px 20px">
+  <mj-column>
+
+    <!-- Company Address -->
+    <mj-text color="rgba(255,255,255,0.6)" align="center" font-size="12px" padding="0 0 16px" line-height="1.5">
+      <strong style="color: #FFFFFF;">Kanguro Insurance LLC</strong><br/>
+      4400 Biscayne Blvd, Suite 818, Miami, FL 33137
+    </mj-text>
+
+    <!-- Legal Disclaimer (English — US regulatory requirement) -->
+    <mj-text css-class="legal-text" color="rgba(255,255,255,0.85)" align="center" padding="0 20px" font-size="10px" line-height="1.5">
+      Kanguro Insurance is a registered trademark property of Kanguro Insurance LLC. The information contained in this email is for illustrative purposes and coverage under any pet insurance and renters insurance policy is expressly subject to the conditions, restrictions, limitations, exclusions (including pre-existing conditions), and terms of the policy documentation issued by the insurer. Coverage is subject to underwriting and approval, and may not be available for all risks or in all states. Rates and discounts vary, they are determined by many factors and are subject to change. Accident and illness coverages and the preventive and wellness plan and the renters insurance coverage is administered by Kanguro Insurance LLC as a managing general agent with offices at 4400 Biscayne Blvd, Suite 818, Miami, FL 33137 and underwritten by Cimarron Insurance Company with offices in 7301 Carmel Executive Park Dr #102, Charlotte, NC 28226
+    </mj-text>
+
+  </mj-column>
+</mj-section>
