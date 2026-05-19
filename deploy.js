@@ -64,7 +64,7 @@ const SENDGRID_TEMPLATES = {
     testData: { firstName: testData.sendgrid.firstName },
   },
   'upcoming-charge': {
-    templateId: null,
+    templateId: 'd-6e786c5bcb994e51a22ed9d23b27595d',
     subject: 'Your upcoming payment',
     testData: {
       firstName: 'Maria',
