@@ -182,12 +182,42 @@ export function resolveCIConditionals(html, conditions) {
 }
 
 /**
+ * Resolve template content in the scope of a single {{#each}} item.
+ * Handles {{this.key}}, {{#if this.key}}, {{#unless this.key}}.
+ */
+function resolveInScope(content, item) {
+  let result = content;
+  result = result.replace(
+    /\{\{#if\s+this\.([\w.]+)\}\}([\s\S]*?)\{\{\/if\}\}/g,
+    (_, k, c) => (item[k] ? c : '')
+  );
+  result = result.replace(
+    /\{\{#unless\s+this\.([\w.]+)\}\}([\s\S]*?)\{\{\/unless\}\}/g,
+    (_, k, c) => (item[k] ? '' : c)
+  );
+  result = result.replace(/\{\{this\.([\w.]+)\}\}/g, (_, k) =>
+    item[k] !== undefined ? String(item[k]) : ''
+  );
+  return result;
+}
+
+/**
  * Replace SendGrid Handlebars-style variables: {{variableName}} → value
- * Also resolves {{#if var}}...{{/if}} and {{#unless var}}...{{/unless}}
+ * Also resolves {{#each}}, {{#if}}, {{#unless}}.
  * Supports nested objects: {{provider.OTP}} resolves via dot notation
  */
 export function resolveSendGridVariables(html, data) {
   let result = html;
+
+  // Resolve {{#each array}}...{{/each}} blocks first
+  result = result.replace(
+    /\{\{#each\s+([\w.]+)\}\}([\s\S]*?)\{\{\/each\}\}/g,
+    (_, key, content) => {
+      const arr = resolveNestedKey(data, key);
+      if (!Array.isArray(arr) || arr.length === 0) return '';
+      return arr.map((item) => resolveInScope(content, item)).join('');
+    }
+  );
 
   // Resolve {{#if var}}...{{/if}} blocks
   result = result.replace(

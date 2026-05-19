@@ -236,6 +236,46 @@ const templates = [
       },
     ],
   },
+  {
+    id: 'upcoming-charge',
+    label: 'Upcoming Charge',
+    description: 'Daily reminder 2 days before a scheduled payment',
+    provider: 'sendgrid',
+    source: 'dist/upcoming-charge.html',
+    variations: [
+      {
+        name: 'upcoming-charge-one-pet',
+        label: 'One pet',
+        data: {
+          firstName: 'Maria',
+          policies: [
+            { petName: 'Luna', policyType: 'Pet Insurance', policyNumber: 'KGR-PET-00482', amount: '29.99', chargeDate: 'May 20, 2026' },
+          ],
+        },
+      },
+      {
+        name: 'upcoming-charge-two-pets',
+        label: 'Two pets',
+        data: {
+          firstName: 'Carlos',
+          policies: [
+            { petName: 'Max', policyType: 'Pet Insurance', policyNumber: 'KGR-PET-00316', amount: '29.99', chargeDate: 'May 20, 2026' },
+            { petName: 'Bella', policyType: 'Pet Insurance', policyNumber: 'KGR-PET-00317', amount: '24.99', chargeDate: 'May 20, 2026' },
+          ],
+        },
+      },
+      {
+        name: 'upcoming-charge-renters',
+        label: 'Renters insurance',
+        data: {
+          firstName: 'Sofia',
+          policies: [
+            { petName: '', policyType: 'Renters Insurance', policyNumber: 'KGR-REN-00271', amount: '15.50', chargeDate: 'May 20, 2026' },
+          ],
+        },
+      },
+    ],
+  },
 ];
 
 // ---------------------------------------------------------------------------

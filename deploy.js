@@ -63,6 +63,22 @@ const SENDGRID_TEMPLATES = {
     subject: 'Welcome to Kanguro!',
     testData: { firstName: testData.sendgrid.firstName },
   },
+  'upcoming-charge': {
+    templateId: 'd-6e786c5bcb994e51a22ed9d23b27595d',
+    subject: 'Your upcoming payment',
+    testData: {
+      firstName: 'Maria',
+      policies: [
+        {
+          petName: 'Luna',
+          policyType: 'Pet Insurance',
+          policyNumber: 'KGR-PET-00482',
+          amount: '29.99',
+          chargeDate: 'May 21, 2026',
+        },
+      ],
+    },
+  },
 };
 
 // ---------------------------------------------------------------------------
