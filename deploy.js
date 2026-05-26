@@ -79,6 +79,20 @@ const SENDGRID_TEMPLATES = {
       ],
     },
   },
+  'client-welcome-dynamic-es': {
+    // templateId will be assigned after first deploy:staging (auto-creates template)
+    templateId: 'd-efe28e8018de4b48a97d95a85b184b67',
+    subject: '{{#if isFirst}}Welcome to Kanguro!{{/if}}{{#unless isFirst}}New policies in your account{{/unless}}',
+    testData: {
+      customer: { name: 'Zelda Abarquez' },
+      policyCount: 1,
+      isFirst: true,
+      magicLink: 'https://kanguroinsurance.com/app/login?token=abc123',
+      policies: [
+        { type: 'pet', name: 'Louis', id: 'KS-20033288', startdate: '19-12-2025' },
+      ],
+    },
+  },
 };
 
 // ---------------------------------------------------------------------------

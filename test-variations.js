@@ -237,6 +237,43 @@ const templates = [
     ],
   },
   {
+    id: 'client-welcome-dynamic-es',
+    label: 'Client Welcome (Dynamic)',
+    description: 'Policy summary with table — single or multiple policies, magic link CTA',
+    provider: 'sendgrid',
+    source: 'dist/client-welcome-dynamic-es.html',
+    variations: [
+      {
+        name: 'client-welcome-dynamic-es-single',
+        label: 'Single policy (pet)',
+        data: {
+          customer: { name: 'Zelda Abarquez' },
+          policyCount: 1,
+          isFirst: true,
+          magicLink: 'https://kanguroinsurance.com/app/login?token=abc123',
+          policies: [
+            { type: 'pet', name: 'Louis', id: 'KS-20033288', startdate: '19-12-2025' },
+          ],
+        },
+      },
+      {
+        name: 'client-welcome-dynamic-es-multiple',
+        label: 'Multiple policies (2 pets + renters)',
+        data: {
+          customer: { name: 'Maria González' },
+          policyCount: 3,
+          isFirst: false,
+          magicLink: 'https://kanguroinsurance.com/app/login?token=xyz789',
+          policies: [
+            { type: 'pet', name: 'Luna', id: 'KS-20045601', startdate: '01-01-2026' },
+            { type: 'pet', name: 'Max', id: 'KS-20045602', startdate: '01-01-2026' },
+            { type: 'renters', name: '4400 Biscayne Blvd, Miami FL', id: 'KS-20045603', startdate: '01-01-2026' },
+          ],
+        },
+      },
+    ],
+  },
+  {
     id: 'upcoming-charge',
     label: 'Upcoming Charge',
     description: 'Daily reminder 2 days before a scheduled payment',
