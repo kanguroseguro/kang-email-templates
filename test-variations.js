@@ -209,15 +209,49 @@ const templates = [
   {
     id: 'client-welcome-sg',
     label: 'Client Welcome (SendGrid)',
-    description: 'Simplified welcome — app download focus, no policy card',
+    description: 'Welcome email with policy table and magic link CTA',
     provider: 'sendgrid',
     source: 'dist/client-welcome-sg.html',
     variations: [
       {
-        name: 'client-welcome-sg-default',
-        label: 'Default',
+        name: 'client-welcome-sg-single-pet',
+        label: 'Single policy — pet',
         data: {
-          firstName: 'Zelda',
+          customer: { name: 'Zelda Abarquez' },
+          policyCount: 1,
+          isFirst: true,
+          magicLink: 'https://kanguroinsurance.com/app/login?token=abc123',
+          policies: [
+            { type: 'pet', name: 'Louis', id: 'KS-20033288', startdate: '19-12-2025' },
+          ],
+        },
+      },
+      {
+        name: 'client-welcome-sg-single-renters',
+        label: 'Single policy — renters',
+        data: {
+          customer: { name: 'Carlos Rivera' },
+          policyCount: 1,
+          isFirst: true,
+          magicLink: 'https://kanguroinsurance.com/app/login?token=def456',
+          policies: [
+            { type: 'renters', name: '4400 Biscayne Blvd, Miami FL', id: 'KS-20062390', startdate: '01-03-2026' },
+          ],
+        },
+      },
+      {
+        name: 'client-welcome-sg-multiple',
+        label: 'Multiple policies (2 pets + renters)',
+        data: {
+          customer: { name: 'Maria González' },
+          policyCount: 3,
+          isFirst: false,
+          magicLink: 'https://kanguroinsurance.com/app/login?token=xyz789',
+          policies: [
+            { type: 'pet', name: 'Luna', id: 'KS-20045601', startdate: '01-01-2026' },
+            { type: 'pet', name: 'Max', id: 'KS-20045602', startdate: '01-01-2026' },
+            { type: 'renters', name: '4400 Biscayne Blvd, Miami FL', id: 'KS-20045603', startdate: '01-01-2026' },
+          ],
         },
       },
     ],
@@ -337,7 +371,7 @@ const rows = templates.map((tpl) => {
       totalVariations++;
 
       const metaName =
-        v.data.customer_name || v.data.firstName || v.data['contact.firstname'] || '';
+        v.data.customer_name || v.data.customer || v.data.firstName || v.data['contact.firstname'] || '';
       cards += `
         <a class="card" href="${v.name}.html" target="_blank">
           <div class="thumb"><iframe src="${v.name}.html" tabindex="-1" loading="lazy"></iframe></div>

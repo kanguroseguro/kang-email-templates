@@ -112,6 +112,29 @@ export const testData = {
     applicantFirstName: 'John',
     applicantLastName: 'Smith',
     applicationDate: '03/15/2026',
+    // Client Welcome SG
+    clientWelcomeSg: {
+      single: {
+        customer: { name: 'Zelda Abarquez' },
+        policyCount: 1,
+        isFirst: true,
+        magicLink: 'https://kanguroinsurance.com/app/login?token=abc123',
+        policies: [
+          { type: 'pet', name: 'Louis', id: 'KS-20033288', startdate: '19-12-2025' },
+        ],
+      },
+      multiple: {
+        customer: { name: 'Maria González' },
+        policyCount: 3,
+        isFirst: false,
+        magicLink: 'https://kanguroinsurance.com/app/login?token=xyz789',
+        policies: [
+          { type: 'pet', name: 'Luna', id: 'KS-20045601', startdate: '01-01-2026' },
+          { type: 'pet', name: 'Max', id: 'KS-20045602', startdate: '01-01-2026' },
+          { type: 'renters', name: '4400 Biscayne Blvd, Miami FL', id: 'KS-20045603', startdate: '01-01-2026' },
+        ],
+      },
+    },
     // Client Welcome Dynamic
     clientWelcomeDynamicEs: {
       single: {
