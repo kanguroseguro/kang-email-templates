@@ -1,0 +1,130 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./components/head.mjml" />
+    <!--
+      SendGrid dynamic template variables:
+        customer.name    — full customer name
+        policyCount      — integer, number of policies
+        isFirst          — boolean (policyCount == 1), computed by the backend
+        magicLink        — URL for the app deep-link / magic login link
+        policies         — array of:
+          { type: "pet"|"renters", name: <petname|address>, id: <ci_id>, startdate: "dd-MM-yyyy" }
+
+      Subject is also dynamic (set via deploy.js):
+        "{{#if isFirst}}Welcome to Kanguro!{{/if}}{{#unless isFirst}}New policies in your account{{/unless}}"
+    -->
+    <mj-preview>
+      {{#if isFirst}}Welcome to Kanguro — your policy is active{{/if}}{{#unless isFirst}}Your new policies are ready{{/unless}}
+    </mj-preview>
+    <mj-style>
+      .policy-table td {
+        font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        color: #002454;
+        line-height: 1.5;
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#FFFFFF">
+
+    <mj-include path="./components/header.mjml" />
+
+    <!-- ============ HEADING ============ -->
+    <mj-section background-color="#FFFFFF" padding="40px 30px 8px">
+      <mj-column>
+
+        <!-- Dynamic title -->
+        <mj-text css-class="heading-1" align="left" padding-bottom="8px">
+          {{#if isFirst}}Welcome to Kanguro!{{/if}}{{#unless isFirst}}New policies in your account{{/unless}}
+        </mj-text>
+
+        <!-- Greeting -->
+        <mj-text css-class="body-text" padding-bottom="0">
+          Hi {{customer.name}}, here {{#if isFirst}}is your active policy{{/if}}{{#unless isFirst}}are your active policies{{/unless}}. Keep this email handy — it has everything you need to get started.
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- ============ POLICIES TABLE ============ -->
+    <mj-section background-color="#FFFFFF" padding="24px 30px 8px">
+      <mj-column>
+        <mj-raw>
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;">
+          <!-- Table header -->
+          <thead>
+            <tr style="background-color:#002454;">
+              <th style="padding:12px 16px; text-align:left; font-family:'Poppins',Arial,sans-serif; font-size:12px; font-weight:700; color:#FFFFFF; text-transform:uppercase; letter-spacing:0.5px; border-radius:4px 0 0 0;">Policy ID</th>
+              <th style="padding:12px 16px; text-align:left; font-family:'Poppins',Arial,sans-serif; font-size:12px; font-weight:700; color:#FFFFFF; text-transform:uppercase; letter-spacing:0.5px;">Pet / Address</th>
+              <th style="padding:12px 16px; text-align:left; font-family:'Poppins',Arial,sans-serif; font-size:12px; font-weight:700; color:#FFFFFF; text-transform:uppercase; letter-spacing:0.5px; border-radius:0 4px 0 0;">Start Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each policies}}
+            <tr style="background-color:{{#if @odd}}#F5F2ED{{/if}}{{#unless @odd}}#FFFFFF{{/unless}}; border-bottom:1px solid #E0DDD8;">
+              <td style="padding:14px 16px; font-family:'Lato','Helvetica Neue',Arial,sans-serif; font-size:14px; color:#002454; font-weight:700; white-space:nowrap;">{{this.id}}</td>
+              <td style="padding:14px 16px; font-family:'Lato','Helvetica Neue',Arial,sans-serif; font-size:14px; color:#002454;">
+                <span style="display:inline-block; margin-right:6px; padding:2px 7px; border-radius:20px; font-size:10px; font-weight:700; font-family:'Poppins',Arial,sans-serif; text-transform:uppercase; letter-spacing:0.3px; background-color:#FFE8E4; color:#FF6B52;">{{this.type}}</span>{{this.name}}
+              </td>
+              <td style="padding:14px 16px; font-family:'Lato','Helvetica Neue',Arial,sans-serif; font-size:14px; color:#002454; white-space:nowrap;">{{this.startdate}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+
+    <!-- ============ MAGIC LINK CTA ============ -->
+    <mj-section background-color="#FFFFFF" padding="32px 30px 16px">
+      <mj-column>
+
+        <mj-text css-class="body-text" align="center" padding-bottom="20px">
+          Access your coverage, manage your {{#if isFirst}}policy{{/if}}{{#unless isFirst}}policies{{/unless}}, and file claims — all from the Kanguro app.
+        </mj-text>
+
+        <mj-raw>
+          <tr>
+            <td align="center" style="font-size:0px;padding:20px 0;word-break:break-word;">
+              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                <tbody>
+                  <tr>
+                    <td align="center" bgcolor="#FF8D7B" role="presentation" style="border:none;border-radius:4px;cursor:auto;mso-padding-alt:10px 25px;background:#FF8D7B;" valign="middle">
+                      <a href="{{magicLink}}" style="display:inline-block;background:#FF8D7B;color:#FFFFFF;font-family:'Lato','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:4px;" target="_blank">Open the Kanguro App</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </mj-raw>
+
+        <mj-text align="center" font-size="12px" color="#999999" padding-top="12px" padding-bottom="0">
+          This link is personal and expires in 48 hours. Do not share it.
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Divider -->
+    <mj-section background-color="#FFFFFF" padding="16px 30px 0">
+      <mj-column>
+        <mj-divider border-width="1px" border-color="#E0DDD8" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- Closing -->
+    <mj-section background-color="#FFFFFF" padding="20px 30px 32px">
+      <mj-column>
+        <mj-text css-class="body-text" padding-bottom="0">
+          Warmly,<br/>
+          <strong>The Kanguro Team</strong>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./components/footer.mjml" />
+
+  </mj-body>
+</mjml>
