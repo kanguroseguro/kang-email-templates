@@ -2,8 +2,8 @@
   "name": "kang-email-templates",
   "type": "module",
   "scripts": {
-    "build": "mkdir -p dist && mjml src/*.mjml -o dist/",
-    "watch": "mjml src/*.mjml -o dist/ --watch",
+    "build": "bash -c 'mkdir -p dist && ./node_modules/.bin/mjml src/*.mjml -o dist/'",
+    "watch": "bash -c './node_modules/.bin/mjml src/*.mjml -o dist/ --watch'",
     "test-loader": "node template-loader.js",
     "test-variations": "node test-variations.js",
     "deploy": "node deploy.js",

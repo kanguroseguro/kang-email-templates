@@ -1,6 +1,8 @@
 <mjml>
   <mj-head>
     <mj-include path="./components/head.mjml" />
+    <mj-font name="Merriweather" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" />
+    <mj-font name="Atkinson Hyperlegible Next" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@200;300;400;500;600;700;800&display=swap" />
     <mj-preview>Heads up — your payment is coming up in 2 days</mj-preview>
   </mj-head>
 
@@ -13,12 +15,12 @@
       <mj-column>
 
         <!-- Heading -->
-        <mj-text css-class="heading-1" align="left">
+        <mj-text font-family="'Merriweather', Arial, sans-serif" font-size="32px" font-weight="800" color="#1E1E1E" line-height="1.2" align="left" padding-bottom="16px">
           Your upcoming payments
         </mj-text>
 
         <!-- Intro -->
-        <mj-text css-class="body-text" padding-bottom="0">
+        <mj-text font-family="'Atkinson Hyperlegible Next', 'Helvetica Neue', Arial, sans-serif" font-size="16px" font-weight="400" color="#1E1E1E" line-height="1.6" padding-bottom="0">
           Hi {{#if firstName}}{{firstName}}{{/if}}{{#unless firstName}}there{{/unless}}, just a quick heads-up: the following payments are coming up soon.
         </mj-text>
 
@@ -34,14 +36,14 @@
           <tr>
             <td style="padding:24px 20px 20px; text-align:center; font-family:'Lato','Helvetica Neue',Arial,sans-serif;">
               {{#if this.petName}}
-              <p style="font-family:'Poppins',Arial,sans-serif; font-size:20px; font-weight:700; color:#FF8D7B; margin:0 0 6px 0; line-height:1.2;">{{this.petName}}</p>
+              <p style="font-family:'Merriweather',Arial,sans-serif; font-size:20px; font-weight:700; color:#FF703C; margin:0 0 6px 0; line-height:1.2;">{{this.petName}}</p>
               {{/if}}
-              <p style="font-family:'Poppins',Arial,sans-serif; font-size:40px; font-weight:800; color:#002454; letter-spacing:2px; margin:0 0 16px 0; line-height:1.1;">${{this.amount}}</p>
+              <p style="font-family:'Merriweather',Arial,sans-serif; font-size:40px; font-weight:800; color:#1E1E1E; letter-spacing:2px; margin:0 0 16px 0; line-height:1.1;">${{this.amount}}</p>
               <table width="100%" cellpadding="0" cellspacing="0" role="presentation"><tr><td height="1" style="font-size:1px;line-height:1px;background-color:#E0DDD8;">&nbsp;</td></tr></table>
               <table width="100%" cellpadding="0" cellspacing="0" role="presentation"><tr><td height="16" style="font-size:16px;line-height:16px;">&nbsp;</td></tr></table>
-              <p style="font-size:16px; color:#002454; margin:0 0 6px 0; line-height:1.6;"><strong>Policy:</strong> {{this.policyType}}</p>
-              <p style="font-size:16px; color:#002454; margin:0 0 6px 0; line-height:1.6;"><strong>Policy number:</strong> {{this.policyNumber}}</p>
-              <p style="font-size:16px; color:#002454; margin:0; line-height:1.6;"><strong>Charge date:</strong> {{this.chargeDate}}</p>
+              <p style="font-family:'Atkinson Hyperlegible Next','Helvetica Neue',Arial,sans-serif; font-size:16px; color:#1E1E1E; margin:0 0 6px 0; line-height:1.6;"><strong>Policy:</strong> {{this.policyType}}</p>
+              <p style="font-family:'Atkinson Hyperlegible Next','Helvetica Neue',Arial,sans-serif; font-size:16px; color:#1E1E1E; margin:0 0 6px 0; line-height:1.6;"><strong>Policy number:</strong> {{this.policyNumber}}</p>
+              <p style="font-family:'Atkinson Hyperlegible Next','Helvetica Neue',Arial,sans-serif; font-size:16px; color:#1E1E1E; margin:0; line-height:1.6;"><strong>Charge date:</strong> {{this.chargeDate}}</p>
             </td>
           </tr>
         </table>
@@ -55,12 +57,12 @@
     <mj-section background-color="#FFFFFF" padding="12px 30px 40px">
       <mj-column>
 
-        <mj-text css-class="body-text" padding-bottom="20px">
+        <mj-text font-family="'Atkinson Hyperlegible Next', 'Helvetica Neue', Arial, sans-serif" font-size="16px" font-weight="400" color="#1E1E1E" line-height="1.6" padding-bottom="20px">
           No action is needed — your payments will be processed automatically. If your payment information has changed or you have any questions, our team is ready to help.
         </mj-text>
 
         <!-- Closing -->
-        <mj-text css-class="body-text">
+        <mj-text font-family="'Atkinson Hyperlegible Next', 'Helvetica Neue', Arial, sans-serif" font-size="16px" font-weight="400" color="#1E1E1E" line-height="1.6">
           Warmly,<br/>
           <strong>The Kanguro Team</strong>
         </mj-text>
